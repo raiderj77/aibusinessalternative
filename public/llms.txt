@@ -1,0 +1,35 @@
+# AI Business Alternative
+
+> Find the Right AI Tool for Every Job
+
+AI Business Alternative is the trusted directory of AI tools for small business owners, solopreneurs, and individuals. We independently review and compare 60+ AI tools across 12 categories to help you find the right AI solution for your business needs.
+
+## Categories
+- AI Writing & Content: /categories/writing
+- AI Image Generation: /categories/image-generation
+- AI Video Creation: /categories/video-creation
+- AI Coding & Development: /categories/coding
+- AI Marketing & SEO: /categories/marketing
+- AI Customer Service: /categories/customer-service
+- AI Productivity & Automation: /categories/productivity
+- AI Design & Creative: /categories/design
+- AI Business Intelligence: /categories/business-intelligence
+- AI Audio & Voice: /categories/audio-voice
+- AI Research & Knowledge: /categories/research
+- AI Agents & Automation: /categories/ai-agents
+
+## Key Pages
+- All Tools: /tools
+- Categories: /categories
+- Blog: /blog
+- About: /about
+- Contact: /contact
+
+## Comparisons
+- ChatGPT vs Claude: /compare/chatgpt-vs-claude-ai
+- Midjourney vs DALL-E 3: /compare/midjourney-vs-dall-e-3
+- GitHub Copilot vs Cursor: /compare/github-copilot-vs-cursor-ai
+
+## Contact
+- Website: https://aibusinessalternative.com
+- Contact: https://aibusinessalternative.com/contact
