@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { tools, getToolBySlug } from '@/data/tools';
-import { categories, getCategoryBySlug } from '@/data/categories';
+import { getCategoryBySlug } from '@/data/categories';
 import ToolCard from '@/components/ToolCard';
 import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';

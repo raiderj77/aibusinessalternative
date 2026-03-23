@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { categories, getCategoryBySlug } from '@/data/categories';
 import { getToolsByCategory } from '@/data/tools';
 import ToolCard from '@/components/ToolCard';
@@ -125,15 +126,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex items-center gap-2 text-sm text-gray-500">
               <li>
-                <a href="/" className="hover:text-indigo-600">
+                <Link href="/" className="hover:text-indigo-600">
                   Home
-                </a>
+                </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <a href="/categories" className="hover:text-indigo-600">
+                <Link href="/categories" className="hover:text-indigo-600">
                   Categories
-                </a>
+                </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
@@ -247,18 +248,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             Compare features, pricing, and reviews to make the right choice for your business.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <Link
               href="/categories"
               className="inline-flex items-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-indigo-600 shadow-sm transition hover:bg-indigo-50"
             >
               Browse All Categories
-            </a>
-            <a
+            </Link>
+            <Link
               href="/"
               className="inline-flex items-center rounded-lg border-2 border-white px-6 py-3 text-base font-semibold text-white transition hover:bg-indigo-700"
             >
               Search All Tools
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { categories } from '@/data/categories';
 import CategoryCard from '@/components/CategoryCard';
 
@@ -47,9 +48,9 @@ export default function CategoriesPage() {
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex items-center gap-2 text-sm text-gray-500">
               <li>
-                <a href="/" className="hover:text-indigo-600">
+                <Link href="/" className="hover:text-indigo-600">
                   Home
-                </a>
+                </Link>
               </li>
               <li aria-hidden="true">/</li>
               <li>
