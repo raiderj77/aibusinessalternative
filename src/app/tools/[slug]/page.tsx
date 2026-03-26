@@ -7,6 +7,7 @@ import ToolCard from '@/components/ToolCard';
 import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import Disclaimer from '@/components/Disclaimer';
+import AnswerBlock from '@/components/AnswerBlock';
 
 export const revalidate = 86400;
 
@@ -270,6 +271,14 @@ export default async function ToolDetailPage({
             </li>
           </ol>
         </nav>
+
+        {/* ── Quick Answer ── */}
+        <AnswerBlock
+          what={`${tool.name} is an AI-powered ${tool.categories.map((c) => getCategoryBySlug(c)?.name || c).join(' and ').toLowerCase()} tool. ${tool.tagline}`}
+          who={tool.bestFor}
+          bottomLine={`Rated ${tool.rating}/5 by ${tool.reviewCount.toLocaleString()} users. ${tool.pricing === 'free' ? 'Completely free to use.' : tool.pricing === 'freemium' ? `Free plan available${tool.price ? `; paid plans from ${tool.price}` : ''}.` : tool.price ? `Plans start at ${tool.price}.` : 'See website for pricing.'}`}
+          lastUpdated="2026-03-25"
+        />
 
         {/* ── Hero Header ── */}
         <header className="mb-12 rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-6 sm:p-10">

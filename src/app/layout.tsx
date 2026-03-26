@@ -29,7 +29,19 @@ export const metadata: Metadata = {
     description:
       'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to make the right choice.',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large' as const,
+      'max-video-preview': -1,
+    },
+  },
   other: {
+    'google-adsense-account': 'ca-pub-7171402107622932',
     'msvalidate.01': 'C4C9B6256BDEDED169E4DE01CA953390',
   },
 };
@@ -80,10 +92,17 @@ export default function RootLayout({
                 'ad_personalization': 'denied',
                 'analytics_storage': 'denied',
                 'functionality_storage': 'granted',
-                'personalization_storage': 'denied'
+                'personalization_storage': 'denied',
+                'wait_for_update': 500
               });
             `,
           }}
+        />
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7171402107622932"
+          crossOrigin="anonymous"
         />
         {/* Organization JSON-LD */}
         <script

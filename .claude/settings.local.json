@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --eslint --use-npm)",
+      "Bash(echo {})",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --import-alias @/* --eslint --use-npm --yes)",
+      "Bash(mkdir -p src)",
+      "Bash(mv app:*)",
+      "Bash(mkdir -p src/components src/data src/lib src/types src/styles)",
+      "Bash(npm run:*)",
+      "Bash(git:*)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)"
+    ]
+  }
+}

@@ -5,6 +5,7 @@ import { categories, getCategoryBySlug } from '@/data/categories';
 import { getToolsByCategory } from '@/data/tools';
 import ToolCard from '@/components/ToolCard';
 import { getHowToChooseContent, getFAQs } from '@/lib/categoryContent';
+import AnswerBlock from '@/components/AnswerBlock';
 
 export const revalidate = 86400;
 
@@ -117,6 +118,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
+      <AnswerBlock
+        what={`A curated directory of the best ${category.name.toLowerCase()} tools for businesses in 2026, with ratings, pricing, and feature comparisons.`}
+        who={`Business owners and teams evaluating ${category.name.toLowerCase()} solutions to streamline workflows and reduce costs.`}
+        bottomLine={`${tools.length} tools compared. Filter by pricing model and rating to find the right fit for your budget and use case.`}
+        lastUpdated="2026-03-25"
       />
 
       {/* Hero */}

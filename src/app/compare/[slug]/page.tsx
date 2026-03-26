@@ -7,6 +7,7 @@ import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
 import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
+import AnswerBlock from '@/components/AnswerBlock';
 
 export const revalidate = 86400;
 
@@ -141,6 +142,13 @@ export default async function ComparisonPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
+      <AnswerBlock
+        what={`A side-by-side comparison of ${toolA.name} and ${toolB.name} covering features, pricing, ratings, and ideal use cases.`}
+        who={`Business owners deciding between ${toolA.name} and ${toolB.name} for their AI workflow needs.`}
+        bottomLine={`${toolA.name} is rated ${toolA.rating}/5 and ${toolB.name} is rated ${toolB.rating}/5. Read the full breakdown below to see which fits your requirements.`}
+        lastUpdated="2026-03-25"
       />
 
       {/* Breadcrumb */}
