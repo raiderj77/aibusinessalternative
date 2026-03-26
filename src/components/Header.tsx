@@ -7,6 +7,7 @@ const navLinks = [
   { href: '/tools', label: 'Tools' },
   { href: '/categories', label: 'Categories' },
   { href: '/compare', label: 'Compare' },
+  { href: '/best', label: 'Best Of' },
   { href: '/blog', label: 'Blog' },
 ] as const;
 
