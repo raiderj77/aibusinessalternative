@@ -40,9 +40,14 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  verification: {
+    google: 'vYhSVaGVGRflRHrKZof-mI-8_Jqa_VCyjOvq-nrGJgM',
+    other: {
+      'msvalidate.01': ['C4C9B6256BDEDED169E4DE01CA953390'],
+    },
+  },
   other: {
     'google-adsense-account': 'ca-pub-7171402107622932',
-    'msvalidate.01': 'C4C9B6256BDEDED169E4DE01CA953390',
   },
 };
 
