@@ -998,7 +998,7 @@ export const blogPosts: BlogPost[] = [
 <h3>Is Descript worth it compared to CapCut?</h3>
 <p>Descript and CapCut serve different workflows. CapCut is optimized for quick mobile edits and social media templates. Descript is optimized for talking-head video where the speaker&apos;s words drive the edit. If your content is mostly montage, b-roll, or template-based social clips, Descript is not a natural replacement. If your content is talking-head video, interview, or podcast, Descript&apos;s transcript-based editing is significantly faster than CapCut for that format.</p>
 `,
-  },,
+  },
   {
     slug: 'zoom-alternatives-2026',
     title: 'Best Zoom Alternatives in 2026 (Free & Paid)',
