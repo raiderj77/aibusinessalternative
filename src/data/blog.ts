@@ -1128,6 +1128,6 @@ export const blogPosts: BlogPost[] = [
 
 <h3>Which platform has better deliverability?</h3>
 <p>Both Beehiiv and Substack have strong deliverability for writers following best practices. In independent 2025&ndash;2026 tests, both platforms achieve inbox placement rates above 95% for engaged lists. Deliverability on either platform degrades if you send to unengaged or purchased lists &mdash; the platform matters less than list hygiene and engagement practices.</p>
-\`,
+`,
   }
 ];
