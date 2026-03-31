@@ -1064,26 +1064,65 @@ export const blogPosts: BlogPost[] = [
 <p>Yes. Google Meet&apos;s free tier supports 60-minute meetings with up to 100 participants — longer than Zoom&apos;s 40-minute free limit. No credit card is required. Meetings are accessible via browser without a download for guests. For most individual and small business use cases, Google Meet&apos;s free tier fully replaces Zoom&apos;s free tier with fewer restrictions.</p>
 `,
   },
+  {
+    slug: 'beehiiv-vs-substack-2026',
+    title: 'Beehiiv vs Substack in 2026: Which Newsletter Platform Is Better?',
+    excerpt:
+      'Beehiiv takes 0% of subscription revenue and has a built-in ad network. Substack has discovery and brand recognition. Here is how they compare in 2026.',
+    publishedAt: '2026-03-31',
+    updatedAt: '2026-03-31',
+    readTime: '8 min read',
+    tags: ['newsletter', 'beehiiv', 'substack', 'email-marketing'],
+    content: `
+<p>Substack built the paid newsletter market. Beehiiv is taking a serious run at displacing it. In 2026, Beehiiv has a built-in ad network, a 0% revenue cut on paid subscriptions, and a growth-focused feature set that Substack still lacks. Substack has a larger reader network, a stronger discovery engine, and brand recognition that helps new writers find their first subscribers. This guide compares both platforms across pricing, features, monetization, and growth tools so newsletter writers can make an informed choice in 2026.</p>
+
+<h2>The Core Difference: Platform Take vs. Platform Network</h2>
+<p>The fundamental trade-off between Beehiiv and Substack comes down to one question: do you want to keep more of your revenue, or do you want access to a built-in reader network? Substack takes 10% of all paid subscription revenue but provides a marketplace where readers actively browse and subscribe to new newsletters. Beehiiv takes 0% of subscription revenue but provides no equivalent discovery network &mdash; growth is entirely on the writer.</p>
+<p>For writers who already have an audience &mdash; a social following, a podcast, a blog, or an existing email list &mdash; Beehiiv&apos;s 0% take is a straightforward win. For writers starting from zero with no existing audience, Substack&apos;s discovery network can provide the first 500&ndash;2,000 subscribers that would otherwise require months of external marketing to build.</p>
+
+<h2>Pricing Comparison: What Each Platform Actually Costs</h2>
+<p>Pricing is where Beehiiv has the clearest advantage at scale. Here is what each platform charges across its tiers in 2026:</p>
+<table>
+<thead><tr><th>Plan</th><th>Beehiiv</th><th>Substack</th></tr></thead>
+<tbody>
+<tr><td>Free</td><td>Up to 2,500 subscribers, 0% cut</td><td>Unlimited free, 10% of paid revenue</td></tr>
+<tr><td>Entry paid</td><td>Scale: $39/mo, 0% cut</td><td>No monthly fee, 10% of all paid revenue</td></tr>
+<tr><td>Mid tier</td><td>Scale: $99/mo, 0% cut</td><td>10% regardless of list size</td></tr>
+<tr><td>Growth tier</td><td>Max: $149/mo, 0% cut</td><td>10% of revenue, no cap</td></tr>
+<tr><td>Processing</td><td>Stripe (~2.9% + $0.30)</td><td>Stripe (~2.9% + $0.30)</td></tr>
+</tbody>
+</table>
+<p>The crossover point: if your paid newsletter generates more than $990/month in subscription revenue, Beehiiv&apos;s $99/month flat fee is cheaper than Substack&apos;s 10% cut. At $5,000/month in paid subscription revenue, you keep $400 more per month on Beehiiv. At $10,000/month, the difference is $901/month &mdash; nearly $11,000/year. For established writers, Beehiiv&apos;s pricing model is meaningfully more profitable.</p>
+
+<h2>Monetization: Beehiiv&apos;s Ad Network vs. Substack&apos;s Subscription Focus</h2>
+<p>Beehiiv launched its own ad network and significantly expanded it through 2025&ndash;2026. Writers can opt into the Beehiiv Ad Network and receive automated sponsorship placements in their newsletters without doing any direct sales outreach. Beehiiv handles the advertiser relationships, insertion, and payment. Writers earn CPM-based revenue on top of any subscription income, creating a second revenue stream that Substack does not offer natively.</p>
+<p>Substack&apos;s monetization is almost entirely subscription-driven. Writers set a paid tier, and readers subscribe monthly or annually. Substack has added a tipping feature and podcast monetization, but there is no equivalent to Beehiiv&apos;s ad network. Writers who want sponsorship revenue on Substack must find and manage sponsors independently. For writers in niches with strong advertiser demand, Beehiiv&apos;s automated ad placement can generate $200&ndash;$2,000/month in additional revenue with zero sales effort.</p>
+
+<h2>Growth Tools: Referral Programs and Boosts</h2>
+<p>Beehiiv&apos;s growth toolkit is more developed than Substack&apos;s. The standout feature is Beehiiv Boosts: writers can pay to have their newsletter recommended in other Beehiiv newsletters, paying a set cost-per-subscriber (typically $1&ndash;$3/subscriber). This is paid growth, but it is targeted and measurable in a way that most other paid acquisition channels are not. On the revenue side, Beehiiv writers can also earn from Boosts &mdash; recommending other newsletters to their own audience and getting paid per new subscriber.</p>
+<p>Beehiiv also has a native referral program builder that rewards subscribers for referring friends with gated content, merchandise, or other incentives. Substack has a recommendations feature that shows readers similar newsletters, but it is organic and uncompensated &mdash; there is no equivalent paid acquisition tool. For writers who want to accelerate growth with a budget, Beehiiv&apos;s Boosts provide a measurable path that Substack cannot match.</p>
+
+<h2>Substack&apos;s Advantages: Discovery and Community</h2>
+<p>Substack&apos;s strongest advantage remains its reader-facing marketplace. The Substack app and website have millions of readers actively browsing newsletters by category. A new writer who publishes consistently and engages with similar newsletters can receive meaningful organic recommendations within their first 3&ndash;6 months. Substack Notes &mdash; the platform&apos;s short-form social feed &mdash; gives writers a way to build audience without publishing full newsletters, and content from Notes can surface to new potential subscribers across the platform.</p>
+<p>Substack also has stronger name recognition among readers. Telling someone to subscribe to your Substack is immediately understood by most internet-literate people in 2026. Beehiiv requires explanation. For writers whose audience acquisition depends on word-of-mouth and casual referrals, Substack&apos;s brand familiarity provides a small but real advantage. The Substack community of writers is also more established &mdash; there are active writer communities, cross-promotion networks, and collaborative initiatives that have grown organically over several years.</p>
+
+<h2>Technical Features: Customization and Analytics</h2>
+<p>Beehiiv gives writers more control over newsletter design than Substack. Custom domains are included on paid plans. The email template editor is more flexible. Web publication design can be customized with CSS. Beehiiv&apos;s analytics dashboard is more detailed &mdash; tracking open rates, click rates, subscriber growth by source, and revenue attribution by issue. For data-driven writers, Beehiiv&apos;s analytics are meaningfully more useful than Substack&apos;s.</p>
+<p>Substack&apos;s interface is intentionally minimal. The editor is simple, the analytics are basic, and customization is limited. This is a deliberate product choice: Substack wants writers focused on writing. For writers who do not want to think about newsletter design or analytics, Substack&apos;s simplicity is genuinely an advantage. See how newsletter platform costs compare in our <a href="/blog/how-much-do-newsletter-writers-make">newsletter income guide</a> and on the <a href="https://www.beehiiv.com/pricing" rel="noopener noreferrer">Beehiiv pricing page</a>.</p>
+
+<h2>Which Should You Choose in 2026?</h2>
+<p>Choose Beehiiv if: you have an existing audience and are ready to monetize seriously, you want the highest revenue retention at scale, you want automated ad monetization alongside subscriptions, or you want data-driven growth tools and detailed analytics.</p>
+<p>Choose Substack if: you are starting from zero and want platform-assisted discovery, you want the simplest possible writing experience, your niche has an active Substack community you can engage with, or you want to test paid newsletters before committing to a monthly platform fee. The practical playbook many writers use in 2026: start on Substack to validate demand and build the first 1,000&ndash;3,000 subscribers, then migrate to Beehiiv once the list is established and the 10% revenue cut becomes a meaningful cost. Both platforms allow subscriber list export, making migration possible with minimal friction.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Does Beehiiv take a percentage of revenue like Substack?</h3>
+<p>No. Beehiiv charges a flat monthly fee ($39&ndash;$149/month depending on list size) and takes 0% of paid subscription revenue. Substack charges no monthly fee but takes 10% of all paid subscription revenue plus Stripe processing fees. For newsletters generating more than $990/month in subscription revenue, Beehiiv&apos;s flat fee is cheaper than Substack&apos;s percentage cut.</p>
+
+<h3>Can you migrate from Substack to Beehiiv?</h3>
+<p>Yes. Substack allows full subscriber list export as a CSV. Beehiiv has a dedicated import flow that migrates subscribers, preserves paid subscription status where possible, and redirects your existing Substack web URL. Most writers report the migration takes 1&ndash;3 hours. Free subscribers transfer immediately; paid subscribers need to re-enter payment details on the new platform.</p>
+
+<h3>Which newsletter platform has better deliverability?</h3>
+<p>Both Beehiiv and Substack have strong deliverability for writers following best practices. In independent 2025&ndash;2026 tests, both platforms achieve inbox placement rates above 95% for engaged lists. Deliverability on either platform degrades if you send to unengaged or purchased lists &mdash; list hygiene matters more than the platform choice.</p>
+`,
+  }
 ];
-
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
-}
-
-export function getAllBlogSlugs(): string[] {
-  return blogPosts.map((post) => post.slug);
-}
-
-export function getRelatedPosts(currentSlug: string, limit = 3): BlogPost[] {
-  const current = getBlogPostBySlug(currentSlug);
-  if (!current) return blogPosts.slice(0, limit);
-
-  return blogPosts
-    .filter((post) => post.slug !== currentSlug)
-    .sort((a, b) => {
-      const aOverlap = a.tags.filter((tag) => current.tags.includes(tag)).length;
-      const bOverlap = b.tags.filter((tag) => current.tags.includes(tag)).length;
-      return bOverlap - aOverlap;
-    })
-    .slice(0, limit);
-}
