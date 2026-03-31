@@ -249,6 +249,20 @@ export default function AboutPage() {
             </div>
           </section>
 
+          {/* Built By */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Who We Are
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              AI Business Alternative is built and maintained by an experienced
+              web professional with a passion for helping small businesses
+              leverage technology effectively. Our team combines deep technical
+              knowledge with real-world business experience to deliver
+              trustworthy, practical AI tool recommendations.
+            </p>
+          </section>
+
           {/* Contact CTA */}
           <section className="bg-indigo-700 rounded-2xl p-8 sm:p-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
