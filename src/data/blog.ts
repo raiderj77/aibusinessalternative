@@ -1683,6 +1683,110 @@ export const blogPosts: BlogPost[] = [
 
 <h3>How do these AI tools compare to using a chatbot like ChatGPT for presentations?</h3>
 <p>While <a href="/blog/chatgpt-alternatives-business-2026">business AI tools</a> like ChatGPT can generate presentation outlines and text content, dedicated AI presentation makers integrate design intelligence. They don&apos;t just provide text; they place it into visually coherent layouts, source or generate appropriate imagery, and apply consistent styling. The output is a functional first draft of a visual deck, not just a text document. Using a chatbot is a great first step for ideation, but you would still need to manually transfer and format that content into a slide tool, which is the exact friction these specialized applications eliminate.</p>`
+  },
+  {
+    slug: 'otterai-alternatives-free-2026',
+    title: 'Best Otter.ai Alternatives Free 2026',
+    excerpt:
+      'Otter.ai&rsquo;s free tier limits you to 300 minutes/month. Fathom, Fireflies.ai, Notta, tl;dv, and Google Meet&rsquo;s built-in transcription all offer competitive free tiers for meeting notes and AI summaries.',
+    publishedAt: '2026-03-31',
+    updatedAt: '2026-03-31',
+    readTime: '6 min read',
+    tags: ['ai-tools', 'transcription', 'meetings', 'alternatives', 'free-tools'],
+    content: `
+<p>In the evolving landscape of AI meeting assistants, Otter.ai has long been a popular choice for transcription. However, its free plan&rsquo;s limitations&mdash;like the 300-minute monthly cap and restricted features&mdash;prompt many individuals and small teams to seek other options. The good news for 2026 is that the competition has intensified, offering robust, truly free alternatives that excel in accuracy, integration, and specialized functionality.</p>
+
+<h2>What Otter.ai Offers (And Where It Falls Short)</h2>
+<p>Otter.ai pioneered accessible AI transcription, providing solid accuracy, speaker identification, and a user-friendly interface. Its ability to join and record meetings directly from platforms like Zoom made it a staple. For many, it was the first introduction to automated note-taking. However, as the market matured, Otter&rsquo;s free plan began to show its constraints. Users are limited to 300 minutes of transcription per month, with each import or recording session capped at 30 minutes. Advanced features like advanced search, custom vocabulary, and bulk export are locked behind a paywall. Furthermore, some users report that while accuracy is good, it can struggle with technical jargon or accents compared to newer engines. For teams needing more generous free access, AI summaries, or deeper integrations with other <a href="/blog/chatgpt-alternatives-business-2026">business AI tools</a>, exploring alternatives becomes essential.</p>
+
+<h2>Best Free Otter.ai Alternatives in 2026</h2>
+<p>The field of meeting intelligence has expanded dramatically. Today&rsquo;s best free tools go beyond simple transcription to offer intelligent summaries, action item extraction, and seamless workflows. Here are the top contenders that provide substantial value at no cost.</p>
+
+<h3>Fathom (free)</h3>
+<p><a href="https://fathom.video" rel="noopener noreferrer" target="_blank">Fathom</a> stands out as a premier free alternative, particularly for sales and customer-facing teams. Its completely free plan offers unlimited call recording and transcription for individuals. The magic lies in its real-time analysis: Fathom automatically highlights key moments, creates structured summaries with headings, and extracts action items and decisions during the meeting itself. It integrates directly with Zoom, Google Meet, and Microsoft Teams, posting the summary to your CRM or collaboration tools instantly. For a free tool, it provides an exceptionally polished, high-utility experience focused on saving you review time.</p>
+
+<h3>Fireflies.ai (free tier)</h3>
+<p>Fireflies.ai offers a powerful free tier centered on a generous allowance of 800 minutes of storage per month. Its strength is in deep workflow automation and searchability. You can transcribe meetings from any audio file or via direct integration with most major <a href="/blog/zoom-alternatives-2026">video conferencing tools</a>. The AI compiles conversation metrics, tracks talk time, and creates soundbite snippets. A standout feature is its AI search, allowing you to query your meeting history for specific topics, dates, or decisions. The free plan includes basic summaries and transcripts, making it ideal for users who need to archive and search many meetings.</p>
+
+<h3>Notta (free)</h3>
+<p>Notta is a formidable competitor with excellent accuracy and a straightforward free plan. It provides 120 minutes of free transcription per month, with a single file limit of 3 hours. It shines in versatility, supporting transcription for live meetings, uploaded audio/video files, and even real-time transcription via its web app. Notta&rsquo;s editor is highly efficient for editing and sharing, allowing you to highlight text, add comments, and export in numerous formats. It also offers a one-click summary generation. For users who need a reliable, multi-purpose transcription tool for interviews, lectures, and meetings, Notta&rsquo;s free offering is compelling.</p>
+
+<h3>Google Meet Built-in Transcription</h3>
+<p>For teams entrenched in the Google Workspace ecosystem, the native transcription feature in Google Meet is a hidden gem. Available to all users, it provides live captions and saves a transcript directly in the meeting recording. The transcript is time-stamped and speaker-separated, accessible from the Google Drive folder where the recording is saved. While it may lack the advanced AI analysis of dedicated tools, its accuracy is continually improving, and its total integration is unbeatable. There are no minute limits, making it a truly unlimited free option for Google Meet users.</p>
+
+<h3>tl;dv (free)</h3>
+<p>tl;dv (too long; didn&rsquo;t view) takes a unique, video-centric approach. Its free plan focuses on recording and transcribing Zoom and Google Meet meetings, with unlimited recordings for individuals. Its superpower is creating sharable, searchable video clips and highlights from your meetings. You can mark moments as you go, and the AI will generate chapters and summaries based on these highlights. This makes it exceptional for creating recaps, sharing customer feedback clips, or building training libraries. If your work benefits from visual context alongside text, tl;dv&rsquo;s free tier offers a distinct advantage.</p>
+
+<h2>Meeting Transcription Tools: Feature Comparison</h2>
+<p>To visualize the key differences between these free alternatives and Otter.ai, the following table breaks down their core offerings. This should help you quickly identify which tool aligns with your primary needs.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Free Minutes/month</th>
+      <th>AI Summary</th>
+      <th>Key Integrations</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Otter.ai (Free)</strong></td>
+      <td>300</td>
+      <td>Basic</td>
+      <td>Zoom, Google Meet, MS Teams</td>
+      <td>Simple, straightforward transcription.</td>
+    </tr>
+    <tr>
+      <td><strong>Fathom</strong></td>
+      <td>Unlimited calls</td>
+      <td>Yes (Advanced)</td>
+      <td>Zoom, Google Meet, MS Teams, CRMs</td>
+      <td>Sales teams & real-time analysis.</td>
+    </tr>
+    <tr>
+      <td><strong>Fireflies.ai</strong></td>
+      <td>800 storage mins</td>
+      <td>Yes (Basic)</td>
+      <td>Zoom, Teams, Slack, Notion</td>
+      <td>Searching & archiving many meetings.</td>
+    </tr>
+    <tr>
+      <td><strong>Notta</strong></td>
+      <td>120</td>
+      <td>Yes</td>
+      <td>Via upload; direct meeting link</td>
+      <td>Versatile file & live transcription.</td>
+    </tr>
+    <tr>
+      <td><strong>Google Meet</strong></td>
+      <td>Unlimited (in Meet)</td>
+      <td>No</td>
+      <td>Google Workspace only</td>
+      <td>Google-centric teams on a budget.</td>
+    </tr>
+    <tr>
+      <td><strong>tl;dv</strong></td>
+      <td>Unlimited recordings</td>
+      <td>Yes (Clip-based)</td>
+      <td>Zoom, Google Meet</td>
+      <td>Creating video highlights & clips.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>How to Choose Based on Your Meeting Setup</h2>
+<p>Your ideal tool depends heavily on your meeting habits and tech stack. For solo professionals or startups needing deep analysis, Fathom&rsquo;s unlimited, insightful summaries are hard to top. If you host lengthy client calls or interviews, Notta&rsquo;s 3-hour file limit is a significant benefit. Teams that conduct numerous short internal meetings will appreciate Fireflies.ai&rsquo;s high storage minute count and powerful search to find past discussions. If your organization lives in Google Calendar and Drive, leveraging the free, native Google Meet transcription eliminates another tool to manage. Finally, for roles in marketing, support, or training where video evidence is valuable, tl;dv provides a unique medium for capturing and sharing context. Consider your monthly minute volume, need for summaries versus raw text, and which platforms you need to connect.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Are these free alternatives as accurate as Otter.ai?</h3>
+<p>In 2026, accuracy across leading AI transcription services has largely converged. Most use similar underlying models, resulting in comparable performance for clear audio. Differences emerge in handling strong accents, technical vocabulary, or poor recording quality. Tools like Fathom and Notta often match or exceed Otter&rsquo;s accuracy in tests. The best approach is to test a tool with your own typical meeting audio, as performance can be subjective based on your specific use case.</p>
+
+<h3>Can I use these tools for transcribing pre-recorded files?</h3>
+<p>Yes, most alternatives support file uploads. Notta and Fireflies.ai explicitly allow uploading audio and video files for transcription within their free plan limits. Fathom&rsquo;s free plan is focused on live calls but may allow limited uploads. Always check the specific features of the free tier, as some may restrict file upload types or duration. For dedicated file transcription, Notta&rsquo;s free plan is particularly well-suited.</p>
+
+<h3>What is the main catch with these free plans?</h3>
+<p>The primary limitations are typically usage caps (monthly minutes or storage), restricted access to advanced features like team collaboration or CRM syncs, and sometimes watermarking on video exports. For instance, a tool may offer unlimited recordings but limit the number of AI summaries per month. The trade-off is balanced by providing core transcription and basic analysis at no cost, which is sufficient for many individual users and small teams. There is rarely a &apos;catch&apos; beyond the expected feature gates designed to encourage paid upgrades for business use.</p>`
   }
 ];
 
