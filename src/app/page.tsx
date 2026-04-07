@@ -5,6 +5,54 @@ import SearchBar from '@/components/SearchBar';
 import CategoryCard from '@/components/CategoryCard';
 import ToolCard from '@/components/ToolCard';
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  dateModified: '2026-04-07',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is AI Business Alternative?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AI Business Alternative is a free directory and comparison tool that helps businesses find the best AI tools for their specific needs. It covers alternatives across categories including writing, coding, image generation, customer service, analytics, and productivity — with honest comparisons of features, pricing, and use cases.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I find the best AI tool for my business?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Browse by category or use the search to find AI tools for your specific task. Each listing includes a feature comparison, pricing overview, and recommended use cases. Filter by budget, team size, or integration requirements to narrow down options that fit your workflow.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are the AI tool comparisons on this site unbiased?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Comparisons are based on publicly available feature information, pricing pages, and community feedback. Some listings may include affiliate relationships — these are disclosed. We aim to provide accurate, up-to-date information but recommend verifying current pricing and features directly with each vendor before purchasing.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often is the AI tool directory updated?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "The directory is updated regularly as new AI tools launch and existing tools update their features or pricing. The AI software market changes rapidly — always check the vendor's official website for the most current information before making a business decision.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the best free AI tools for small businesses?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Several capable free AI tools exist for small businesses: ChatGPT (free tier), Claude (free tier), Canva AI (free plan), Notion AI (limited free), and Google Gemini (free). The best choice depends on your primary use case — writing, design, coding, or customer communication. AI Business Alternative helps you compare free tiers side by side.',
+      },
+    },
+  ],
+};
+
 const blogPosts = [
   {
     slug: 'best-ai-writing-tools-2026',
@@ -35,6 +83,10 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* ===== Hero Section ===== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-600 py-20 sm:py-28">
         {/* Decorative blobs */}
@@ -275,6 +327,137 @@ export default function HomePage() {
                 />
               </svg>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== GEO Content: AI Tools for Business ===== */}
+      <section className="bg-gray-50 py-16 sm:py-20">
+        <div className="container-custom">
+          <div className="mx-auto max-w-3xl space-y-14">
+
+            {/* Q1 */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                How do AI business tools save time and money?
+              </h2>
+              <p className="mt-4 text-lg font-medium leading-relaxed text-gray-800">
+                AI tools automate repetitive tasks like content drafting, data analysis,
+                customer responses, and code generation — reducing labor costs and freeing
+                teams for higher-value work.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">
+                Businesses using AI tools report an average 40% reduction in time spent on
+                routine tasks, according to McKinsey&apos;s 2024 State of AI report. Those
+                productivity gains compound quickly: fewer hours on low-value work means
+                faster turnaround on projects, lower contractor spend, and more bandwidth
+                for growth. The global AI software market is projected to reach $391 billion
+                by 2030, according to Grand View Research, reflecting how broadly businesses
+                are integrating these tools into their operations.
+              </p>
+            </div>
+
+            {/* Q2 */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                How do I evaluate AI tools before committing to a paid plan?
+              </h2>
+              <p className="mt-4 text-lg font-medium leading-relaxed text-gray-800">
+                Start with free tiers or trials, test the tool on a real workflow task, and
+                evaluate output quality, integration ease, and support quality before
+                upgrading.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">
+                Key evaluation criteria include accuracy for your specific use case, API
+                availability for custom integrations, data privacy policies (especially
+                important for client data), and total cost of ownership including team
+                training time. The investment pays off: 67% of businesses that adopt AI
+                tools see positive ROI within the first year, according to Salesforce
+                research. Running a structured two-week trial on a real task is the most
+                reliable way to assess fit before committing to annual pricing.
+              </p>
+            </div>
+
+            {/* Q3 */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                What is the difference between general AI assistants and specialized AI
+                tools?
+              </h2>
+              <p className="mt-4 text-lg font-medium leading-relaxed text-gray-800">
+                General AI assistants like ChatGPT handle a wide range of tasks with good
+                but not specialized performance. Domain-specific tools are trained or
+                fine-tuned for specific tasks and often outperform general models in their
+                niche.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">
+                For example, a legal AI tool trained on case law will outperform a general
+                assistant on contract review, while a general assistant may be more flexible
+                for mixed-task teams. The right choice depends on whether your team needs
+                breadth — handling varied requests across departments — or depth in a single
+                high-stakes domain like medical documentation, financial analysis, or
+                software development.
+              </p>
+            </div>
+
+            {/* Q4 */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                How quickly is the AI tool landscape changing?
+              </h2>
+              <p className="mt-4 text-lg font-medium leading-relaxed text-gray-800">
+                Extremely fast — major AI models release significant capability updates every
+                3 to 6 months, and new specialized tools launch weekly. Staying current
+                requires ongoing evaluation.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">
+                A tool that was best-in-class six months ago may have been surpassed by a
+                newer competitor or a major update to a general model. AI Business
+                Alternative tracks these changes to keep comparisons current, so you can
+                revisit tool choices without starting your research from scratch.
+              </p>
+            </div>
+
+            {/* Further Reading */}
+            <div className="border-t border-gray-200 pt-10">
+              <h3 className="text-lg font-semibold text-gray-900">Further Reading</h3>
+              <ul className="mt-4 space-y-2 text-base text-gray-600">
+                <li>
+                  <a
+                    href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="text-indigo-600 hover:text-indigo-800 underline"
+                  >
+                    McKinsey State of AI 2024 Report
+                  </a>{' '}
+                  — annual research on AI adoption and business impact (mckinsey.com)
+                </li>
+                <li>
+                  <a
+                    href="https://aiindex.stanford.edu/report/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="text-indigo-600 hover:text-indigo-800 underline"
+                  >
+                    Stanford AI Index Report
+                  </a>{' '}
+                  — comprehensive annual benchmarking of AI progress (aiindex.stanford.edu)
+                </li>
+                <li>
+                  <a
+                    href="https://www.technologyreview.com/topic/artificial-intelligence/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="text-indigo-600 hover:text-indigo-800 underline"
+                  >
+                    MIT Technology Review — AI in Business
+                  </a>{' '}
+                  — analysis and reporting on enterprise AI adoption (technologyreview.com)
+                </li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </section>
