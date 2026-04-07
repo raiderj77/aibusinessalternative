@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-indigo-100">Last updated: March 22, 2026</p>
+          <p className="mt-4 text-indigo-100">Last updated: April 6, 2026</p>
         </div>
       </div>
 
@@ -136,6 +136,11 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
             <p className="mb-4">
+              We work with third-party advertising partners, including Google,
+              who may use cookies to serve ads based on your prior visits to
+              this website or other websites.
+            </p>
+            <p className="mb-4">
               You can control cookies through your browser settings. Please note
               that disabling certain cookies may affect the functionality of the
               Site.
@@ -157,12 +162,22 @@ export default function PrivacyPolicyPage() {
             <p className="mb-4">
               You may opt out of personalized advertising by visiting{" "}
               <a
-                href="https://www.google.com/settings/ads"
+                href="https://ads.google.com/settings"
                 className="text-indigo-600 hover:text-indigo-800 underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Google Ads Settings
+              </a>
+              . You may also opt out of interest-based advertising from
+              participating companies by visiting{" "}
+              <a
+                href="https://optout.aboutads.info"
+                className="text-indigo-600 hover:text-indigo-800 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                optout.aboutads.info
               </a>
               . Alternatively, you may opt out of third-party vendor cookies by
               visiting the{" "}
