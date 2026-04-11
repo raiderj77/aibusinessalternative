@@ -22,6 +22,12 @@ const comparisonSlugs = [
   'zapier-ai-vs-make-ai',
   'elevenlabs-vs-murf-ai',
   'perplexity-ai-vs-chatgpt',
+  'chatgpt-vs-google-gemini-workspace',
+  'claude-ai-vs-google-gemini-workspace',
+  'jasper-ai-vs-writesonic',
+  'notion-ai-vs-chatgpt',
+  'semrush-ai-vs-ahrefs',
+  'runway-ml-vs-pika-labs',
 ];
 
 export function generateStaticParams() {

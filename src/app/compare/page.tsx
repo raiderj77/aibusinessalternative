@@ -16,12 +16,18 @@ export const metadata: Metadata = {
 
 const comparisonPairs = [
   { slug: 'chatgpt-vs-claude-ai', toolASlug: 'chatgpt', toolBSlug: 'claude-ai', category: 'AI Chatbots & Assistants' },
+  { slug: 'chatgpt-vs-google-gemini-workspace', toolASlug: 'chatgpt', toolBSlug: 'google-gemini-workspace', category: 'AI Chatbots & Assistants' },
+  { slug: 'claude-ai-vs-google-gemini-workspace', toolASlug: 'claude-ai', toolBSlug: 'google-gemini-workspace', category: 'AI Chatbots & Assistants' },
+  { slug: 'notion-ai-vs-chatgpt', toolASlug: 'notion-ai', toolBSlug: 'chatgpt', category: 'AI Writing & Content' },
   { slug: 'jasper-ai-vs-copy-ai', toolASlug: 'jasper-ai', toolBSlug: 'copy-ai', category: 'AI Writing & Content' },
+  { slug: 'jasper-ai-vs-writesonic', toolASlug: 'jasper-ai', toolBSlug: 'writesonic', category: 'AI Writing & Content' },
   { slug: 'midjourney-vs-dall-e-3', toolASlug: 'midjourney', toolBSlug: 'dall-e-3', category: 'AI Image Generation' },
   { slug: 'github-copilot-vs-cursor-ai', toolASlug: 'github-copilot', toolBSlug: 'cursor-ai', category: 'AI Coding & Development' },
   { slug: 'runway-ml-vs-synthesia', toolASlug: 'runway-ml', toolBSlug: 'synthesia', category: 'AI Video Creation' },
+  { slug: 'runway-ml-vs-pika-labs', toolASlug: 'runway-ml', toolBSlug: 'pika-labs', category: 'AI Video Creation' },
   { slug: 'tidio-ai-vs-intercom-ai', toolASlug: 'tidio-ai', toolBSlug: 'intercom-ai', category: 'AI Customer Service' },
   { slug: 'semrush-ai-vs-surfer-seo', toolASlug: 'semrush-ai', toolBSlug: 'surfer-seo', category: 'AI Marketing & SEO' },
+  { slug: 'semrush-ai-vs-ahrefs', toolASlug: 'semrush-ai', toolBSlug: 'ahrefs', category: 'AI Marketing & SEO' },
   { slug: 'zapier-ai-vs-make-ai', toolASlug: 'zapier-ai', toolBSlug: 'make-ai', category: 'AI Productivity & Automation' },
   { slug: 'elevenlabs-vs-murf-ai', toolASlug: 'elevenlabs', toolBSlug: 'murf-ai', category: 'AI Audio & Voice' },
   { slug: 'perplexity-ai-vs-chatgpt', toolASlug: 'perplexity-ai', toolBSlug: 'chatgpt', category: 'AI Research & Knowledge' },

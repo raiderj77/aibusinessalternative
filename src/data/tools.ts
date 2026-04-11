@@ -2811,6 +2811,43 @@ const rawTools: AIToolRaw[] = [
     tags: ['ai-employees', 'business-automation', 'custom-agents', 'no-code'],
     alternatives: ['n8n-ai', 'make-advanced', 'zapier-ai', 'microsoft-copilot-studio'],
     lastUpdated: '2026-03-22'
+  },
+  {
+    slug: 'ahrefs',
+    name: 'Ahrefs',
+    tagline: 'The SEO toolset trusted by professional marketers and agencies worldwide.',
+    description: 'Ahrefs is one of the most powerful SEO toolsets available, known for its industry-leading backlink database and comprehensive keyword research capabilities. It provides tools for site auditing, rank tracking, content gap analysis, and competitor intelligence. The Content Explorer surfaces top-performing content in any niche, while its Link Intersect tool uncovers link-building opportunities from competitor profiles. Ahrefs is the preferred choice for SEO professionals who demand accurate data and deep competitive insights.',
+    category: ['marketing'],
+    pricing: 'paid',
+    startingPrice: '$99/mo',
+    affiliateUrl: '#',
+    websiteUrl: 'https://ahrefs.com',
+    logoPlaceholder: 'Ahrefs',
+    features: [
+      'Backlink database with 35+ trillion known links',
+      'Keyword Explorer with 10+ billion keyword database',
+      'Site Audit for technical SEO issues',
+      'Rank Tracker for keyword position monitoring',
+      'Content Explorer for finding top-performing content',
+      'Competitive analysis and traffic estimation'
+    ],
+    pros: [
+      'Industry-leading backlink database with the most accurate link data',
+      'Highly accurate keyword difficulty and traffic estimates',
+      'Comprehensive competitor analysis and content gap tools',
+      'Clean, intuitive interface with excellent data visualization'
+    ],
+    cons: [
+      'No free tier — paid plans only starting at $99/month',
+      'Can be expensive for small businesses or individual bloggers',
+      'No built-in AI content writer unlike Semrush'
+    ],
+    bestFor: 'SEO professionals and agencies who prioritize backlink analysis, technical SEO, and data-driven competitive intelligence.',
+    rating: 4.7,
+    reviewCount: 4900,
+    tags: ['seo', 'backlinks', 'keyword-research', 'competitor-analysis'],
+    alternatives: ['semrush-ai', 'surfer-seo'],
+    lastUpdated: '2026-03-22'
   }
 ];
 
