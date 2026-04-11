@@ -1,9 +1,12 @@
+import { getToolBySlug, type AITool } from '@/data/tools';
+
 export interface AlternativeContent {
   intro: string;
   reasons: string[];
 }
 
-export const alternativesContent: Record<string, AlternativeContent> = {
+/** Hardcoded overrides for the 6 original slugs — richer editorial content */
+const alternativesOverrides: Record<string, AlternativeContent> = {
   chatgpt: {
     intro:
       'ChatGPT is the world\'s most popular AI assistant, but it is not the only option. Many business users look for alternatives because of usage limits on the free tier, concerns about data privacy when processing sensitive business information, or a need for features that ChatGPT does not prioritize. Some users find that ChatGPT\'s responses can be verbose and require significant editing, while others need deeper integration with specific platforms like Google Workspace or Microsoft 365. Pricing is another factor: at $20 per month for ChatGPT Plus, competitors may offer better value depending on your primary use case. Whether you need more accurate research with citations, longer document handling, better code generation, or simply a second opinion on important tasks, the alternatives below cover a range of strengths that may better fit your workflow and budget.',
@@ -60,6 +63,75 @@ export const alternativesContent: Record<string, AlternativeContent> = {
   },
 };
 
+/** Build a pricing context sentence from the tool's pricing and price fields */
+function pricingContext(tool: AITool): string {
+  switch (tool.pricing) {
+    case 'paid':
+      return `Starting at ${tool.price}, ${tool.name} is a paid-only tool with no free tier, which leads many users to evaluate alternatives before committing.`;
+    case 'freemium':
+      return `While ${tool.name} offers a free tier, the most useful features require a paid plan at ${tool.price}, which prompts some users to look for better value elsewhere.`;
+    case 'free-trial':
+      return `${tool.name} offers a free trial but requires a paid subscription at ${tool.price} to continue, leading some users to explore permanently free or lower-cost alternatives.`;
+    case 'free':
+      return `As a completely free tool, ${tool.name} is popular for cost-conscious users — but price alone doesn't determine the best fit for your workflow.`;
+    default:
+      return '';
+  }
+}
+
+/** Derive up to 3 reasons-to-switch from the tool's cons[], padding with generic fallbacks */
+function reasonsFromCons(tool: AITool): string[] {
+  const shortName = tool.name.replace(/ by .+$/, '').replace(/ AI$/, '').trim();
+  const reasons: string[] = tool.cons.slice(0, 3).map((con) =>
+    con.endsWith('.') ? con : con + '.'
+  );
+
+  if (reasons.length < 3) {
+    reasons.push(
+      `Some teams may prefer a tool that integrates more naturally with their existing tech stack or offers deeper specialization for their specific use case.`
+    );
+  }
+  if (reasons.length < 3) {
+    reasons.push(
+      `As the AI landscape evolves rapidly, newer tools may offer better performance or value for your particular workflow than ${shortName}.`
+    );
+  }
+
+  return reasons.slice(0, 3);
+}
+
+/** Auto-generate AlternativeContent from a tool's structured data */
+function generateAlternativeContent(tool: AITool): AlternativeContent {
+  const shortName = tool.name.replace(/ by .+$/, '').replace(/ AI$/, '').trim();
+  const pricing = pricingContext(tool);
+  const prosSnippet = tool.pros.slice(0, 2).map((p) => p.toLowerCase()).join(' and ');
+
+  const intro = [
+    tool.description,
+    pricing,
+    `Despite its strengths — ${prosSnippet} — no single tool is the right fit for every team.`,
+    `Businesses exploring alternatives to ${shortName} often cite pricing, missing integrations, or the need for more specialized capabilities.`,
+    `The tools below were selected based on how well they address those gaps across pricing, features, and use-case fit.`,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return {
+    intro,
+    reasons: reasonsFromCons(tool),
+  };
+}
+
+/**
+ * Returns AlternativeContent for any tool slug that exists in tools.ts.
+ * The 6 original slugs return their richer hardcoded editorial content.
+ * All other tools get content auto-generated from their structured data.
+ */
 export function getAlternativeContent(slug: string): AlternativeContent | undefined {
-  return alternativesContent[slug];
+  if (alternativesOverrides[slug]) return alternativesOverrides[slug];
+
+  const tool = getToolBySlug(slug);
+  if (!tool) return undefined;
+
+  return generateAlternativeContent(tool);
 }

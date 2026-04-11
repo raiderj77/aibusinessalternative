@@ -11,17 +11,8 @@ import AnswerBlock from '@/components/AnswerBlock';
 
 export const revalidate = 86400;
 
-const SLUGS = [
-  'chatgpt',
-  'midjourney',
-  'jasper-ai',
-  'github-copilot',
-  'grammarly-business',
-  'canva-ai',
-] as const;
-
 export function generateStaticParams() {
-  return SLUGS.map((slug) => ({ slug }));
+  return tools.map((tool) => ({ slug: tool.slug }));
 }
 
 export async function generateMetadata({
@@ -86,7 +77,11 @@ function getAlternativeTools(subjectSlug: string) {
 }
 
 /** Helper: generate FAQ items */
-function generateFAQItems(toolName: string, alternatives: { name: string; pricing: string; price?: string }[]) {
+function generateFAQItems(
+  toolName: string,
+  alternatives: { name: string; pricing: string; price?: string }[],
+  reasons?: string[],
+) {
   const cheapest = [...alternatives].sort((a, b) => {
     const order = { free: 0, freemium: 1, 'free-trial': 2, paid: 3 };
     return (order[a.pricing as keyof typeof order] ?? 3) - (order[b.pricing as keyof typeof order] ?? 3);
@@ -96,6 +91,11 @@ function generateFAQItems(toolName: string, alternatives: { name: string; pricin
   const freeAltName = freeAlts.length > 0 ? freeAlts[0].name : alternatives[0]?.name ?? 'several tools';
 
   const topAlt = alternatives[0]?.name ?? 'other tools';
+
+  // Build the "why switch" answer from reasons[] when available
+  const whySwitchAnswer = reasons && reasons.length > 0
+    ? `Users look for ${toolName} alternatives for several reasons: ${reasons.map((r) => r.replace(/\.$/, '')).join('; ')}. Review the alternatives above to find the tool that best addresses your specific pain point.`
+    : `Common reasons businesses switch from ${toolName} include pricing concerns as teams scale, the need for features that ${toolName} does not prioritize, better integration with existing tools and workflows, or a desire for more specialized capabilities. Some users also switch to reduce vendor lock-in or to find a tool that better matches their specific industry or use case. Review the alternatives above to see which gaps each tool addresses.`;
 
   return [
     {
@@ -107,8 +107,8 @@ function generateFAQItems(toolName: string, alternatives: { name: string; pricin
       answer: `Whether ${topAlt} is better than ${toolName} depends on your specific needs. ${topAlt} may excel in certain areas like pricing, specific features, or integrations, while ${toolName} may be stronger in others. We recommend trying both tools with your actual workflow before deciding. The comparison table above highlights the key differences in pricing, ratings, and core strengths to help you make an informed choice.`,
     },
     {
-      question: `Why switch from ${toolName}?`,
-      answer: `Common reasons businesses switch from ${toolName} include pricing concerns as teams scale, the need for features that ${toolName} does not prioritize, better integration with existing tools and workflows, or a desire for more specialized capabilities. Some users also switch to reduce vendor lock-in or to find a tool that better matches their specific industry or use case. Review the alternatives above to see which gaps each tool addresses.`,
+      question: `Why do users look for ${toolName} alternatives?`,
+      answer: whySwitchAnswer,
     },
     {
       question: `What is the cheapest alternative to ${toolName}?`,
@@ -262,13 +262,15 @@ export default async function AlternativesPage({
   const tool = getToolBySlug(slug);
   if (!tool) notFound();
 
-  const content = getAlternativeContent(slug);
-  if (!content) notFound();
+  // getAlternativeContent returns content for every tool in tools.ts —
+  // the 6 original slugs get richer editorial text, all others are auto-generated.
+  const content = getAlternativeContent(slug)!;
 
   const alternativeTools = getAlternativeTools(slug);
   const faqItems = generateFAQItems(
     tool.name,
-    alternativeTools.map((t) => ({ name: t.name, pricing: t.pricing, price: t.price }))
+    alternativeTools.map((t) => ({ name: t.name, pricing: t.pricing, price: t.price })),
+    content.reasons,
   );
 
   // JSON-LD: BreadcrumbList

@@ -148,20 +148,20 @@ export default async function ToolDetailPage({
     '@type': 'SoftwareApplication',
     name: tool.name,
     description: tool.description,
-    url: `https://aibusinessalternative.com/tools/${tool.slug}`,
+    url: tool.websiteUrl,
     applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
     offers: {
       '@type': 'Offer',
-      price: tool.pricing === 'free' ? '0' : undefined,
+      price: tool.pricing === 'free' ? '0' : tool.price,
       priceCurrency: 'USD',
-      description: tool.price || (tool.pricing === 'free' ? 'Free' : 'See website for pricing'),
     },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: tool.rating,
+      reviewCount: tool.reviewCount,
       bestRating: 5,
       worstRating: 1,
-      reviewCount: tool.reviewCount,
     },
   };
 
