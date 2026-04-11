@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBlogPostBySlug, getAllBlogSlugs, getRelatedPosts } from '@/data/blog';
+import { getBlogPost, getAllBlogSlugs, getRelatedPosts } from '@/lib/blog-markdown';
 
 export const revalidate = 86400;
 
@@ -15,7 +15,7 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = await getBlogPost(slug);
   if (!post) return { title: 'Post Not Found | AI Business Alternative' };
 
   return {
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = await getBlogPost(slug);
   if (!post) notFound();
 
   const relatedPosts = getRelatedPosts(slug, 4);
@@ -65,9 +65,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     ],
   };
 
-  const articleJsonLd = {
+  const blogPostingJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
       />
 
       {/* Breadcrumb */}
@@ -132,16 +132,18 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Header */}
           <header>
             {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-block rounded-full bg-indigo-50 px-3 py-0.5 text-xs font-medium text-indigo-700"
-                >
-                  {tag.replace(/-/g, ' ')}
-                </span>
-              ))}
-            </div>
+            {post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-block rounded-full bg-indigo-50 px-3 py-0.5 text-xs font-medium text-indigo-700"
+                  >
+                    {tag.replace(/-/g, ' ')}
+                  </span>
+                ))}
+              </div>
+            )}
 
             {/* Title */}
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
@@ -149,7 +151,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </h1>
 
             {/* Meta */}
-            <div className="mt-4 flex items-center gap-4 text-sm text-gray-500">
+            <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500">
               <time dateTime={post.publishedAt}>
                 Published{' '}
                 {new Date(post.publishedAt).toLocaleDateString('en-US', {
@@ -173,60 +175,66 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </time>
                 </>
               )}
+              <span aria-hidden="true">&middot;</span>
+              <span className="text-gray-500">Built by an experienced web developer</span>
             </div>
           </header>
 
           {/* Content */}
           <div
             className="blog-content mt-10"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: post.htmlContent }}
           />
         </div>
       </article>
 
       {/* More Articles */}
-      <section className="bg-gray-50 py-12 sm:py-16 border-t border-gray-200">
-        <div className="container-custom">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-            More Articles
-          </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {relatedPosts.map((related) => (
-              <article
-                key={related.slug}
-                className="group flex flex-col rounded-2xl bg-white p-5 ring-1 ring-gray-900/5 transition hover:shadow-md"
-              >
-                <div className="flex flex-wrap gap-1.5">
-                  {related.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700"
-                    >
-                      {tag.replace(/-/g, ' ')}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="mt-3 text-base font-semibold text-gray-900 group-hover:text-indigo-600 transition leading-snug">
-                  <Link href={`/blog/${related.slug}`}>{related.title}</Link>
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600 line-clamp-3">
-                  {related.excerpt}
-                </p>
-                <div className="mt-3 flex items-center gap-3 text-xs text-gray-500">
-                  <time dateTime={related.publishedAt}>
-                    {new Date(related.publishedAt).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                  </time>
-                  <span>{related.readTime}</span>
-                </div>
-              </article>
-            ))}
+      {relatedPosts.length > 0 && (
+        <section className="bg-gray-50 py-12 sm:py-16 border-t border-gray-200">
+          <div className="container-custom">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              More Articles
+            </h2>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {relatedPosts.map((related) => (
+                <article
+                  key={related.slug}
+                  className="group flex flex-col rounded-2xl bg-white p-5 ring-1 ring-gray-900/5 transition hover:shadow-md"
+                >
+                  {related.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {related.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-block rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700"
+                        >
+                          {tag.replace(/-/g, ' ')}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <h3 className="mt-3 text-base font-semibold text-gray-900 group-hover:text-indigo-600 transition leading-snug">
+                    <Link href={`/blog/${related.slug}`}>{related.title}</Link>
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600 line-clamp-3">
+                    {related.excerpt}
+                  </p>
+                  <div className="mt-3 flex items-center gap-3 text-xs text-gray-500">
+                    <time dateTime={related.publishedAt}>
+                      {new Date(related.publishedAt).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </time>
+                    <span>{related.readTime}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Disclaimer */}
       <section className="bg-white py-8 border-t border-gray-200">

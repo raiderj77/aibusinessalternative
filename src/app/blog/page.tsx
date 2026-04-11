@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { blogPosts } from '@/data/blog';
+import { getAllBlogPosts } from '@/lib/blog-markdown';
 
 export const metadata: Metadata = {
   title: 'AI Business Blog — Tips, Reviews & Guides | AI Business Alternative',
@@ -36,6 +36,8 @@ const breadcrumbJsonLd = {
 };
 
 export default function BlogIndexPage() {
+  const blogPosts = getAllBlogPosts();
+
   return (
     <>
       <script
@@ -73,71 +75,77 @@ export default function BlogIndexPage() {
       {/* Blog Grid */}
       <section className="bg-white py-12 sm:py-16">
         <div className="container-custom">
-          <div className="grid gap-8 sm:grid-cols-2">
-            {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="group flex flex-col rounded-2xl bg-gray-50 p-6 ring-1 ring-gray-900/5 transition hover:shadow-lg"
-              >
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block rounded-full bg-indigo-50 px-3 py-0.5 text-xs font-medium text-indigo-700"
-                    >
-                      {tag.replace(/-/g, ' ')}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Title */}
-                <h2 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition sm:text-2xl">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h2>
-
-                {/* Excerpt */}
-                <p className="mt-3 flex-1 text-base leading-relaxed text-gray-600">
-                  {post.excerpt}
-                </p>
-
-                {/* Meta */}
-                <div className="mt-4 flex items-center gap-4 text-sm text-gray-500">
-                  <time dateTime={post.publishedAt}>
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <span aria-hidden="true">&middot;</span>
-                  <span>{post.readTime}</span>
-                </div>
-
-                {/* Read More */}
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-indigo-600 transition hover:text-indigo-800"
+          {blogPosts.length === 0 ? (
+            <p className="text-gray-500">No posts published yet.</p>
+          ) : (
+            <div className="grid gap-8 sm:grid-cols-2">
+              {blogPosts.map((post) => (
+                <article
+                  key={post.slug}
+                  className="group flex flex-col rounded-2xl bg-gray-50 p-6 ring-1 ring-gray-900/5 transition hover:shadow-lg"
                 >
-                  Read More
-                  <svg
-                    className="ml-1 h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    aria-hidden="true"
+                  {/* Tags */}
+                  {post.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-block rounded-full bg-indigo-50 px-3 py-0.5 text-xs font-medium text-indigo-700"
+                        >
+                          {tag.replace(/-/g, ' ')}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Title */}
+                  <h2 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition sm:text-2xl">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h2>
+
+                  {/* Excerpt */}
+                  <p className="mt-3 flex-1 text-base leading-relaxed text-gray-600">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Meta */}
+                  <div className="mt-4 flex items-center gap-4 text-sm text-gray-500">
+                    <time dateTime={post.publishedAt}>
+                      {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    <span aria-hidden="true">&middot;</span>
+                    <span>{post.readTime}</span>
+                  </div>
+
+                  {/* Read More */}
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="mt-4 inline-flex items-center text-sm font-semibold text-indigo-600 transition hover:text-indigo-800"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </Link>
-              </article>
-            ))}
-          </div>
+                    Read More
+                    <svg
+                      className="ml-1 h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

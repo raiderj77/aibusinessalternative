@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { tools } from '@/data/tools';
 import { categories } from '@/data/categories';
+import { getAllBlogPosts } from '@/lib/blog-markdown';
 
 const baseUrl = 'https://aibusinessalternative.com';
 
@@ -30,13 +31,6 @@ const bestPages = [
   'best-ai-image-generators',
 ];
 
-const blogPosts = [
-  'what-is-ai-for-business',
-  'chatgpt-alternatives-2026',
-  'best-ai-tools-for-small-business-2026',
-  'how-to-choose-ai-tools',
-  'ai-tools-that-replace-software',
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -85,9 +79,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogPages = blogPosts.map(slug => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
+  const blogPages = getAllBlogPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
