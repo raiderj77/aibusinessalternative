@@ -31,6 +31,14 @@ const comparisonPairs = [
   { slug: 'zapier-ai-vs-make-ai', toolASlug: 'zapier-ai', toolBSlug: 'make-ai', category: 'AI Productivity & Automation' },
   { slug: 'elevenlabs-vs-murf-ai', toolASlug: 'elevenlabs', toolBSlug: 'murf-ai', category: 'AI Audio & Voice' },
   { slug: 'perplexity-ai-vs-chatgpt', toolASlug: 'perplexity-ai', toolBSlug: 'chatgpt', category: 'AI Research & Knowledge' },
+  { slug: 'midjourney-vs-stable-diffusion', toolASlug: 'midjourney', toolBSlug: 'stable-diffusion', category: 'AI Image Generation' },
+  { slug: 'zapier-ai-vs-n8n-ai', toolASlug: 'zapier-ai', toolBSlug: 'n8n-ai', category: 'AI Productivity & Automation' },
+  { slug: 'copy-ai-vs-writesonic', toolASlug: 'copy-ai', toolBSlug: 'writesonic', category: 'AI Writing & Content' },
+  { slug: 'cursor-ai-vs-claude-code', toolASlug: 'cursor-ai', toolBSlug: 'claude-code', category: 'AI Coding & Development' },
+  { slug: 'perplexity-ai-vs-claude-ai', toolASlug: 'perplexity-ai', toolBSlug: 'claude-ai', category: 'AI Research & Knowledge' },
+  { slug: 'notion-ai-vs-claude-ai', toolASlug: 'notion-ai', toolBSlug: 'claude-ai', category: 'AI Writing & Content' },
+  { slug: 'elevenlabs-vs-descript', toolASlug: 'elevenlabs', toolBSlug: 'descript', category: 'AI Audio & Voice' },
+  { slug: 'make-ai-vs-n8n-ai', toolASlug: 'make-ai', toolBSlug: 'n8n-ai', category: 'AI Productivity & Automation' },
 ];
 
 const breadcrumbJsonLd = {
@@ -64,7 +72,7 @@ export default function ComparePage() {
       <section className="py-10 border-b border-black/10">
         <div className="container-custom">
           <div className="mb-4">
-            <span className="badge badge-blue">16 comparisons · Updated April 2026</span>
+            <span className="badge badge-blue">24 comparisons · Updated April 2026</span>
           </div>
           <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
             Compare AI Tools

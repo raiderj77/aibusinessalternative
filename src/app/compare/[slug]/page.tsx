@@ -27,6 +27,14 @@ const comparisonSlugs = [
   'notion-ai-vs-chatgpt',
   'semrush-ai-vs-ahrefs',
   'runway-ml-vs-pika-labs',
+  'midjourney-vs-stable-diffusion',
+  'zapier-ai-vs-n8n-ai',
+  'copy-ai-vs-writesonic',
+  'cursor-ai-vs-claude-code',
+  'perplexity-ai-vs-claude-ai',
+  'notion-ai-vs-claude-ai',
+  'elevenlabs-vs-descript',
+  'make-ai-vs-n8n-ai',
 ];
 
 export function generateStaticParams() {
