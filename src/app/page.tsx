@@ -215,27 +215,26 @@ export default function HomePage() {
                   href={`/compare/${slug}`}
                   className="card p-3.5 flex items-center gap-3 cursor-pointer hover:border-black/20 transition-colors"
                 >
-                  {/* Dual logos */}
-                  <div className="flex items-center gap-1 shrink-0">
-                    <div className="w-7 h-7 rounded-md bg-gray-50 border border-black/[0.08] flex items-center justify-center text-base">
-                      {toolA.icon}
+                  {/* Dual logo boxes */}
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="w-7 h-7 rounded-md bg-gray-100 flex items-center justify-center text-[10px] font-semibold text-gray-500 overflow-hidden">
+                      {(toolA.logoPlaceholder?.slice(0, 2) || toolA.name.slice(0, 2)).toUpperCase()}
                     </div>
-                    <span className="text-[10px] text-gray-300 font-medium px-0.5">vs</span>
-                    <div className="w-7 h-7 rounded-md bg-gray-50 border border-black/[0.08] flex items-center justify-center text-base">
-                      {toolB.icon}
+                    <span className="text-[10px] text-gray-300 font-medium">vs</span>
+                    <div className="w-7 h-7 rounded-md bg-gray-100 flex items-center justify-center text-[10px] font-semibold text-gray-500 overflow-hidden">
+                      {(toolB.logoPlaceholder?.slice(0, 2) || toolB.name.slice(0, 2)).toUpperCase()}
                     </div>
                   </div>
 
                   {/* Info */}
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <div className="text-[13px] font-medium text-gray-900 truncate">
                       {toolA.name} vs {toolB.name}
                     </div>
-                    <div className="text-[11px] text-gray-400 mt-0.5">{category}</div>
+                    <div className="text-[11px] text-gray-400">{category}</div>
                   </div>
 
-                  {/* Arrow */}
-                  <span className="text-gray-300 shrink-0" aria-hidden="true">›</span>
+                  <span className="text-gray-300 text-[14px]" aria-hidden="true">›</span>
                 </Link>
               ))}
             </div>

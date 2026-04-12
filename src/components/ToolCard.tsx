@@ -12,7 +12,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
     <Link href={`/tools/${tool.slug}`} className="card group flex flex-col p-5 block" aria-label={`View ${tool.name}`}>
       <div>
         {/* Logo abbreviation box */}
-        <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-[13px] font-semibold text-gray-500 mb-3">
+        <div className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-[13px] font-semibold text-gray-500 shrink-0 overflow-hidden mb-3">
           {(tool.logoPlaceholder?.slice(0, 2) || tool.name.slice(0, 2)).toUpperCase()}
         </div>
 

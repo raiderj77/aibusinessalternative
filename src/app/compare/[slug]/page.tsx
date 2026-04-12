@@ -203,16 +203,12 @@ export default async function ComparisonPage({ params }: PageProps) {
             <div className="grid grid-cols-[1fr_40px_1fr] items-start">
 
               {/* Tool A card */}
-              <div className="card p-5">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-11 h-11 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0">
-                    {toolA.icon}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[16px] font-semibold leading-snug">{toolA.name}</div>
-                    <div className="text-[12px] text-gray-400 mt-0.5 leading-snug">{toolA.tagline}</div>
-                  </div>
+              <div className="card p-5 flex flex-col">
+                <div className="w-9 h-9 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0 mb-3">
+                  {toolA.icon}
                 </div>
+                <div className="text-[15px] font-semibold leading-snug">{toolA.name}</div>
+                <div className="text-[12px] text-gray-400 mt-0.5 leading-snug mb-3">{toolA.tagline}</div>
                 <p className="text-[13px] text-gray-600 leading-relaxed">
                   {content?.verdictA ?? `${toolA.name} is best for ${toolA.bestFor.toLowerCase()}.`}
                 </p>
@@ -230,16 +226,12 @@ export default async function ComparisonPage({ params }: PageProps) {
               </div>
 
               {/* Tool B card */}
-              <div className={`card p-5${isToolBRecommended ? ' ring-1 ring-[#2563EB]' : ''}`}>
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-11 h-11 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0">
-                    {toolB.icon}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[16px] font-semibold leading-snug">{toolB.name}</div>
-                    <div className="text-[12px] text-gray-400 mt-0.5 leading-snug">{toolB.tagline}</div>
-                  </div>
+              <div className={`card p-5 flex flex-col${isToolBRecommended ? ' ring-1 ring-[#2563EB]' : ''}`}>
+                <div className="w-9 h-9 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0 mb-3">
+                  {toolB.icon}
                 </div>
+                <div className="text-[15px] font-semibold leading-snug">{toolB.name}</div>
+                <div className="text-[12px] text-gray-400 mt-0.5 leading-snug mb-3">{toolB.tagline}</div>
                 <p className="text-[13px] text-gray-600 leading-relaxed">
                   {content?.verdictB ?? `${toolB.name} is best for ${toolB.bestFor.toLowerCase()}.`}
                 </p>
