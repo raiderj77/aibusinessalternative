@@ -35,6 +35,9 @@ const comparisonSlugs = [
   'notion-ai-vs-claude-ai',
   'elevenlabs-vs-descript',
   'make-ai-vs-n8n-ai',
+  'canva-ai-vs-adobe-express',
+  'grammarly-business-vs-claude-ai',
+  'jasper-ai-vs-anyword',
 ];
 
 export function generateStaticParams() {

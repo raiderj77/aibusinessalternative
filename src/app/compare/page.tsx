@@ -39,6 +39,9 @@ const comparisonPairs = [
   { slug: 'notion-ai-vs-claude-ai', toolASlug: 'notion-ai', toolBSlug: 'claude-ai', category: 'AI Writing & Content' },
   { slug: 'elevenlabs-vs-descript', toolASlug: 'elevenlabs', toolBSlug: 'descript', category: 'AI Audio & Voice' },
   { slug: 'make-ai-vs-n8n-ai', toolASlug: 'make-ai', toolBSlug: 'n8n-ai', category: 'AI Productivity & Automation' },
+  { slug: 'canva-ai-vs-adobe-express', toolASlug: 'canva-ai', toolBSlug: 'adobe-express', category: 'AI Design & Creative' },
+  { slug: 'grammarly-business-vs-claude-ai', toolASlug: 'grammarly-business', toolBSlug: 'claude-ai', category: 'AI Writing & Content' },
+  { slug: 'jasper-ai-vs-anyword', toolASlug: 'jasper-ai', toolBSlug: 'anyword', category: 'AI Writing & Content' },
 ];
 
 const breadcrumbJsonLd = {
@@ -72,7 +75,7 @@ export default function ComparePage() {
       <section className="py-10 border-b border-black/10">
         <div className="container-custom">
           <div className="mb-4">
-            <span className="badge badge-blue">24 comparisons · Updated April 2026</span>
+            <span className="badge badge-blue">27 comparisons · Updated April 2026</span>
           </div>
           <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
             Compare AI Tools

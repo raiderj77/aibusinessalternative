@@ -2848,6 +2848,117 @@ const rawTools: AIToolRaw[] = [
     tags: ['seo', 'backlinks', 'keyword-research', 'competitor-analysis'],
     alternatives: ['semrush-ai', 'surfer-seo'],
     lastUpdated: '2026-03-22'
+  },
+  {
+    slug: 'anyword',
+    name: 'Anyword',
+    tagline: 'AI writing with predictive performance scoring for marketers.',
+    description: 'Anyword is an AI writing platform built specifically for performance marketers. Its predictive performance score estimates how well specific copy will convert with specific audiences before you publish — a capability unique in the AI writing space. It covers ads, emails, landing pages, and social content, with audience-specific predictions and A/B copy variations with predicted winners.',
+    category: ['writing'],
+    pricing: 'paid',
+    startingPrice: '$39/mo',
+    affiliateUrl: 'https://anyword.com',
+    websiteUrl: 'https://anyword.com',
+    logoPlaceholder: 'AW',
+    features: [
+      'Predictive performance scoring for all copy',
+      'Audience-specific conversion predictions',
+      'A/B copy variations with predicted winners',
+      'Brand voice training and consistency',
+      'Ad copy generation for Google, Facebook, LinkedIn',
+      'Email subject line optimizer'
+    ],
+    pros: [
+      'Unique predictive scoring tells you which copy will convert before publishing',
+      'Audience targeting lets you optimize copy for specific demographics',
+      'Strong for paid advertising copy and email marketing',
+      'Data-driven approach removes guesswork from copywriting'
+    ],
+    cons: [
+      'No free tier — paid plans only from $39/month',
+      'Performance scores are estimates, not guarantees',
+      'Less useful for long-form content than short copy'
+    ],
+    bestFor: 'Performance marketers and growth teams who make data-driven copy decisions for ads, email, and landing pages.',
+    rating: 4.3,
+    reviewCount: 890,
+    tags: ['ai-writing', 'copywriting', 'marketing', 'performance', 'ads'],
+    alternatives: ['jasper-ai', 'copy-ai', 'writesonic'],
+    lastUpdated: '2026-04-11'
+  },
+  {
+    slug: 'adobe-express',
+    name: 'Adobe Express',
+    tagline: 'Quick, professional design powered by Adobe Firefly AI.',
+    description: 'Adobe Express is Adobe\'s accessible design tool for non-designers, powered by the Adobe Firefly generative AI engine. It offers text-to-image generation, background removal, generative fill, one-click resizing, and thousands of professional templates. Its deep integration with Creative Cloud means brand assets, fonts, and colors sync automatically for teams already in the Adobe ecosystem.',
+    category: ['design'],
+    pricing: 'freemium',
+    startingPrice: '$0/mo free / $9.99/mo Premium',
+    affiliateUrl: 'https://adobe.com/express',
+    websiteUrl: 'https://adobe.com/express',
+    logoPlaceholder: 'AE',
+    features: [
+      'Adobe Firefly AI for text-to-image generation',
+      'Generative fill and background removal',
+      'One-click resize across formats and platforms',
+      'Creative Cloud asset library integration',
+      'Thousands of professional templates',
+      'Brand kit for consistent design'
+    ],
+    pros: [
+      'Firefly AI is trained on licensed content — safer for commercial use',
+      'Seamless Creative Cloud integration for Adobe teams',
+      'Clean interface accessible to non-designers',
+      'Included with Creative Cloud subscriptions at no extra cost'
+    ],
+    cons: [
+      'Template library smaller than Canva',
+      'Full value requires existing Adobe/Creative Cloud subscription',
+      'Less powerful as a standalone tool compared to Canva'
+    ],
+    bestFor: 'Teams already using Adobe Creative Cloud who want accessible AI-powered design without leaving the Adobe ecosystem.',
+    rating: 4.2,
+    reviewCount: 2100,
+    tags: ['design', 'ai-image', 'adobe', 'templates', 'creative'],
+    alternatives: ['canva-ai', 'microsoft-designer'],
+    lastUpdated: '2026-04-11'
+  },
+  {
+    slug: 'grammarly',
+    name: 'Grammarly',
+    tagline: 'Real-time AI writing assistance embedded everywhere you write.',
+    description: 'Grammarly is the leading AI writing assistant, used by over 30 million people daily. Its browser extension integrates directly into Gmail, Google Docs, Word, Slack, LinkedIn, and thousands of other writing surfaces — checking grammar, spelling, tone, clarity, and engagement as you type. Newer versions include GrammarlyGO for generative rewrites and drafting.',
+    category: ['writing'],
+    pricing: 'freemium',
+    startingPrice: '$0/mo free / $12/mo Premium',
+    affiliateUrl: 'https://grammarly.com',
+    websiteUrl: 'https://grammarly.com',
+    logoPlaceholder: 'Gr',
+    features: [
+      'Real-time grammar, spelling, and punctuation checking',
+      'Tone detection and adjustment suggestions',
+      'Clarity and engagement scoring',
+      'GrammarlyGO for AI-powered rewrites and drafting',
+      'Plagiarism detection on Premium',
+      'Browser extension works across 500,000+ apps and websites'
+    ],
+    pros: [
+      'Works everywhere you write via browser extension',
+      'Free tier catches most common grammar and spelling errors',
+      'Tone suggestions help match communication to context',
+      'Plagiarism checker on Premium adds academic and professional value'
+    ],
+    cons: [
+      'Premium cost adds up for teams at $15/user/month on Business plan',
+      'Can over-suggest changes that flatten natural writing voice',
+      'Less capable than dedicated AI tools for content creation'
+    ],
+    bestFor: 'Professionals who write across multiple platforms daily and want consistent, reliable proofreading built into every surface they use.',
+    rating: 4.5,
+    reviewCount: 8900,
+    tags: ['writing', 'grammar', 'proofreading', 'productivity', 'editing'],
+    alternatives: ['claude-ai', 'chatgpt', 'writesonic'],
+    lastUpdated: '2026-04-11'
   }
 ];
 
