@@ -145,7 +145,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-sans)]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
