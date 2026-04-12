@@ -281,70 +281,45 @@ export default async function ToolDetailPage({
         />
 
         {/* ── Hero Header ── */}
-        <header className="mb-12 rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-6 sm:p-10">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-            {/* Logo placeholder */}
-            <div
-              className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-5xl shadow-sm"
-              aria-hidden="true"
-            >
-              {tool.icon}
+        <header className="mb-8 pb-8 border-b border-black/10">
+          {/* Logo + name row */}
+          <div className="flex items-start gap-4 mb-5">
+            <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-[15px] font-semibold text-gray-500 shrink-0 overflow-hidden">
+              {(tool.logoPlaceholder?.slice(0, 2) || tool.name.slice(0, 2)).toUpperCase()}
             </div>
-
-            <div className="flex-1">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <div className="min-w-0">
+              <h1 className="text-[26px] font-semibold tracking-tight text-gray-900 leading-tight">
                 {tool.name}
               </h1>
-              <p className="mt-2 text-lg text-gray-600">{tool.tagline}</p>
-
-              {/* Badges */}
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {tool.categories.map((catSlug) => {
-                  const cat = getCategoryBySlug(catSlug);
-                  return (
-                    <Link
-                      key={catSlug}
-                      href={`/categories/${catSlug}`}
-                      className="inline-block rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-700 transition-colors hover:bg-indigo-200"
-                    >
-                      {cat?.icon} {cat?.name || catSlug}
-                    </Link>
-                  );
-                })}
-                <PricingBadge pricing={tool.pricing} price={tool.price} />
-              </div>
-
-              {/* Rating */}
-              <div className="mt-4">
-                <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="lg" />
-              </div>
+              <p className="text-[14px] text-gray-500 mt-1">{tool.tagline}</p>
             </div>
+          </div>
 
-            {/* CTA Button */}
-            <div className="shrink-0 sm:self-center">
-              <a
-                href={visitUrl}
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Visit {tool.name}
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                  />
-                </svg>
-              </a>
-            </div>
+          {/* Category badges + pricing */}
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            {tool.categories.map((catSlug) => {
+              const cat = getCategoryBySlug(catSlug);
+              return (
+                <Link key={catSlug} href={`/categories/${catSlug}`} className="badge badge-gray">
+                  {cat?.name || catSlug}
+                </Link>
+              );
+            })}
+            <PricingBadge pricing={tool.pricing} price={tool.price} />
+          </div>
+
+          {/* Rating + CTA */}
+          <div className="flex flex-wrap items-center gap-4">
+            <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="lg" />
+            <a
+              href={visitUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: '#2563EB' }}
+            >
+              Visit {tool.name} →
+            </a>
           </div>
         </header>
 
