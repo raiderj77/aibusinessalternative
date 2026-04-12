@@ -18,6 +18,16 @@ AI Business Alternative is the trusted directory of AI tools for small business 
 - AI Research & Knowledge: /categories/research
 - AI Agents & Automation: /categories/ai-agents
 
+## Industries
+- AI Tools for Freelancers: /for/freelancers
+- AI Tools for Marketing Agencies: /for/marketing-agencies
+- AI Tools for E-commerce Businesses: /for/ecommerce-businesses
+- AI Tools for Real Estate Agents: /for/real-estate-agents
+- AI Tools for Lawyers & Law Firms: /for/lawyers-and-law-firms
+- AI Tools for Content Creators: /for/content-creators
+- AI Tools for Startups: /for/startups
+- AI Tools for Restaurants & Hospitality: /for/restaurant-and-hospitality
+
 ## Key Pages
 - All Tools: /tools
 - Categories: /categories

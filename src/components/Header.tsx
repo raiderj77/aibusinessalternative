@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/categories', label: 'Categories' },
   { href: '/compare', label: 'Compare' },
   { href: '/best', label: 'Best Of' },
+  { href: '/for', label: 'Industries' },
   { href: '/blog', label: 'Blog' },
 ] as const;
 
