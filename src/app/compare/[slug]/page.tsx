@@ -200,6 +200,7 @@ export default async function ComparisonPage({ params }: PageProps) {
 
           {/* 3. Verdict card grid */}
           <section className="py-7 border-b border-black/10">
+            <h2 className="text-[16px] font-semibold mb-4">Our verdict</h2>
             <div className="grid grid-cols-[1fr_40px_1fr] items-start">
 
               {/* Tool A card */}
