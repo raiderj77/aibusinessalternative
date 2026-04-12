@@ -33,54 +33,40 @@ const categoryIcons: Record<string, string> = {
 export default function BestIndexPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-600 py-14 sm:py-20">
-        <div className="container-custom text-center">
-          <h1 className="mx-auto max-w-4xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <section className="py-10 border-b border-black/10">
+        <div className="container-custom">
+          <div className="mb-4">
+            <span className="badge badge-blue">8 curated lists · Updated April 2026</span>
+          </div>
+          <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
             Best AI Tools — Curated Picks for 2026
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-indigo-100">
-            Our editorial team tested hundreds of AI tools and narrowed them down
-            to the best picks for every use case.
+          <p className="mt-3 text-[17px] text-gray-500 max-w-xl">
+            Our editorial team tested hundreds of AI tools and narrowed them down to the best picks for every use case.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="py-10 sm:py-14">
         <div className="container-custom">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {bestPages.map((page) => (
               <Link
                 key={page.slug}
                 href={`/best/${page.slug}`}
-                className="group flex flex-col rounded-2xl bg-gray-50 p-6 ring-1 ring-gray-900/5 transition hover:shadow-lg hover:ring-indigo-200"
+                className="card group flex flex-col p-5"
               >
-                <span
-                  className="text-3xl"
-                  aria-hidden="true"
-                >
+                <span className="text-3xl" aria-hidden="true">
                   {categoryIcons[page.slug] || '🤖'}
                 </span>
-                <h2 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition">
+                <h2 className="mt-3 text-[15px] font-semibold text-gray-900">
                   {page.title} in 2026
                 </h2>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-500">
                   {page.metaDescription}
                 </p>
-                <span className="mt-4 inline-flex items-center text-sm font-semibold text-indigo-600">
-                  View picks
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
+                <span className="mt-4 text-[13px] font-medium text-[#2563EB]">
+                  View picks →
                 </span>
               </Link>
             ))}

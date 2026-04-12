@@ -42,39 +42,38 @@ export default function CategoriesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <section className="bg-gradient-to-b from-indigo-50 to-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-2 text-sm text-gray-500">
-              <li>
-                <Link href="/" className="hover:text-indigo-600">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>
-                <span className="font-medium text-gray-900">Categories</span>
-              </li>
-            </ol>
-          </nav>
-
-          {/* Header */}
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              AI Tool Categories
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-              Explore AI tools organized by what they do best
-            </p>
+      {/* Hero */}
+      <section className="py-10 border-b border-black/10">
+        <div className="container-custom">
+          <div className="mb-4">
+            <span className="badge badge-blue">12 categories</span>
           </div>
+          <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
+            AI Tool Categories
+          </h1>
+          <p className="mt-3 text-[17px] text-gray-500 max-w-xl">
+            Explore AI tools organized by what they do best
+          </p>
+        </div>
+      </section>
 
-          {/* Category Grid */}
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category) => (
-              <CategoryCard key={category.slug} category={category} />
-            ))}
-          </div>
+      {/* Breadcrumb */}
+      <nav className="border-b border-black/10 bg-gray-50" aria-label="Breadcrumb">
+        <div className="container-custom py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li><Link href="/" className="hover:text-gray-900">Home</Link></li>
+            <li aria-hidden="true">/</li>
+            <li className="font-medium text-gray-900">Categories</li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* Category Grid */}
+      <section className="container-custom py-10 sm:py-14">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {categories.map((category) => (
+            <CategoryCard key={category.slug} category={category} />
+          ))}
         </div>
       </section>
     </>

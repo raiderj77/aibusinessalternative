@@ -42,20 +42,21 @@ export default function ToolsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
 
-      <section className="bg-gradient-to-b from-indigo-50 to-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-              AI Tools Directory
-            </h1>
-            <p className="mt-4 text-lg text-gray-600 sm:text-xl">
-              Browse and compare 60+ AI tools across 12 categories
-            </p>
+      <section className="py-10 border-b border-black/10">
+        <div className="container-custom">
+          <div className="mb-4">
+            <span className="badge badge-blue">60+ tools · 12 categories</span>
           </div>
+          <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
+            AI Tools Directory
+          </h1>
+          <p className="mt-3 text-[17px] text-gray-500 max-w-xl">
+            Browse and compare 60+ AI tools across 12 categories
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <section className="container-custom py-8 sm:py-12">
         <ToolsDirectory tools={tools} categories={categories} />
       </section>
     </>

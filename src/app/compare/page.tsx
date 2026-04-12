@@ -61,24 +61,25 @@ export default function ComparePage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-600 py-16 sm:py-20">
-        <div className="container-custom text-center">
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <section className="py-10 border-b border-black/10">
+        <div className="container-custom">
+          <div className="mb-4">
+            <span className="badge badge-blue">16 comparisons · Updated April 2026</span>
+          </div>
+          <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
             Compare AI Tools
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-indigo-100">
+          <p className="mt-3 text-[17px] text-gray-500 max-w-xl">
             Side-by-side comparisons to help you choose the right tool
           </p>
         </div>
       </section>
 
       {/* Breadcrumb */}
-      <nav className="bg-gray-50 border-b border-gray-200" aria-label="Breadcrumb">
+      <nav className="border-b border-black/10 bg-gray-50" aria-label="Breadcrumb">
         <div className="container-custom py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-indigo-600">Home</Link>
-            </li>
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li><Link href="/" className="hover:text-gray-900">Home</Link></li>
             <li aria-hidden="true">/</li>
             <li className="font-medium text-gray-900">Compare</li>
           </ol>
@@ -99,12 +100,10 @@ export default function ComparePage() {
                 <Link
                   key={pair.slug}
                   href={`/compare/${pair.slug}`}
-                  className="group flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-900/5 transition hover:shadow-md hover:ring-indigo-200"
+                  className="card group flex flex-col p-5"
                 >
                   {/* Category tag */}
-                  <span className="mb-4 inline-flex self-start rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
-                    {pair.category}
-                  </span>
+                  <span className="badge badge-gray self-start mb-4">{pair.category}</span>
 
                   {/* Tool A vs Tool B */}
                   <div className="flex items-center justify-between gap-3">
@@ -116,7 +115,7 @@ export default function ComparePage() {
                     </div>
 
                     {/* VS badge */}
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-violet-100 text-sm font-bold text-violet-700">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-xs font-bold text-gray-600">
                       VS
                     </div>
 
@@ -129,18 +128,8 @@ export default function ComparePage() {
                   </div>
 
                   {/* CTA */}
-                  <span className="mt-5 inline-flex items-center justify-center text-sm font-semibold text-indigo-600 transition group-hover:text-indigo-800">
-                    View Comparison
-                    <svg
-                      className="ml-1 h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
+                  <span className="mt-5 text-[13px] font-medium text-[#2563EB]">
+                    View comparison →
                   </span>
                 </Link>
               );
