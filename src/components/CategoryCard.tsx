@@ -5,37 +5,47 @@ interface CategoryCardProps {
   category: AICategory;
 }
 
+const iconBgMap: Record<string, string> = {
+  'writing': 'bg-blue-50',
+  'image-generation': 'bg-purple-50',
+  'video-creation': 'bg-red-50',
+  'coding': 'bg-green-50',
+  'marketing': 'bg-amber-50',
+  'customer-service': 'bg-teal-50',
+  'productivity': 'bg-pink-50',
+  'design': 'bg-orange-50',
+  'business-intelligence': 'bg-indigo-50',
+  'audio-voice': 'bg-violet-50',
+  'research': 'bg-cyan-50',
+  'ai-agents': 'bg-slate-100',
+};
+
 export default function CategoryCard({ category }: CategoryCardProps) {
+  const iconBg = iconBgMap[category.slug] ?? 'bg-gray-100';
+
   return (
     <Link
       href={`/categories/${category.slug}`}
-      className="group flex flex-col rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+      className="card block cursor-pointer p-4"
       aria-label={`${category.name} - ${category.toolCount} tools`}
     >
       {/* Icon */}
       <div
-        className="flex h-14 w-14 items-center justify-center rounded-xl bg-indigo-50 text-3xl"
+        className={`mb-3 flex h-8 w-8 items-center justify-center rounded-lg text-[15px] ${iconBg}`}
         aria-hidden="true"
       >
         {category.icon}
       </div>
 
       {/* Name */}
-      <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-indigo-600">
+      <h3 className="mb-0.5 text-[13px] font-semibold text-gray-900">
         {category.name}
       </h3>
 
-      {/* Description (truncated to 2 lines) */}
-      <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-gray-600">
-        {category.description}
+      {/* Tool count */}
+      <p className="text-[11px] text-gray-400">
+        {category.toolCount} {category.toolCount === 1 ? 'tool' : 'tools'}
       </p>
-
-      {/* Tool count badge */}
-      <div className="mt-4">
-        <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
-          {category.toolCount} {category.toolCount === 1 ? 'tool' : 'tools'}
-        </span>
-      </div>
     </Link>
   );
 }

@@ -3,12 +3,12 @@ interface PricingBadgeProps {
   price?: string;
 }
 
-const badgeStyles = {
-  free: 'bg-green-100 text-green-700',
-  freemium: 'bg-blue-100 text-blue-700',
-  paid: 'bg-gray-100 text-gray-700',
-  'free-trial': 'bg-purple-100 text-purple-700',
-} as const;
+const badgeClass: Record<PricingBadgeProps['pricing'], string> = {
+  free: 'badge badge-green',
+  freemium: 'badge badge-blue',
+  paid: 'badge badge-gray',
+  'free-trial': 'badge badge-amber',
+};
 
 const labels: Record<PricingBadgeProps['pricing'], string> = {
   free: 'Free',
@@ -19,9 +19,9 @@ const labels: Record<PricingBadgeProps['pricing'], string> = {
 
 export default function PricingBadge({ pricing, price }: PricingBadgeProps) {
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium ${badgeStyles[pricing]}`}>
+    <span className={badgeClass[pricing]}>
       {labels[pricing]}
-      {price && <span className="font-normal">· {price}</span>}
+      {price && <span className="font-normal opacity-75"> · {price}</span>}
     </span>
   );
 }

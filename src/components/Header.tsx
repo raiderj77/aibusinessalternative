@@ -25,8 +25,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-white transition-shadow ${
-        scrolled ? 'shadow-md' : 'shadow-none'
+      className={`sticky top-0 z-50 w-full border-b border-black/10 bg-white/95 backdrop-blur-sm transition-colors ${
+        scrolled ? 'border-black/10' : 'border-transparent'
       }`}
       role="banner"
     >
@@ -35,45 +35,47 @@ export default function Header() {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-indigo-600">
-          <span aria-hidden="true">🤖</span>
-          <span>AI Business Alternative</span>
+        <Link href="/" className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-[#2563EB]" aria-hidden="true" />
+          <span className="text-[15px] font-semibold tracking-tight text-gray-900">
+            AI Business Alternative
+          </span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-5 md:flex">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-600"
+              className="text-[13px] text-gray-500 transition-colors hover:text-gray-900"
             >
               {label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700"
+            className="rounded-md bg-[#2563EB] px-3.5 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-blue-700"
           >
-            Submit Tool
+            Submit a tool
           </Link>
         </div>
 
         {/* Mobile hamburger button */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
         >
           {mobileMenuOpen ? (
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           )}
@@ -82,27 +84,29 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="border-t border-gray-100 bg-white md:hidden" role="menu">
-          <div className="space-y-1 px-4 py-3">
+        <div id="mobile-menu" className="border-t border-black/10 bg-white md:hidden" role="menu">
+          <div className="space-y-0.5 px-4 py-2">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                className="block rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                className="block rounded-md px-3 py-2 text-[13px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-900"
                 role="menuitem"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="mt-2 block rounded-lg bg-indigo-600 px-3 py-2 text-center text-base font-semibold text-white hover:bg-indigo-700"
-              role="menuitem"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Submit Tool
-            </Link>
+            <div className="pt-2 pb-1">
+              <Link
+                href="/contact"
+                className="block rounded-md bg-[#2563EB] px-3 py-2 text-center text-[13px] font-medium text-white transition-colors hover:bg-blue-700"
+                role="menuitem"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Submit a tool
+              </Link>
+            </div>
           </div>
         </div>
       )}

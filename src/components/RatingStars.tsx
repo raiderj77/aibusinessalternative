@@ -19,7 +19,7 @@ const textSizeClasses = {
 export default function RatingStars({ rating, reviewCount, size = 'md' }: RatingStarsProps) {
   const roundedRating = Math.round(rating * 2) / 2;
 
-  const stars: string[] = [];
+  const stars: Array<'full' | 'half' | 'empty'> = [];
   for (let i = 1; i <= 5; i++) {
     if (roundedRating >= i) {
       stars.push('full');
@@ -31,15 +31,38 @@ export default function RatingStars({ rating, reviewCount, size = 'md' }: Rating
   }
 
   return (
-    <div className="flex items-center gap-1" role="img" aria-label={`Rating: ${rating} out of 5 stars${reviewCount ? `, ${reviewCount} reviews` : ''}`}>
+    <div
+      className="flex items-center gap-1"
+      role="img"
+      aria-label={`${rating} out of 5 stars${reviewCount ? `, ${reviewCount} reviews` : ''}`}
+    >
       <span className={`${sizeClasses[size]} flex`} aria-hidden="true">
-        {stars.map((star, i) => (
-          <span key={i} className="text-yellow-500">
-            {star === 'full' ? '★' : star === 'half' ? '★' : '☆'}
-          </span>
-        ))}
-        {/* Half star overlay */}
-        <span className="sr-only">{rating} out of 5</span>
+        {stars.map((star, i) => {
+          if (star === 'full') {
+            return <span key={i} className="text-amber-400">★</span>;
+          }
+          if (star === 'half') {
+            return (
+              <span key={i} style={{ position: 'relative', display: 'inline-block' }}>
+                <span className="text-gray-200">★</span>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '0.6em',
+                    overflow: 'hidden',
+                    color: '#F59E0B',
+                  }}
+                >
+                  ★
+                </span>
+              </span>
+            );
+          }
+          return <span key={i} className="text-gray-200">★</span>;
+        })}
       </span>
       <span className={`${textSizeClasses[size]} text-gray-600`}>
         {rating.toFixed(1)}

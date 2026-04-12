@@ -1,56 +1,48 @@
 import Link from 'next/link';
 import { categories } from '@/data/categories';
-import { tools } from '@/data/tools';
+import { tools, getToolBySlug } from '@/data/tools';
 import SearchBar from '@/components/SearchBar';
 import CategoryCard from '@/components/CategoryCard';
 import ToolCard from '@/components/ToolCard';
+import FAQ from '@/components/FAQ';
+
+const faqItems = [
+  {
+    question: 'What is AI Business Alternative?',
+    answer:
+      'AI Business Alternative is a free directory and comparison tool that helps businesses find the best AI tools for their specific needs. It covers alternatives across categories including writing, coding, image generation, customer service, analytics, and productivity — with honest comparisons of features, pricing, and use cases.',
+  },
+  {
+    question: 'How do I find the best AI tool for my business?',
+    answer:
+      'Browse by category or use the search to find AI tools for your specific task. Each listing includes a feature comparison, pricing overview, and recommended use cases. Filter by budget, team size, or integration requirements to narrow down options that fit your workflow.',
+  },
+  {
+    question: 'Are the AI tool comparisons on this site unbiased?',
+    answer:
+      'Comparisons are based on publicly available feature information, pricing pages, and community feedback. Some listings may include affiliate relationships — these are disclosed. We aim to provide accurate, up-to-date information but recommend verifying current pricing and features directly with each vendor before purchasing.',
+  },
+  {
+    question: 'How often is the AI tool directory updated?',
+    answer:
+      "The directory is updated regularly as new AI tools launch and existing tools update their features or pricing. The AI software market changes rapidly — always check the vendor's official website for the most current information before making a business decision.",
+  },
+  {
+    question: 'What are the best free AI tools for small businesses?',
+    answer:
+      'Several capable free AI tools exist for small businesses: ChatGPT (free tier), Claude (free tier), Canva AI (free plan), Notion AI (limited free), and Google Gemini (free). The best choice depends on your primary use case — writing, design, coding, or customer communication. AI Business Alternative helps you compare free tiers side by side.',
+  },
+];
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   dateModified: '2026-04-07',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is AI Business Alternative?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'AI Business Alternative is a free directory and comparison tool that helps businesses find the best AI tools for their specific needs. It covers alternatives across categories including writing, coding, image generation, customer service, analytics, and productivity — with honest comparisons of features, pricing, and use cases.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I find the best AI tool for my business?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Browse by category or use the search to find AI tools for your specific task. Each listing includes a feature comparison, pricing overview, and recommended use cases. Filter by budget, team size, or integration requirements to narrow down options that fit your workflow.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are the AI tool comparisons on this site unbiased?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Comparisons are based on publicly available feature information, pricing pages, and community feedback. Some listings may include affiliate relationships — these are disclosed. We aim to provide accurate, up-to-date information but recommend verifying current pricing and features directly with each vendor before purchasing.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How often is the AI tool directory updated?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "The directory is updated regularly as new AI tools launch and existing tools update their features or pricing. The AI software market changes rapidly — always check the vendor's official website for the most current information before making a business decision.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are the best free AI tools for small businesses?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Several capable free AI tools exist for small businesses: ChatGPT (free tier), Claude (free tier), Canva AI (free plan), Notion AI (limited free), and Google Gemini (free). The best choice depends on your primary use case — writing, design, coding, or customer communication. AI Business Alternative helps you compare free tiers side by side.',
-      },
-    },
-  ],
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
 };
 
 const blogPosts = [
@@ -60,6 +52,7 @@ const blogPosts = [
     excerpt:
       'We tested dozens of AI writing tools and narrowed it down to the top 10 that deliver real value for small business content creation, email marketing, and social media.',
     date: '2026-03-18',
+    category: 'AI Writing',
   },
   {
     slug: 'ai-chatbots-vs-human-support',
@@ -67,6 +60,7 @@ const blogPosts = [
     excerpt:
       'Not every customer interaction should be handled by AI. Here is a practical framework for deciding when to automate and when to keep the human touch.',
     date: '2026-03-12',
+    category: 'Customer Service',
   },
   {
     slug: 'reduce-costs-with-ai-automation',
@@ -74,12 +68,44 @@ const blogPosts = [
     excerpt:
       'Real case studies from one-person businesses that replaced expensive SaaS subscriptions and freelancers with AI tools — and the lessons they learned along the way.',
     date: '2026-03-05',
+    category: 'Productivity',
   },
 ];
 
+const comparePairs = [
+  { slug: 'chatgpt-vs-claude-ai', aSlug: 'chatgpt', bSlug: 'claude-ai', category: 'AI Writing' },
+  { slug: 'midjourney-vs-dall-e-3', aSlug: 'midjourney', bSlug: 'dall-e-3', category: 'Image Generation' },
+  { slug: 'github-copilot-vs-cursor-ai', aSlug: 'github-copilot', bSlug: 'cursor-ai', category: 'AI Coding' },
+  { slug: 'jasper-ai-vs-copy-ai', aSlug: 'jasper-ai', bSlug: 'copy-ai', category: 'AI Writing' },
+  { slug: 'semrush-ai-vs-surfer-seo', aSlug: 'semrush-ai', bSlug: 'surfer-seo', category: 'SEO' },
+  { slug: 'elevenlabs-vs-murf-ai', aSlug: 'elevenlabs', bSlug: 'murf-ai', category: 'Audio & Voice' },
+];
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
 export default function HomePage() {
-  const featuredCategories = categories.slice(0, 12);
+  const featuredCategories = categories.slice(0, 8);
   const topTools = [...tools].sort((a, b) => b.rating - a.rating).slice(0, 6);
+
+  const compareItems = comparePairs.flatMap(({ slug, aSlug, bSlug, category }) => {
+    const toolA = getToolBySlug(aSlug);
+    const toolB = getToolBySlug(bSlug);
+    if (!toolA || !toolB) return [];
+    return [{ slug, toolA, toolB, category }];
+  });
+
+  const stats = [
+    { num: `${tools.length}`, label: 'tools reviewed' },
+    { num: `${tools.length - 1}`, label: 'alternatives pages' },
+    { num: '16', label: 'comparisons' },
+    { num: '20', label: 'buying guides' },
+  ];
 
   return (
     <>
@@ -87,256 +113,203 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      {/* ===== Hero Section ===== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-600 py-20 sm:py-28">
-        {/* Decorative blobs */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-white/5 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 right-0 h-72 w-72 rounded-full bg-violet-400/10 blur-3xl" />
 
-        <div className="container-custom relative z-10 text-center">
-          <h1 className="mx-auto max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Find the Right AI Tool for Every&nbsp;Job
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-indigo-100 sm:text-xl">
-            The trusted directory of 500+ AI tools for small business owners and
-            solopreneurs. Compare features, pricing, and reviews to make the right
-            choice.
-          </p>
+      {/* ===== 1. Hero ===== */}
+      <section className="pt-14 pb-12 border-b border-black/10">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto text-center">
 
-          {/* Search Bar */}
-          <div className="mx-auto mt-10 max-w-xl">
-            <SearchBar tools={tools} />
-          </div>
+            {/* Activity pill */}
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#2563EB] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
+              75 tools · 216 pages indexed
+            </div>
 
-          {/* CTA Buttons */}
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/tools"
-              className="inline-flex items-center rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-indigo-700 shadow-lg transition hover:bg-gray-50 hover:shadow-xl"
-            >
-              Browse All Tools
-            </Link>
-            <Link
-              href="/categories"
-              className="inline-flex items-center rounded-lg border-2 border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur transition hover:border-white/50 hover:bg-white/20"
-            >
-              View Categories
-            </Link>
+            {/* H1 */}
+            <h1 className="font-display text-[42px] sm:text-[52px] leading-[1.15] tracking-tight mb-4">
+              Find the right AI tool for{' '}
+              <em className="text-[#2563EB]">every</em> job
+            </h1>
+
+            {/* Sub */}
+            <p className="text-[15px] text-gray-500 max-w-lg mx-auto leading-relaxed mb-7">
+              The trusted directory for small business owners and solopreneurs.
+              Compare features, pricing, and real ratings to make the right call.
+            </p>
+
+            {/* Search */}
+            <div className="mb-8">
+              <SearchBar tools={tools} />
+            </div>
+
+            {/* Stats row */}
+            <div className="flex gap-7 justify-center flex-wrap">
+              {stats.map(({ num, label }) => (
+                <div key={label} className="text-center">
+                  <div className="text-[20px] font-semibold tracking-tight text-gray-900">{num}</div>
+                  <div className="text-[12px] text-gray-400 mt-0.5">{label}</div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ===== Featured Categories ===== */}
-      <section className="bg-gray-50 py-16 sm:py-20">
+      {/* ===== 2. Categories ===== */}
+      <section className="py-10 border-b border-black/10">
         <div className="container-custom">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Browse by Category
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-lg text-gray-600">
-              Explore AI tools organized by the problem they solve for your business.
-            </p>
+
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-[16px] font-semibold">Browse by category</h2>
+            <Link href="/categories" className="text-[13px] text-[#2563EB] hover:underline">
+              View all →
+            </Link>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {featuredCategories.map((category) => (
               <CategoryCard key={category.slug} category={category} />
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ===== Top-Rated Tools ===== */}
-      {topTools.length > 0 && (
-        <section className="bg-white py-16 sm:py-20">
+      {/* ===== 3. Top tools ===== */}
+      <section className="py-10 border-b border-black/10">
+        <div className="container-custom">
+
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-[16px] font-semibold">Top-rated tools</h2>
+            <Link href="/tools" className="text-[13px] text-[#2563EB] hover:underline">
+              View all {tools.length} →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {topTools.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool} />
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ===== 4. Compare strip ===== */}
+      {compareItems.length > 0 && (
+        <section className="py-10 border-b border-black/10">
           <div className="container-custom">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Top-Rated AI Tools
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-lg text-gray-600">
-                The highest-rated AI tools as reviewed by our editorial team and the
-                community.
-              </p>
+
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="text-[16px] font-semibold">Popular comparisons</h2>
+              <Link href="/compare" className="text-[13px] text-[#2563EB] hover:underline">
+                All comparisons →
+              </Link>
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {topTools.map((tool) => (
-                <ToolCard key={tool.slug} tool={tool} />
+            <div className="grid sm:grid-cols-2 gap-3">
+              {compareItems.map(({ slug, toolA, toolB, category }) => (
+                <Link
+                  key={slug}
+                  href={`/compare/${slug}`}
+                  className="card p-3.5 flex items-center gap-3 cursor-pointer hover:border-black/20 transition-colors"
+                >
+                  {/* Dual logos */}
+                  <div className="flex items-center gap-1 shrink-0">
+                    <div className="w-7 h-7 rounded-md bg-gray-50 border border-black/[0.08] flex items-center justify-center text-base">
+                      {toolA.icon}
+                    </div>
+                    <span className="text-[10px] text-gray-300 font-medium px-0.5">vs</span>
+                    <div className="w-7 h-7 rounded-md bg-gray-50 border border-black/[0.08] flex items-center justify-center text-base">
+                      {toolB.icon}
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[13px] font-medium text-gray-900 truncate">
+                      {toolA.name} vs {toolB.name}
+                    </div>
+                    <div className="text-[11px] text-gray-400 mt-0.5">{category}</div>
+                  </div>
+
+                  {/* Arrow */}
+                  <span className="text-gray-300 shrink-0" aria-hidden="true">›</span>
+                </Link>
               ))}
             </div>
 
-            <div className="mt-10 text-center">
-              <Link
-                href="/tools"
-                className="inline-flex items-center text-base font-semibold text-indigo-600 transition hover:text-indigo-800"
-              >
-                View All Tools
-                <svg
-                  className="ml-1 h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
-            </div>
           </div>
         </section>
       )}
 
-      {/* ===== Why Trust Us ===== */}
-      <section className="bg-gray-50 py-16 sm:py-20">
+      {/* ===== 5. Blog ===== */}
+      <section className="py-10 border-b border-black/10">
         <div className="container-custom">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Why Trust AI Business Alternative?
-            </h2>
+
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-[16px] font-semibold">From the blog</h2>
+            <Link href="/blog" className="text-[13px] text-[#2563EB] hover:underline">
+              All articles →
+            </Link>
           </div>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card 1 */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-900/5">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900">Independent Reviews</h3>
-              <p className="mt-3 text-base leading-relaxed text-gray-600">
-                Our editorial team tests and reviews every tool. No pay-to-rank, no
-                sponsored listings disguised as reviews.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-900/5">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900">Real Comparisons</h3>
-              <p className="mt-3 text-base leading-relaxed text-gray-600">
-                Side-by-side comparisons with honest pros and cons. We help you find
-                what actually works for your use case.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-900/5">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900">Built for Business</h3>
-              <p className="mt-3 text-base leading-relaxed text-gray-600">
-                Every review is written with small business owners and solopreneurs in
-                mind. We focus on value, ease of use, and ROI.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Recent Blog Posts ===== */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="container-custom">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Latest from the Blog
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-lg text-gray-600">
-              Practical guides, comparisons, and insights to help you get the most from
-              AI in your business.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="group flex flex-col rounded-2xl bg-gray-50 p-6 ring-1 ring-gray-900/5 transition hover:shadow-md"
-              >
-                <time
-                  dateTime={post.date}
-                  className="text-sm font-medium text-indigo-600"
-                >
-                  {new Date(post.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
-                <h3 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-indigo-600">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="card p-4 block hover:border-black/20 transition-colors">
+                <div className="badge badge-blue mb-2.5">{post.category}</div>
+                <h3 className="text-[14px] font-medium leading-snug mb-2 text-gray-900">
+                  {post.title}
                 </h3>
-                <p className="mt-2 flex-1 text-base leading-relaxed text-gray-600">
-                  {post.excerpt}
-                </p>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-indigo-600 transition hover:text-indigo-800"
-                >
-                  Read more
-                  <svg
-                    className="ml-1 h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </Link>
-              </article>
+                <time dateTime={post.date} className="text-[11px] text-gray-400">
+                  {formatDate(post.date)}
+                </time>
+              </Link>
             ))}
           </div>
 
-          <div className="mt-10 text-center">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-base font-semibold text-indigo-600 transition hover:text-indigo-800"
-            >
-              Read More on the Blog
-              <svg
-                className="ml-1 h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Link>
+        </div>
+      </section>
+
+      {/* ===== 6. Trust bar ===== */}
+      <div className="border-t border-b border-black/10 py-5">
+        <div className="container-custom">
+          <div className="flex gap-7 items-center justify-center flex-wrap">
+
+            <span className="text-[13px] text-gray-500">
+              <strong className="text-gray-700">Independent reviews</strong> — no pay-to-rank
+            </span>
+
+            <span className="w-px h-7 bg-black/10 hidden sm:block" aria-hidden="true" />
+
+            <span className="text-[13px] text-gray-500">
+              <strong className="text-gray-700">Updated weekly</strong> as tools evolve
+            </span>
+
+            <span className="w-px h-7 bg-black/10 hidden sm:block" aria-hidden="true" />
+
+            <span className="text-[13px] text-gray-500">
+              Built for <strong className="text-gray-700">small business owners</strong>
+            </span>
+
           </div>
+        </div>
+      </div>
+
+      {/* ===== 7. FAQ ===== */}
+      <section className="bg-gray-50 py-8">
+        <div className="container-custom max-w-2xl">
+          <h2 className="text-[16px] font-semibold mb-5">Frequently asked questions</h2>
+          <FAQ items={faqItems} />
         </div>
       </section>
 
       {/* ===== GEO Content: AI Tools for Business ===== */}
-      <section className="bg-gray-50 py-16 sm:py-20">
+      <section className="bg-white py-16 sm:py-20">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl space-y-14">
 
-            {/* Q1 */}
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 How do AI business tools save time and money?
@@ -357,7 +330,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Q2 */}
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 How do I evaluate AI tools before committing to a paid plan?
@@ -378,7 +350,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Q3 */}
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 What is the difference between general AI assistants and specialized AI
@@ -400,7 +371,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Q4 */}
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 How quickly is the AI tool landscape changing?
@@ -418,7 +388,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Further Reading */}
             <div className="border-t border-gray-200 pt-10">
               <h3 className="text-lg font-semibold text-gray-900">Further Reading</h3>
               <ul className="mt-4 space-y-2 text-base text-gray-600">

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getToolBySlug } from '@/data/tools';
+import { getToolBySlug, type AITool } from '@/data/tools';
 import { getComparisonContent } from '@/lib/comparisonContent';
-import ComparisonTable from '@/components/ComparisonTable';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
 import RatingStars from '@/components/RatingStars';
@@ -67,16 +66,54 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function getPricingTiers(pricing: string, price: string) {
+  if (pricing === 'free') {
+    return [{ name: 'Free', price: '$0 / mo', isFree: true }];
+  }
+  if (pricing === 'freemium') {
+    return [
+      { name: 'Free', price: '$0 / mo', isFree: true },
+      ...(price ? [{ name: 'Pro', price, isFree: false }] : []),
+    ];
+  }
+  if (pricing === 'free-trial') {
+    return [
+      { name: 'Free Trial', price: 'Limited', isFree: true },
+      ...(price ? [{ name: 'Paid', price, isFree: false }] : []),
+    ];
+  }
+  return [{ name: 'Paid', price: price || 'Contact for pricing', isFree: false }];
+}
+
 export default async function ComparisonPage({ params }: PageProps) {
   const { slug } = await params;
   const parsed = parseSlug(slug);
-  if (!parsed) return <div className="container-custom py-20 text-center">Comparison not found.</div>;
+  if (!parsed) {
+    return <div className="container-custom py-20 text-center">Comparison not found.</div>;
+  }
 
   const toolA = getToolBySlug(parsed.toolASlug);
   const toolB = getToolBySlug(parsed.toolBSlug);
-  if (!toolA || !toolB) return <div className="container-custom py-20 text-center">One or both tools not found.</div>;
+  if (!toolA || !toolB) {
+    return <div className="container-custom py-20 text-center">One or both tools not found.</div>;
+  }
 
   const content = getComparisonContent(slug);
+  const isToolBRecommended = toolB.rating > toolA.rating;
+  const allFeatures = Array.from(new Set([...toolA.features, ...toolB.features]));
+
+  type RelatedComparison = { slug: string; toolA: AITool; toolB: AITool };
+  const relatedComparisons: RelatedComparison[] = comparisonSlugs
+    .filter((s) => s !== slug && (s.includes(parsed.toolASlug) || s.includes(parsed.toolBSlug)))
+    .slice(0, 3)
+    .flatMap((s) => {
+      const p = parseSlug(s);
+      if (!p) return [];
+      const a = getToolBySlug(p.toolASlug);
+      const b = getToolBySlug(p.toolBSlug);
+      if (!a || !b) return [];
+      return [{ slug: s, toolA: a, toolB: b }];
+    });
 
   const faqItems = [
     {
@@ -105,24 +142,9 @@ export default async function ComparisonPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://aibusinessalternative.com',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Compare',
-        item: 'https://aibusinessalternative.com/compare',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: `${toolA.name} vs ${toolB.name}`,
-        item: `https://aibusinessalternative.com/compare/${slug}`,
-      },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aibusinessalternative.com' },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://aibusinessalternative.com/compare' },
+      { '@type': 'ListItem', position: 3, name: `${toolA.name} vs ${toolB.name}`, item: `https://aibusinessalternative.com/compare/${slug}` },
     ],
   };
 
@@ -132,23 +154,14 @@ export default async function ComparisonPage({ params }: PageProps) {
     mainEntity: faqItems.map((item) => ({
       '@type': 'Question',
       name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
     })),
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <AnswerBlock
         what={`A side-by-side comparison of ${toolA.name} and ${toolB.name} covering features, pricing, ratings, and ideal use cases.`}
@@ -157,223 +170,272 @@ export default async function ComparisonPage({ params }: PageProps) {
         lastUpdated="2026-03-25"
       />
 
-      {/* Breadcrumb */}
-      <nav className="border-b border-gray-200 bg-gray-50" aria-label="Breadcrumb">
-        <div className="container-custom py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-indigo-600">Home</Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link href="/compare" className="hover:text-indigo-600">Compare</Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li className="font-medium text-gray-900">{toolA.name} vs {toolB.name}</li>
-          </ol>
-        </div>
-      </nav>
-
-      <article className="bg-white py-10 sm:py-14">
+      <div className="bg-white">
         <div className="container-custom">
-          {/* H1 */}
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            {toolA.name} vs {toolB.name}: Which AI Tool Is Better for Your Business?
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-gray-600">
-            A detailed, side-by-side comparison of {toolA.name} and {toolB.name} covering features, pricing, pros, cons, and which tool fits your specific needs.
-          </p>
 
-          {/* ===== At a Glance Box ===== */}
-          <div className="mt-10 rounded-2xl bg-indigo-50 p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-indigo-900">At a Glance</h2>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2">
-              {/* Tool A summary */}
-              <div className="rounded-xl bg-white p-5 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl" aria-hidden="true">{toolA.icon}</span>
-                  <h3 className="text-lg font-semibold text-gray-900">{toolA.name}</h3>
-                </div>
-                <div className="mt-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-700">Rating</span>
-                    <RatingStars rating={toolA.rating} reviewCount={toolA.reviewCount} size="sm" />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-700">Pricing</span>
-                    <PricingBadge pricing={toolA.pricing} price={toolA.price} />
-                  </div>
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="shrink-0 text-sm font-medium text-gray-700">Best For</span>
-                    <span className="text-right text-sm text-gray-600">{toolA.bestFor}</span>
-                  </div>
-                </div>
-              </div>
+          {/* 1. Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="py-3 border-b border-black/10">
+            <ol className="flex items-center gap-1.5 text-[12px] text-gray-400">
+              <li><Link href="/" className="hover:text-gray-600 transition-colors">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/compare" className="hover:text-gray-600 transition-colors">Compare</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="text-gray-600">{toolA.name} vs {toolB.name}</li>
+            </ol>
+          </nav>
 
-              {/* Tool B summary */}
-              <div className="rounded-xl bg-white p-5 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl" aria-hidden="true">{toolB.icon}</span>
-                  <h3 className="text-lg font-semibold text-gray-900">{toolB.name}</h3>
-                </div>
-                <div className="mt-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-700">Rating</span>
-                    <RatingStars rating={toolB.rating} reviewCount={toolB.reviewCount} size="sm" />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-700">Pricing</span>
-                    <PricingBadge pricing={toolB.pricing} price={toolB.price} />
-                  </div>
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="shrink-0 text-sm font-medium text-gray-700">Best For</span>
-                    <span className="text-right text-sm text-gray-600">{toolB.bestFor}</span>
-                  </div>
-                </div>
-              </div>
+          {/* 2. Hero */}
+          <section className="pt-8 pb-8 border-b border-black/10">
+            <div className="badge badge-blue mb-4">
+              Side-by-side comparison · Updated April 2026
             </div>
-          </div>
-
-          {/* ===== Side-by-Side Comparison Table ===== */}
-          <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900">Side-by-Side Comparison</h2>
-            <div className="mt-6 rounded-2xl bg-white p-2 shadow-sm ring-1 ring-gray-900/5 sm:p-4">
-              <ComparisonTable toolA={toolA} toolB={toolB} />
-            </div>
-
-            {/* Pros Comparison */}
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{toolA.name} Pros</h3>
-                <ul className="mt-3 space-y-2">
-                  {toolA.pros.map((pro) => (
-                    <li key={pro} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="mt-0.5 shrink-0 text-green-600" aria-hidden="true">+</span>
-                      {pro}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{toolB.name} Pros</h3>
-                <ul className="mt-3 space-y-2">
-                  {toolB.pros.map((pro) => (
-                    <li key={pro} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="mt-0.5 shrink-0 text-green-600" aria-hidden="true">+</span>
-                      {pro}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Cons Comparison */}
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{toolA.name} Cons</h3>
-                <ul className="mt-3 space-y-2">
-                  {toolA.cons.map((con) => (
-                    <li key={con} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="mt-0.5 shrink-0 text-red-500" aria-hidden="true">-</span>
-                      {con}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{toolB.name} Cons</h3>
-                <ul className="mt-3 space-y-2">
-                  {toolB.cons.map((con) => (
-                    <li key={con} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="mt-0.5 shrink-0 text-red-500" aria-hidden="true">-</span>
-                      {con}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* ===== Detailed Comparison Sections ===== */}
-          {content && (
-            <>
-              <section className="mt-12">
-                <h2 className="text-2xl font-bold text-gray-900">Pricing Comparison</h2>
-                <p className="mt-4 text-base leading-relaxed text-gray-600">{content.pricingComparison}</p>
-              </section>
-
-              <section className="mt-10">
-                <h2 className="text-2xl font-bold text-gray-900">Features Comparison</h2>
-                <p className="mt-4 text-base leading-relaxed text-gray-600">{content.featuresComparison}</p>
-              </section>
-
-              <section className="mt-10">
-                <h2 className="text-2xl font-bold text-gray-900">Who Should Choose {toolA.name}?</h2>
-                <p className="mt-4 text-base leading-relaxed text-gray-600">{content.verdictA}</p>
-              </section>
-
-              <section className="mt-10">
-                <h2 className="text-2xl font-bold text-gray-900">Who Should Choose {toolB.name}?</h2>
-                <p className="mt-4 text-base leading-relaxed text-gray-600">{content.verdictB}</p>
-              </section>
-            </>
-          )}
-
-          {/* ===== Verdict ===== */}
-          <section className="mt-12 rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-gray-900">Our Verdict</h2>
-            <p className="mt-4 text-base leading-relaxed text-gray-700">
-              <strong>{toolA.name}</strong> is better for{' '}
-              <span className="text-indigo-700">{toolA.bestFor.toLowerCase()}</span>, while{' '}
-              <strong>{toolB.name}</strong> is better for{' '}
-              <span className="text-violet-700">{toolB.bestFor.toLowerCase()}</span>.
-              Both are excellent tools in their category — the right choice depends on your specific
-              business needs, budget, and workflow priorities.
+            <h1 className="font-display text-[34px] leading-tight tracking-tight mb-3">
+              {toolA.name} vs <em className="italic">{toolB.name}</em>
+            </h1>
+            <p className="text-[14px] text-gray-500 max-w-xl mb-6">
+              A detailed side-by-side look at {toolA.name} and {toolB.name} — features, pricing,
+              pros and cons, and which tool best fits your business workflow.
             </p>
           </section>
 
-          {/* ===== CTA Buttons ===== */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={toolA.affiliateUrl || toolA.websiteUrl}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
-              className="inline-flex items-center rounded-lg bg-indigo-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-indigo-700 hover:shadow-xl"
-            >
-              Visit {toolA.name}
-              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-              </svg>
-            </a>
-            <a
-              href={toolB.affiliateUrl || toolB.websiteUrl}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
-              className="inline-flex items-center rounded-lg border-2 border-violet-600 bg-white px-8 py-3.5 text-base font-semibold text-violet-700 shadow-sm transition hover:bg-violet-50 hover:shadow-md"
-            >
-              Visit {toolB.name}
-              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-              </svg>
-            </a>
-          </div>
+          {/* 3. Verdict card grid */}
+          <section className="py-7 border-b border-black/10">
+            <div className="grid grid-cols-[1fr_40px_1fr] items-start">
 
-          {/* ===== FAQ Section ===== */}
-          <section className="mt-14">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Frequently Asked Questions
-            </h2>
-            <div className="mt-6">
-              <FAQ items={faqItems} />
+              {/* Tool A card */}
+              <div className="card p-5">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0">
+                    {toolA.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[16px] font-semibold leading-snug">{toolA.name}</div>
+                    <div className="text-[12px] text-gray-400 mt-0.5 leading-snug">{toolA.tagline}</div>
+                  </div>
+                </div>
+                <p className="text-[13px] text-gray-600 leading-relaxed">
+                  {content?.verdictA ?? `${toolA.name} is best for ${toolA.bestFor.toLowerCase()}.`}
+                </p>
+                <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-between gap-2 flex-wrap">
+                  <RatingStars rating={toolA.rating} reviewCount={toolA.reviewCount} size="sm" />
+                  <PricingBadge pricing={toolA.pricing} price={toolA.price} />
+                </div>
+              </div>
+
+              {/* VS divider */}
+              <div className="flex items-start justify-center pt-8">
+                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                  <span className="text-[11px] font-semibold text-gray-400">vs</span>
+                </div>
+              </div>
+
+              {/* Tool B card */}
+              <div className={`card p-5${isToolBRecommended ? ' ring-1 ring-[#2563EB]' : ''}`}>
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0">
+                    {toolB.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[16px] font-semibold leading-snug">{toolB.name}</div>
+                    <div className="text-[12px] text-gray-400 mt-0.5 leading-snug">{toolB.tagline}</div>
+                  </div>
+                </div>
+                <p className="text-[13px] text-gray-600 leading-relaxed">
+                  {content?.verdictB ?? `${toolB.name} is best for ${toolB.bestFor.toLowerCase()}.`}
+                </p>
+                <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-between gap-2 flex-wrap">
+                  <RatingStars rating={toolB.rating} reviewCount={toolB.reviewCount} size="sm" />
+                  <PricingBadge pricing={toolB.pricing} price={toolB.price} />
+                </div>
+              </div>
+
             </div>
           </section>
 
-          {/* ===== Disclaimer ===== */}
-          <div className="mt-12">
+          {/* 4. Feature comparison table */}
+          <section className="py-7 border-b border-black/10">
+            <h2 className="text-[16px] font-semibold mb-4">Feature comparison</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-[13px]">
+                <thead>
+                  <tr className="bg-gray-50 text-[12px] text-gray-500 font-medium">
+                    <th className="text-left py-2.5 px-3 w-[40%] font-medium">Feature</th>
+                    <th className="text-center py-2.5 px-3 w-[30%] font-medium bg-blue-50/30">{toolA.name}</th>
+                    <th className="text-center py-2.5 px-3 w-[30%] font-medium">{toolB.name}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allFeatures.map((feature, i) => {
+                    const aHas = toolA.features.includes(feature);
+                    const bHas = toolB.features.includes(feature);
+                    return (
+                      <tr
+                        key={feature}
+                        className={i < allFeatures.length - 1 ? 'border-b border-black/[0.06]' : ''}
+                      >
+                        <td className="py-2.5 px-3 text-gray-700">{feature}</td>
+                        <td className="py-2.5 px-3 text-center bg-blue-50/30">
+                          {aHas
+                            ? <span className="text-emerald-500 font-medium">✓</span>
+                            : <span className="text-red-400">✗</span>}
+                        </td>
+                        <td className="py-2.5 px-3 text-center">
+                          {bHas
+                            ? <span className="text-emerald-500 font-medium">✓</span>
+                            : <span className="text-red-400">✗</span>}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* 5. Pricing */}
+          <section className="py-7 border-b border-black/10">
+            <h2 className="text-[16px] font-semibold mb-4">Pricing</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {([toolA, toolB] as AITool[]).map((tool) => {
+                const tiers = getPricingTiers(tool.pricing, tool.price);
+                return (
+                  <div key={tool.slug} className="card p-4">
+                    <div className="text-[13px] font-semibold mb-3">{tool.name}</div>
+                    <div className="space-y-2.5">
+                      {tiers.map((tier) => (
+                        <div key={tier.name} className="flex items-center justify-between gap-2">
+                          <span className="text-[13px] text-gray-700 flex items-center gap-2">
+                            {tier.name}
+                            {tier.isFree && (
+                              <span className="badge badge-green" style={{ fontSize: '10px', padding: '2px 7px' }}>
+                                start here
+                              </span>
+                            )}
+                          </span>
+                          <span className="text-[13px] font-medium text-gray-900 shrink-0">{tier.price}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* 6. Pros / Cons — 2×2 grid */}
+          <section className="py-7 border-b border-black/10">
+            <h2 className="text-[16px] font-semibold mb-4">Pros &amp; cons</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+
+              <div className="card p-4" style={{ borderColor: 'rgba(110,231,183,0.6)', backgroundColor: 'rgba(236,253,245,0.3)' }}>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolA.name} — Pros</div>
+                <ul className="space-y-2">
+                  {toolA.pros.map((pro) => (
+                    <li key={pro} className="flex gap-2 text-[13px] text-gray-700">
+                      <span className="text-emerald-500 shrink-0 mt-px">✓</span>
+                      {pro}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card p-4" style={{ borderColor: 'rgba(252,165,165,0.6)', backgroundColor: 'rgba(254,242,242,0.3)' }}>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolA.name} — Cons</div>
+                <ul className="space-y-2">
+                  {toolA.cons.map((con) => (
+                    <li key={con} className="flex gap-2 text-[13px] text-gray-700">
+                      <span className="text-red-400 shrink-0 mt-px">✗</span>
+                      {con}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card p-4" style={{ borderColor: 'rgba(110,231,183,0.6)', backgroundColor: 'rgba(236,253,245,0.3)' }}>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolB.name} — Pros</div>
+                <ul className="space-y-2">
+                  {toolB.pros.map((pro) => (
+                    <li key={pro} className="flex gap-2 text-[13px] text-gray-700">
+                      <span className="text-emerald-500 shrink-0 mt-px">✓</span>
+                      {pro}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card p-4" style={{ borderColor: 'rgba(252,165,165,0.6)', backgroundColor: 'rgba(254,242,242,0.3)' }}>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolB.name} — Cons</div>
+                <ul className="space-y-2">
+                  {toolB.cons.map((con) => (
+                    <li key={con} className="flex gap-2 text-[13px] text-gray-700">
+                      <span className="text-red-400 shrink-0 mt-px">✗</span>
+                      {con}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+          </section>
+
+          {/* 7. Verdict box */}
+          <section className="py-7 border-b border-black/10">
+            <div className="bg-gray-50 rounded-xl p-5">
+              <div className="text-[11px] font-semibold text-[#2563EB] tracking-wide uppercase mb-2">
+                Our Verdict
+              </div>
+              <h2 className="font-display text-[22px] italic leading-snug mb-3">
+                {isToolBRecommended
+                  ? `${toolB.name} edges ahead for most use cases`
+                  : toolA.rating === toolB.rating
+                  ? `Both tools shine — it comes down to your workflow`
+                  : `${toolA.name} is the stronger pick overall`}
+              </h2>
+              <p className="text-[13px] text-gray-600 leading-relaxed">
+                {content
+                  ? (isToolBRecommended ? content.verdictB : content.verdictA)
+                  : `${toolA.name} is best for ${toolA.bestFor.toLowerCase()}, while ${toolB.name} excels at ${toolB.bestFor.toLowerCase()}. Consider your primary use case, budget, and team size when choosing between them.`}
+              </p>
+            </div>
+          </section>
+
+          {/* 8. FAQ */}
+          <section className="py-7 border-b border-black/10">
+            <h2 className="text-[16px] font-semibold mb-4">Frequently asked questions</h2>
+            <FAQ items={faqItems} />
+          </section>
+
+          {/* 9. Related comparisons */}
+          {relatedComparisons.length > 0 && (
+            <section className="py-7 border-b border-black/10">
+              <h2 className="text-[16px] font-semibold mb-4">Related comparisons</h2>
+              <div className="grid sm:grid-cols-3 gap-3">
+                {relatedComparisons.map(({ slug: rSlug, toolA: ra, toolB: rb }) => (
+                  <Link
+                    key={rSlug}
+                    href={`/compare/${rSlug}`}
+                    className="card p-4 flex items-center gap-3 hover:border-black/20 transition-colors"
+                  >
+                    <div className="flex items-center gap-1 shrink-0">
+                      <span className="text-xl">{ra.icon}</span>
+                      <span className="text-[10px] text-gray-400">vs</span>
+                      <span className="text-xl">{rb.icon}</span>
+                    </div>
+                    <span className="text-[12px] text-gray-700 font-medium leading-tight">
+                      {ra.name} vs {rb.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <div className="py-6">
             <Disclaimer />
           </div>
+
         </div>
-      </article>
+      </div>
     </>
   );
 }
