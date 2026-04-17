@@ -3,6 +3,7 @@ title: "The Non-Tech Founder's AI Stack: Build a SaaS Without Writing Code"
 date: "2026-04-17"
 slug: "non-tech-founder-ai-stack"
 description: "A complete, step-by-step AI stack for non-technical founders to build a SaaS business in 2026 without hiring developers. Includes tool recommendations, workflows, and pricing breakdowns."
+image: "/images/blog/non-tech-founder-ai-stack.jpg"
 status: published
 author: "Your Friendly Developer Editorial Team"
 reviewer: "Your Friendly Developer Editorial Team"
