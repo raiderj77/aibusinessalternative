@@ -4,7 +4,6 @@ import { getToolBySlug, type AITool } from '@/data/tools';
 import { getComparisonContent } from '@/lib/comparisonContent';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import AnswerBlock from '@/components/AnswerBlock';
 
@@ -110,7 +109,6 @@ export default async function ComparisonPage({ params }: PageProps) {
   }
 
   const content = getComparisonContent(slug);
-  const isToolBRecommended = toolB.rating > toolA.rating;
   const allFeatures = Array.from(new Set([...toolA.features, ...toolB.features]));
 
   type RelatedComparison = { slug: string; toolA: AITool; toolB: AITool };
@@ -175,9 +173,9 @@ export default async function ComparisonPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <AnswerBlock
-        what={`A side-by-side comparison of ${toolA.name} and ${toolB.name} covering features, pricing, ratings, and ideal use cases.`}
+        what={`A side-by-side comparison of ${toolA.name} and ${toolB.name} covering features, pricing, and ideal use cases.`}
         who={`Business owners deciding between ${toolA.name} and ${toolB.name} for their AI workflow needs.`}
-        bottomLine={`${toolA.name} is rated ${toolA.rating}/5 and ${toolB.name} is rated ${toolB.rating}/5. Read the full breakdown below to see which fits your requirements.`}
+        bottomLine={`Read the full breakdown below to see which tool fits your requirements.`}
         lastUpdated="2026-03-25"
       />
 
@@ -224,8 +222,7 @@ export default async function ComparisonPage({ params }: PageProps) {
                 <p className="text-[13px] text-gray-600 leading-relaxed">
                   {content?.verdictA ?? `${toolA.name} is best for ${toolA.bestFor.toLowerCase()}.`}
                 </p>
-                <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-between gap-2 flex-wrap">
-                  <RatingStars rating={toolA.rating} reviewCount={toolA.reviewCount} size="sm" />
+                <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-end gap-2 flex-wrap">
                   <PricingBadge pricing={toolA.pricing} price={toolA.price} />
                 </div>
               </div>
@@ -238,7 +235,7 @@ export default async function ComparisonPage({ params }: PageProps) {
               </div>
 
               {/* Tool B card */}
-              <div className={`card p-5 flex flex-col${isToolBRecommended ? ' ring-1 ring-[#2563EB]' : ''}`}>
+              <div className="card p-5 flex flex-col">
                 <div className="w-9 h-9 rounded-lg bg-gray-50 border border-black/[0.08] flex items-center justify-center text-xl shrink-0 mb-3">
                   {toolB.icon}
                 </div>
@@ -247,8 +244,7 @@ export default async function ComparisonPage({ params }: PageProps) {
                 <p className="text-[13px] text-gray-600 leading-relaxed">
                   {content?.verdictB ?? `${toolB.name} is best for ${toolB.bestFor.toLowerCase()}.`}
                 </p>
-                <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-between gap-2 flex-wrap">
-                  <RatingStars rating={toolB.rating} reviewCount={toolB.reviewCount} size="sm" />
+                <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-end gap-2 flex-wrap">
                   <PricingBadge pricing={toolB.pricing} price={toolB.price} />
                 </div>
               </div>
@@ -389,15 +385,13 @@ export default async function ComparisonPage({ params }: PageProps) {
                 Our Verdict
               </div>
               <h2 className="font-display text-[22px] italic leading-snug mb-3">
-                {isToolBRecommended
-                  ? `${toolB.name} edges ahead for most use cases`
-                  : toolA.rating === toolB.rating
-                  ? `Both tools shine — it comes down to your workflow`
-                  : `${toolA.name} is the stronger pick overall`}
+                {content?.verdictA
+                  ? `${toolA.name} vs ${toolB.name} — it comes down to your workflow`
+                  : `Both tools serve different needs — it depends on your workflow`}
               </h2>
               <p className="text-[13px] text-gray-600 leading-relaxed">
                 {content
-                  ? (isToolBRecommended ? content.verdictB : content.verdictA)
+                  ? content.verdictA
                   : `${toolA.name} is best for ${toolA.bestFor.toLowerCase()}, while ${toolB.name} excels at ${toolB.bestFor.toLowerCase()}. Consider your primary use case, budget, and team size when choosing between them.`}
               </p>
             </div>

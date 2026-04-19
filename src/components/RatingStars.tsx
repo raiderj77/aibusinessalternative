@@ -1,6 +1,5 @@
 interface RatingStarsProps {
   rating: number;
-  reviewCount?: number;
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -16,7 +15,7 @@ const textSizeClasses = {
   lg: 'text-base',
 } as const;
 
-export default function RatingStars({ rating, reviewCount, size = 'md' }: RatingStarsProps) {
+export default function RatingStars({ rating, size = 'md' }: RatingStarsProps) {
   const roundedRating = Math.round(rating * 2) / 2;
 
   const stars: Array<'full' | 'half' | 'empty'> = [];
@@ -34,7 +33,7 @@ export default function RatingStars({ rating, reviewCount, size = 'md' }: Rating
     <div
       className="flex items-center gap-1"
       role="img"
-      aria-label={`${rating} out of 5 stars${reviewCount ? `, ${reviewCount} reviews` : ''}`}
+      aria-label={`${rating} out of 5 stars`}
     >
       <span className={`${sizeClasses[size]} flex`} aria-hidden="true">
         {stars.map((star, i) => {
@@ -67,11 +66,6 @@ export default function RatingStars({ rating, reviewCount, size = 'md' }: Rating
       <span className={`${textSizeClasses[size]} text-gray-600`}>
         {rating.toFixed(1)}
       </span>
-      {reviewCount !== undefined && (
-        <span className={`${textSizeClasses[size]} text-gray-400`}>
-          ({reviewCount.toLocaleString()})
-        </span>
-      )}
     </div>
   );
 }

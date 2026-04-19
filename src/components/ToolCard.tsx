@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { AITool } from '@/data/tools';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 
 interface ToolCardProps {
@@ -30,10 +29,6 @@ export default function ToolCard({ tool }: ToolCardProps) {
             <span className="badge badge-gray">{tool.categories[0]}</span>
           )}
           <PricingBadge pricing={tool.pricing} price={tool.price} />
-        </div>
-
-        <div className="mt-3">
-          <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="sm" />
         </div>
       </div>
     </Link>

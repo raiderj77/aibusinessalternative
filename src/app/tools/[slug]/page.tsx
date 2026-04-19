@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { tools, getToolBySlug } from '@/data/tools';
 import { getCategoryBySlug } from '@/data/categories';
 import ToolCard from '@/components/ToolCard';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import Disclaimer from '@/components/Disclaimer';
 import AnswerBlock from '@/components/AnswerBlock';
@@ -70,51 +69,19 @@ function generateFAQs(tool: (typeof tools)[number], alternativeNames: string[]) 
     },
     {
       question: `How does ${tool.name} compare to alternatives?`,
-      answer: `${tool.name} has a rating of ${tool.rating}/5 based on ${tool.reviewCount.toLocaleString()} reviews. Popular alternatives include ${altList}. Each tool has different strengths, so the best choice depends on your specific needs and budget.`,
+      answer: `Popular alternatives to ${tool.name} include ${altList}. Each tool has different strengths, so the best choice depends on your specific needs and budget.`,
     },
     {
       question: `Is ${tool.name} good for small business?`,
-      answer: `${tool.name} ${tool.pricing === 'free' || tool.pricing === 'freemium' ? 'is an excellent option for small businesses since it offers a free plan to get started' : tool.pricing === 'free-trial' ? 'offers a free trial, making it easy for small businesses to evaluate before investing' : 'is a professional tool that can deliver strong ROI for small businesses'}. ${tool.bestFor}, which makes it ${tool.rating >= 4.5 ? 'a top-rated choice' : tool.rating >= 4.0 ? 'a highly-rated option' : 'a solid option'} for businesses of all sizes.`,
+      answer: `${tool.name} ${tool.pricing === 'free' || tool.pricing === 'freemium' ? 'is an excellent option for small businesses since it offers a free plan to get started' : tool.pricing === 'free-trial' ? 'offers a free trial, making it easy for small businesses to evaluate before investing' : 'is a professional tool that can deliver strong ROI for small businesses'}. ${tool.bestFor}, making it a solid option for businesses of all sizes.`,
     },
     {
       question: `What are the pros and cons of ${tool.name}?`,
-      answer: `Key pros of ${tool.name} include: ${tool.pros.slice(0, 3).join(', ')}. Some potential downsides are: ${tool.cons.slice(0, 3).join(', ')}. Overall, it maintains a ${tool.rating}/5 rating from ${tool.reviewCount.toLocaleString()} reviews.`,
+      answer: `Key pros of ${tool.name} include: ${tool.pros.slice(0, 3).join(', ')}. Some potential downsides are: ${tool.cons.slice(0, 3).join(', ')}.`,
     },
   ];
 }
 
-// Helper: generate static user reviews from tool data
-function generateReviews(tool: (typeof tools)[number]) {
-  const reviewProfiles = [
-    {
-      name: 'Small Business Owner',
-      role: 'Verified User',
-      rating: Math.min(5, tool.rating + 0.2),
-    },
-    {
-      name: 'Marketing Manager',
-      role: 'Verified User',
-      rating: tool.rating,
-    },
-    {
-      name: 'Freelance Designer',
-      role: 'Verified User',
-      rating: Math.max(3.5, tool.rating - 0.3),
-    },
-  ];
-
-  const reviewTexts = [
-    `${tool.name} has been a game-changer for my business. ${tool.pros[0] || 'Great features'} and ${tool.pros[1] || 'easy to use'}. I use it daily for ${tool.bestFor.toLowerCase()}. Highly recommend for anyone looking to boost productivity with AI.`,
-    `I have been using ${tool.name} for several months now. The ${tool.features[0] || 'core functionality'} works really well. ${tool.cons[0] ? `My only gripe is that ${tool.cons[0].toLowerCase()}.` : ''} Overall, solid tool that delivers on its promises.`,
-    `Good tool overall. ${tool.pros[0] || 'Works well'} is the standout feature for me. ${tool.pricing === 'free' || tool.pricing === 'freemium' ? 'Love that there is a free option to try it out.' : `Pricing is ${tool.price ? `fair starting at ${tool.price}` : 'reasonable for what you get'}.`} Would recommend to colleagues.`,
-  ];
-
-  return reviewProfiles.map((profile, i) => ({
-    ...profile,
-    rating: Math.round(profile.rating * 2) / 2,
-    text: reviewTexts[i],
-  }));
-}
 
 export default async function ToolDetailPage({
   params,
@@ -139,7 +106,6 @@ export default async function ToolDetailPage({
 
   const alternativeNames = alternatives.map((a) => a.name);
   const faqs = generateFAQs(tool, alternativeNames);
-  const reviews = generateReviews(tool);
   const visitUrl = tool.affiliateUrl || tool.websiteUrl;
 
   // JSON-LD: SoftwareApplication
@@ -155,13 +121,6 @@ export default async function ToolDetailPage({
       '@type': 'Offer',
       price: tool.pricing === 'free' ? '0' : tool.price,
       priceCurrency: 'USD',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: tool.rating,
-      reviewCount: tool.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
     },
   };
 
@@ -276,7 +235,7 @@ export default async function ToolDetailPage({
         <AnswerBlock
           what={`${tool.name} is an AI-powered ${tool.categories.map((c) => getCategoryBySlug(c)?.name || c).join(' and ').toLowerCase()} tool. ${tool.tagline}`}
           who={tool.bestFor}
-          bottomLine={`Rated ${tool.rating}/5 by ${tool.reviewCount.toLocaleString()} users. ${tool.pricing === 'free' ? 'Completely free to use.' : tool.pricing === 'freemium' ? `Free plan available${tool.price ? `; paid plans from ${tool.price}` : ''}.` : tool.price ? `Plans start at ${tool.price}.` : 'See website for pricing.'}`}
+          bottomLine={`${tool.pricing === 'free' ? 'Completely free to use.' : tool.pricing === 'freemium' ? `Free plan available${tool.price ? `; paid plans from ${tool.price}` : ''}.` : tool.price ? `Plans start at ${tool.price}.` : 'See website for pricing.'}`}
           lastUpdated="2026-03-25"
         />
 
@@ -308,9 +267,8 @@ export default async function ToolDetailPage({
             <PricingBadge pricing={tool.pricing} price={tool.price} />
           </div>
 
-          {/* Rating + CTA */}
+          {/* CTA */}
           <div className="flex flex-wrap items-center gap-4">
-            <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="lg" />
             <a
               href={visitUrl}
               target="_blank"
@@ -540,29 +498,6 @@ export default async function ToolDetailPage({
               </dl>
             </section>
 
-            {/* User Reviews */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900">User Reviews</h2>
-              <div className="mt-6 space-y-4">
-                {reviews.map((review, i) => (
-                  <div
-                    key={i}
-                    className="rounded-xl border border-gray-200 bg-white p-5"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-gray-900">{review.name}</p>
-                        <p className="text-xs text-gray-500">{review.role}</p>
-                      </div>
-                      <RatingStars rating={review.rating} size="sm" />
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-gray-700">
-                      {review.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
           </div>
 
           {/* ── Sidebar (1/3 width) ── */}
@@ -581,16 +516,6 @@ export default async function ToolDetailPage({
                   <dt className="text-gray-500">Pricing</dt>
                   <dd>
                     <PricingBadge pricing={tool.pricing} price={tool.price} />
-                  </dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Rating</dt>
-                  <dd className="font-medium text-gray-900">{tool.rating}/5</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Reviews</dt>
-                  <dd className="font-medium text-gray-900">
-                    {tool.reviewCount.toLocaleString()}
                   </dd>
                 </div>
               </dl>
