@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { tools, getToolBySlug, type AITool } from '@/data/tools';
 import { getAlternativeContent } from '@/lib/alternativesContent';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
@@ -252,10 +251,7 @@ export default async function AlternativesPage({
                       </div>
                     </div>
                   </div>
-                  <div className="mb-4">
-                    <RatingStars rating={tool.rating} size="sm" />
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-2 gap-2">
                     <div className="bg-white rounded-lg p-2.5 text-center border border-black/[0.06]">
                       <div className="text-[15px] font-semibold text-gray-900">{tool.features.length}</div>
                       <div className="text-[10px] text-gray-400 mt-0.5">features</div>
@@ -263,10 +259,6 @@ export default async function AlternativesPage({
                     <div className="bg-white rounded-lg p-2.5 text-center border border-black/[0.06]">
                       <div className="text-[11px] font-semibold text-gray-900 leading-tight">{tool.price || 'Free'}</div>
                       <div className="text-[10px] text-gray-400 mt-0.5">starting</div>
-                    </div>
-                    <div className="bg-white rounded-lg p-2.5 text-center border border-black/[0.06]">
-                      <div className="text-[15px] font-semibold text-gray-900">{tool.rating}</div>
-                      <div className="text-[10px] text-gray-400 mt-0.5">rating</div>
                     </div>
                   </div>
                 </div>
@@ -322,7 +314,6 @@ export default async function AlternativesPage({
 
                     {/* CTA col */}
                     <div className="flex flex-col items-end gap-2 shrink-0">
-                      <RatingStars rating={alt.rating} size="sm" />
                       <PricingBadge pricing={alt.pricing} price={alt.price} />
                       <Link
                         href={`/tools/${alt.slug}`}

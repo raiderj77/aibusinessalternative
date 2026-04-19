@@ -1,5 +1,4 @@
 import type { AITool } from '@/data/tools';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 
 interface ComparisonTableProps {
@@ -16,10 +15,6 @@ function WinnerHighlight({ isWinner, children }: { isWinner: boolean; children: 
 }
 
 export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) {
-  // Determine rating winner
-  const ratingWinnerA = toolA.rating > toolB.rating;
-  const ratingWinnerB = toolB.rating > toolA.rating;
-
   // Determine pricing winner (free > freemium > free-trial > paid)
   const pricingOrder = { free: 0, freemium: 1, 'free-trial': 2, paid: 3 } as const;
   const pricingWinnerA = pricingOrder[toolA.pricing] < pricingOrder[toolB.pricing];
@@ -56,17 +51,6 @@ export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) 
             <td className="px-4 py-3 text-sm font-medium text-gray-700">Starting Price</td>
             <td className="px-4 py-3 text-sm text-gray-600">{toolA.price || 'N/A'}</td>
             <td className="px-4 py-3 text-sm text-gray-600">{toolB.price || 'N/A'}</td>
-          </tr>
-
-          {/* Rating */}
-          <tr>
-            <td className="px-4 py-3 text-sm font-medium text-gray-700">Rating</td>
-            <WinnerHighlight isWinner={ratingWinnerA}>
-              <RatingStars rating={toolA.rating} size="sm" />
-            </WinnerHighlight>
-            <WinnerHighlight isWinner={ratingWinnerB}>
-              <RatingStars rating={toolB.rating} size="sm" />
-            </WinnerHighlight>
           </tr>
 
           {/* Best For */}
@@ -115,10 +99,6 @@ export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) 
               <div className="flex justify-between">
                 <dt className="text-sm font-medium text-gray-700">Starting Price</dt>
                 <dd className="text-sm text-gray-600">{tool.price || 'N/A'}</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-sm font-medium text-gray-700">Rating</dt>
-                <dd><RatingStars rating={tool.rating} size="sm" /></dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-sm font-medium text-gray-700">Best For</dt>

@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { tools, getToolBySlug } from '@/data/tools';
 import { getCategoryBySlug } from '@/data/categories';
 import ToolCard from '@/components/ToolCard';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import Disclaimer from '@/components/Disclaimer';
 import AnswerBlock from '@/components/AnswerBlock';
@@ -74,7 +73,7 @@ function generateFAQs(tool: (typeof tools)[number], alternativeNames: string[]) 
     },
     {
       question: `Is ${tool.name} good for small business?`,
-      answer: `${tool.name} ${tool.pricing === 'free' || tool.pricing === 'freemium' ? 'is an excellent option for small businesses since it offers a free plan to get started' : tool.pricing === 'free-trial' ? 'offers a free trial, making it easy for small businesses to evaluate before investing' : 'is a professional tool that can deliver strong ROI for small businesses'}. ${tool.bestFor}, which makes it ${tool.rating >= 4.5 ? 'a top-rated choice' : tool.rating >= 4.0 ? 'a highly-rated option' : 'a solid option'} for businesses of all sizes.`,
+      answer: `${tool.name} ${tool.pricing === 'free' || tool.pricing === 'freemium' ? 'is an excellent option for small businesses since it offers a free plan to get started' : tool.pricing === 'free-trial' ? 'offers a free trial, making it easy for small businesses to evaluate before investing' : 'is a professional tool that can deliver strong ROI for small businesses'}. ${tool.bestFor}, making it a solid option for businesses of all sizes.`,
     },
     {
       question: `What are the pros and cons of ${tool.name}?`,
@@ -268,9 +267,8 @@ export default async function ToolDetailPage({
             <PricingBadge pricing={tool.pricing} price={tool.price} />
           </div>
 
-          {/* Rating + CTA */}
+          {/* CTA */}
           <div className="flex flex-wrap items-center gap-4">
-            <RatingStars rating={tool.rating} size="lg" />
             <a
               href={visitUrl}
               target="_blank"
@@ -519,10 +517,6 @@ export default async function ToolDetailPage({
                   <dd>
                     <PricingBadge pricing={tool.pricing} price={tool.price} />
                   </dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Rating</dt>
-                  <dd className="font-medium text-gray-900">{tool.rating}/5</dd>
                 </div>
               </dl>
               <div className="mt-5">
