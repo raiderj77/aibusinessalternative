@@ -6,7 +6,6 @@ import {
   getAllBestPageSlugs,
   type BestPageData,
 } from '@/lib/bestContent';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
@@ -260,10 +259,6 @@ export default async function BestPage({
                         </span>
                       </h2>
                       <div className="mt-2 flex flex-wrap items-center gap-3">
-                        <RatingStars
-                          rating={tool.rating}
-                          size="md"
-                        />
                         <PricingBadge
                           pricing={tool.pricing}
                           price={tool.price}
@@ -394,9 +389,6 @@ export default async function BestPage({
                     Pricing
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-gray-900">
-                    Rating
-                  </th>
-                  <th className="px-4 py-3 text-left font-semibold text-gray-900">
                     Best For
                   </th>
                 </tr>
@@ -417,9 +409,6 @@ export default async function BestPage({
                     </td>
                     <td className="px-4 py-3 text-gray-600">
                       <PricingBadge pricing={tool.pricing} price={tool.price} />
-                    </td>
-                    <td className="px-4 py-3">
-                      <RatingStars rating={tool.rating} size="sm" />
                     </td>
                     <td className="px-4 py-3 text-gray-600">{tool.bestFor}</td>
                   </tr>

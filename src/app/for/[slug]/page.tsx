@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getIndustryPage, getAllIndustrySlugs } from '@/lib/forContent';
 import { getToolBySlug } from '@/data/tools';
-import RatingStars from '@/components/RatingStars';
 import PricingBadge from '@/components/PricingBadge';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
@@ -155,7 +154,6 @@ export default async function ForIndustryPage({ params }: PageProps) {
                       <p className="text-[13px] text-gray-400 mb-3">{tool.tagline}</p>
                       <p className="text-[13px] text-gray-600 leading-relaxed mb-4">{why}</p>
                       <div className="flex flex-wrap items-center gap-4">
-                        <RatingStars rating={tool.rating} size="sm" />
                         <a
                           href={tool.affiliateUrl}
                           target="_blank"
