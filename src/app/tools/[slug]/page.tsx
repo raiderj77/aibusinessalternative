@@ -83,38 +83,6 @@ function generateFAQs(tool: (typeof tools)[number], alternativeNames: string[]) 
   ];
 }
 
-// Helper: generate static user reviews from tool data
-function generateReviews(tool: (typeof tools)[number]) {
-  const reviewProfiles = [
-    {
-      name: 'Small Business Owner',
-      role: 'Verified User',
-      rating: Math.min(5, tool.rating + 0.2),
-    },
-    {
-      name: 'Marketing Manager',
-      role: 'Verified User',
-      rating: tool.rating,
-    },
-    {
-      name: 'Freelance Designer',
-      role: 'Verified User',
-      rating: Math.max(3.5, tool.rating - 0.3),
-    },
-  ];
-
-  const reviewTexts = [
-    `${tool.name} has been a game-changer for my business. ${tool.pros[0] || 'Great features'} and ${tool.pros[1] || 'easy to use'}. I use it daily for ${tool.bestFor.toLowerCase()}. Highly recommend for anyone looking to boost productivity with AI.`,
-    `I have been using ${tool.name} for several months now. The ${tool.features[0] || 'core functionality'} works really well. ${tool.cons[0] ? `My only gripe is that ${tool.cons[0].toLowerCase()}.` : ''} Overall, solid tool that delivers on its promises.`,
-    `Good tool overall. ${tool.pros[0] || 'Works well'} is the standout feature for me. ${tool.pricing === 'free' || tool.pricing === 'freemium' ? 'Love that there is a free option to try it out.' : `Pricing is ${tool.price ? `fair starting at ${tool.price}` : 'reasonable for what you get'}.`} Would recommend to colleagues.`,
-  ];
-
-  return reviewProfiles.map((profile, i) => ({
-    ...profile,
-    rating: Math.round(profile.rating * 2) / 2,
-    text: reviewTexts[i],
-  }));
-}
 
 export default async function ToolDetailPage({
   params,
@@ -139,7 +107,6 @@ export default async function ToolDetailPage({
 
   const alternativeNames = alternatives.map((a) => a.name);
   const faqs = generateFAQs(tool, alternativeNames);
-  const reviews = generateReviews(tool);
   const visitUrl = tool.affiliateUrl || tool.websiteUrl;
 
   // JSON-LD: SoftwareApplication
@@ -540,29 +507,6 @@ export default async function ToolDetailPage({
               </dl>
             </section>
 
-            {/* User Reviews */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900">User Reviews</h2>
-              <div className="mt-6 space-y-4">
-                {reviews.map((review, i) => (
-                  <div
-                    key={i}
-                    className="rounded-xl border border-gray-200 bg-white p-5"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-gray-900">{review.name}</p>
-                        <p className="text-xs text-gray-500">{review.role}</p>
-                      </div>
-                      <RatingStars rating={review.rating} size="sm" />
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-gray-700">
-                      {review.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
           </div>
 
           {/* ── Sidebar (1/3 width) ── */}
