@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-indigo-100">Last updated: April 6, 2026</p>
+          <p className="mt-4 text-indigo-100">Last updated: April 18, 2026</p>
         </div>
       </div>
 
@@ -362,10 +362,63 @@ export default function PrivacyPolicyPage() {
             </p>
           </section>
 
+          {/* MODPA Section */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              11. Your Privacy Rights Under Maryland Law (MODPA)
+            </h2>
+            <p className="mb-4">
+              As of April 1, 2026, Maryland residents have specific rights under
+              the Maryland Online Data Privacy Act (MODPA). MODPA is among the
+              strictest US state privacy laws: it requires data minimization
+              (collect only what is <em>strictly</em> necessary), bans the sale
+              of sensitive data with no consent override, and mandates honoring
+              the Global Privacy Control signal.
+            </p>
+            <p className="mb-4">
+              <strong>Your rights under MODPA:</strong>
+            </p>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
+              <li>
+                <strong>Right to access</strong> the personal data we hold about
+                you
+              </li>
+              <li>
+                <strong>Right to correct</strong> inaccurate personal data
+              </li>
+              <li>
+                <strong>Right to delete</strong> your personal data
+              </li>
+              <li>
+                <strong>Right to opt out</strong> of targeted advertising and
+                profiling
+              </li>
+              <li>
+                <strong>Right to portability</strong> of your data in a
+                machine-readable format
+              </li>
+            </ul>
+            <p className="mb-4">
+              We honor the <strong>Global Privacy Control (GPC)</strong> browser
+              signal as a universal opt-out of targeted advertising, data sale,
+              and data sharing. When your browser sends a GPC signal, we
+              automatically suppress all non-essential analytics and advertising
+              scripts — no banner interaction required.
+            </p>
+            <p className="mb-4">
+              <strong>We do not sell sensitive personal data under any
+              circumstance.</strong>
+            </p>
+            <p>
+              To exercise your MODPA rights, contact us at the email listed in
+              our Contact section below. We respond within 45 days.
+            </p>
+          </section>
+
           {/* Contact */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              11. Contact Us
+              12. Contact Us
             </h2>
             <p className="mb-4">
               If you have any questions, concerns, or requests regarding this
