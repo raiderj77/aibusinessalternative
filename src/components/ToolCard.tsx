@@ -33,7 +33,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </div>
 
         <div className="mt-3">
-          <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="sm" />
+          <RatingStars rating={tool.rating} size="sm" />
         </div>
       </div>
     </Link>

@@ -70,7 +70,7 @@ function generateFAQs(tool: (typeof tools)[number], alternativeNames: string[]) 
     },
     {
       question: `How does ${tool.name} compare to alternatives?`,
-      answer: `${tool.name} has a rating of ${tool.rating}/5 based on ${tool.reviewCount.toLocaleString()} reviews. Popular alternatives include ${altList}. Each tool has different strengths, so the best choice depends on your specific needs and budget.`,
+      answer: `Popular alternatives to ${tool.name} include ${altList}. Each tool has different strengths, so the best choice depends on your specific needs and budget.`,
     },
     {
       question: `Is ${tool.name} good for small business?`,
@@ -78,7 +78,7 @@ function generateFAQs(tool: (typeof tools)[number], alternativeNames: string[]) 
     },
     {
       question: `What are the pros and cons of ${tool.name}?`,
-      answer: `Key pros of ${tool.name} include: ${tool.pros.slice(0, 3).join(', ')}. Some potential downsides are: ${tool.cons.slice(0, 3).join(', ')}. Overall, it maintains a ${tool.rating}/5 rating from ${tool.reviewCount.toLocaleString()} reviews.`,
+      answer: `Key pros of ${tool.name} include: ${tool.pros.slice(0, 3).join(', ')}. Some potential downsides are: ${tool.cons.slice(0, 3).join(', ')}.`,
     },
   ];
 }
@@ -122,13 +122,6 @@ export default async function ToolDetailPage({
       '@type': 'Offer',
       price: tool.pricing === 'free' ? '0' : tool.price,
       priceCurrency: 'USD',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: tool.rating,
-      reviewCount: tool.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
     },
   };
 
@@ -243,7 +236,7 @@ export default async function ToolDetailPage({
         <AnswerBlock
           what={`${tool.name} is an AI-powered ${tool.categories.map((c) => getCategoryBySlug(c)?.name || c).join(' and ').toLowerCase()} tool. ${tool.tagline}`}
           who={tool.bestFor}
-          bottomLine={`Rated ${tool.rating}/5 by ${tool.reviewCount.toLocaleString()} users. ${tool.pricing === 'free' ? 'Completely free to use.' : tool.pricing === 'freemium' ? `Free plan available${tool.price ? `; paid plans from ${tool.price}` : ''}.` : tool.price ? `Plans start at ${tool.price}.` : 'See website for pricing.'}`}
+          bottomLine={`${tool.pricing === 'free' ? 'Completely free to use.' : tool.pricing === 'freemium' ? `Free plan available${tool.price ? `; paid plans from ${tool.price}` : ''}.` : tool.price ? `Plans start at ${tool.price}.` : 'See website for pricing.'}`}
           lastUpdated="2026-03-25"
         />
 
@@ -277,7 +270,7 @@ export default async function ToolDetailPage({
 
           {/* Rating + CTA */}
           <div className="flex flex-wrap items-center gap-4">
-            <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="lg" />
+            <RatingStars rating={tool.rating} size="lg" />
             <a
               href={visitUrl}
               target="_blank"
@@ -530,12 +523,6 @@ export default async function ToolDetailPage({
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Rating</dt>
                   <dd className="font-medium text-gray-900">{tool.rating}/5</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Reviews</dt>
-                  <dd className="font-medium text-gray-900">
-                    {tool.reviewCount.toLocaleString()}
-                  </dd>
                 </div>
               </dl>
               <div className="mt-5">

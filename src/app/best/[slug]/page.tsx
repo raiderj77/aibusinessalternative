@@ -262,7 +262,6 @@ export default async function BestPage({
                       <div className="mt-2 flex flex-wrap items-center gap-3">
                         <RatingStars
                           rating={tool.rating}
-                          reviewCount={tool.reviewCount}
                           size="md"
                         />
                         <PricingBadge
