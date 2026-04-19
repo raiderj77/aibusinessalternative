@@ -62,10 +62,10 @@ export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) 
           <tr>
             <td className="px-4 py-3 text-sm font-medium text-gray-700">Rating</td>
             <WinnerHighlight isWinner={ratingWinnerA}>
-              <RatingStars rating={toolA.rating} reviewCount={toolA.reviewCount} size="sm" />
+              <RatingStars rating={toolA.rating} size="sm" />
             </WinnerHighlight>
             <WinnerHighlight isWinner={ratingWinnerB}>
-              <RatingStars rating={toolB.rating} reviewCount={toolB.reviewCount} size="sm" />
+              <RatingStars rating={toolB.rating} size="sm" />
             </WinnerHighlight>
           </tr>
 
@@ -118,7 +118,7 @@ export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) 
               </div>
               <div className="flex justify-between">
                 <dt className="text-sm font-medium text-gray-700">Rating</dt>
-                <dd><RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="sm" /></dd>
+                <dd><RatingStars rating={tool.rating} size="sm" /></dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-sm font-medium text-gray-700">Best For</dt>

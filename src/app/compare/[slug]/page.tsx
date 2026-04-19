@@ -225,7 +225,7 @@ export default async function ComparisonPage({ params }: PageProps) {
                   {content?.verdictA ?? `${toolA.name} is best for ${toolA.bestFor.toLowerCase()}.`}
                 </p>
                 <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-between gap-2 flex-wrap">
-                  <RatingStars rating={toolA.rating} reviewCount={toolA.reviewCount} size="sm" />
+                  <RatingStars rating={toolA.rating} size="sm" />
                   <PricingBadge pricing={toolA.pricing} price={toolA.price} />
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default async function ComparisonPage({ params }: PageProps) {
                   {content?.verdictB ?? `${toolB.name} is best for ${toolB.bestFor.toLowerCase()}.`}
                 </p>
                 <div className="border-t border-black/10 mt-4 pt-4 flex items-center justify-between gap-2 flex-wrap">
-                  <RatingStars rating={toolB.rating} reviewCount={toolB.reviewCount} size="sm" />
+                  <RatingStars rating={toolB.rating} size="sm" />
                   <PricingBadge pricing={toolB.pricing} price={toolB.price} />
                 </div>
               </div>

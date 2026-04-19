@@ -14,7 +14,6 @@ export interface AIToolRaw {
   cons: string[];
   bestFor: string;
   rating: number;
-  reviewCount: number;
   tags: string[];
   alternatives: string[];
   lastUpdated: string;
@@ -62,7 +61,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'General-purpose writing, brainstorming, and productivity tasks for individuals and teams.',
     rating: 4.7,
-    reviewCount: 4850,
     tags: ['ai-chatbot', 'writing', 'content-generation', 'general-purpose'],
     alternatives: ['claude-ai', 'jasper-ai', 'writesonic', 'perplexity-ai'],
     lastUpdated: '2026-03-22'
@@ -99,7 +97,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professionals who need accurate long-form writing, document analysis, and careful reasoning.',
     rating: 4.8,
-    reviewCount: 3200,
     tags: ['ai-chatbot', 'writing', 'long-context', 'reasoning'],
     alternatives: ['chatgpt', 'jasper-ai', 'perplexity-ai', 'writesonic'],
     lastUpdated: '2026-03-22'
@@ -136,7 +133,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Marketing teams that need consistent, on-brand content production at scale.',
     rating: 4.3,
-    reviewCount: 2100,
     tags: ['marketing', 'content-creation', 'brand-voice', 'team-collaboration'],
     alternatives: ['copy-ai', 'writesonic', 'chatgpt', 'rytr'],
     lastUpdated: '2026-03-22'
@@ -173,7 +169,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small businesses and marketing teams needing quick, high-quality short-form copy.',
     rating: 4.2,
-    reviewCount: 1800,
     tags: ['copywriting', 'marketing', 'automation', 'sales'],
     alternatives: ['jasper-ai', 'writesonic', 'rytr', 'chatgpt'],
     lastUpdated: '2026-03-22'
@@ -210,7 +205,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Content marketers and bloggers who need SEO-optimized articles with real-time data.',
     rating: 4.1,
-    reviewCount: 1500,
     tags: ['seo', 'blog-writing', 'fact-checking', 'multilingual'],
     alternatives: ['jasper-ai', 'copy-ai', 'rytr', 'chatgpt'],
     lastUpdated: '2026-03-22'
@@ -247,7 +241,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Notion users who want AI assistance embedded directly in their knowledge management workflow.',
     rating: 4.2,
-    reviewCount: 1900,
     tags: ['productivity', 'knowledge-management', 'workspace', 'writing'],
     alternatives: ['chatgpt', 'claude-ai', 'grammarly-business', 'otter-ai'],
     lastUpdated: '2026-03-22'
@@ -284,7 +277,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professionals and teams who need consistent, error-free writing across all communication channels.',
     rating: 4.5,
-    reviewCount: 4200,
     tags: ['grammar', 'writing-assistant', 'business', 'tone'],
     alternatives: ['chatgpt', 'claude-ai', 'notion-ai', 'jasper-ai'],
     lastUpdated: '2026-03-22'
@@ -321,7 +313,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Freelancers and small businesses who need an affordable AI writing assistant for everyday content.',
     rating: 4.0,
-    reviewCount: 1100,
     tags: ['affordable', 'templates', 'freelancer', 'budget'],
     alternatives: ['copy-ai', 'writesonic', 'chatgpt', 'jasper-ai'],
     lastUpdated: '2026-03-22'
@@ -362,7 +353,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Artists, designers, and creatives who want the highest-quality AI-generated imagery.',
     rating: 4.7,
-    reviewCount: 3800,
     tags: ['image-generation', 'art', 'creative', 'photorealistic'],
     alternatives: ['dall-e-3', 'stable-diffusion', 'adobe-firefly', 'ideogram-ai'],
     lastUpdated: '2026-03-22'
@@ -399,7 +389,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Users who need accurate text in images and prefer conversational prompt refinement.',
     rating: 4.5,
-    reviewCount: 2900,
     tags: ['image-generation', 'text-rendering', 'chatgpt', 'api'],
     alternatives: ['midjourney', 'stable-diffusion', 'adobe-firefly', 'canva-ai'],
     lastUpdated: '2026-03-22'
@@ -436,7 +425,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Technical users and developers who want full control over AI image generation with no recurring costs.',
     rating: 4.4,
-    reviewCount: 2600,
     tags: ['open-source', 'image-generation', 'self-hosted', 'customizable'],
     alternatives: ['midjourney', 'dall-e-3', 'adobe-firefly', 'canva-ai'],
     lastUpdated: '2026-03-22'
@@ -473,7 +461,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professional designers and enterprises who need commercially safe AI-generated imagery.',
     rating: 4.3,
-    reviewCount: 2200,
     tags: ['commercial-safe', 'adobe', 'design', 'enterprise'],
     alternatives: ['midjourney', 'dall-e-3', 'canva-ai', 'stable-diffusion'],
     lastUpdated: '2026-03-22'
@@ -510,7 +497,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Non-designers and small businesses who need quick, professional designs with AI assistance.',
     rating: 4.4,
-    reviewCount: 3500,
     tags: ['design', 'accessible', 'templates', 'marketing'],
     alternatives: ['adobe-firefly', 'midjourney', 'dall-e-3', 'microsoft-designer'],
     lastUpdated: '2026-03-22'
@@ -547,7 +533,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Designers and marketers who need reliable text rendering in AI-generated images.',
     rating: 4.3,
-    reviewCount: 980,
     tags: ['text-rendering', 'typography', 'logos', 'affordable'],
     alternatives: ['dall-e-3', 'midjourney', 'adobe-firefly', 'canva-ai'],
     lastUpdated: '2026-03-22'
@@ -588,7 +573,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Video creators and filmmakers who want cutting-edge AI video generation and editing tools.',
     rating: 4.5,
-    reviewCount: 1800,
     tags: ['video-generation', 'editing', 'creative', 'professional'],
     alternatives: ['pika-labs', 'synthesia', 'heygen', 'kling-ai'],
     lastUpdated: '2026-03-22'
@@ -625,7 +609,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Businesses creating training videos, explainers, and multilingual corporate communications.',
     rating: 4.4,
-    reviewCount: 1600,
     tags: ['ai-avatars', 'training', 'corporate', 'multilingual'],
     alternatives: ['heygen', 'runway-ml', 'invideo-ai', 'pika-labs'],
     lastUpdated: '2026-03-22'
@@ -662,7 +645,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Sales and marketing teams that need personalized AI avatar videos at scale.',
     rating: 4.3,
-    reviewCount: 1400,
     tags: ['ai-avatars', 'personalization', 'sales', 'translation'],
     alternatives: ['synthesia', 'runway-ml', 'invideo-ai', 'pika-labs'],
     lastUpdated: '2026-03-22'
@@ -699,7 +681,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Creators and hobbyists who want an affordable, easy way to experiment with AI video.',
     rating: 4.1,
-    reviewCount: 1100,
     tags: ['video-generation', 'creative', 'affordable', 'beginner-friendly'],
     alternatives: ['runway-ml', 'kling-ai', 'heygen', 'invideo-ai'],
     lastUpdated: '2026-03-22'
@@ -736,7 +717,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Video creators who need longer AI-generated clips with realistic motion at an affordable price.',
     rating: 4.2,
-    reviewCount: 780,
     tags: ['video-generation', 'realistic-motion', 'affordable', '1080p'],
     alternatives: ['runway-ml', 'pika-labs', 'heygen', 'invideo-ai'],
     lastUpdated: '2026-03-22'
@@ -773,7 +753,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Content creators and marketers who need quick, polished videos from text prompts.',
     rating: 4.2,
-    reviewCount: 1300,
     tags: ['video-editing', 'stock-footage', 'youtube', 'marketing'],
     alternatives: ['synthesia', 'runway-ml', 'heygen', 'pika-labs'],
     lastUpdated: '2026-03-22'
@@ -814,7 +793,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Individual developers and teams who want AI-assisted coding directly in their editor.',
     rating: 4.5,
-    reviewCount: 3900,
     tags: ['code-completion', 'ide', 'pair-programming', 'developer-tools'],
     alternatives: ['cursor-ai', 'claude-code', 'replit-agent', 'v0-by-vercel'],
     lastUpdated: '2026-03-22'
@@ -851,7 +829,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Developers who want a fully AI-integrated editor with deep codebase understanding.',
     rating: 4.6,
-    reviewCount: 2200,
     tags: ['code-editor', 'ai-native', 'multi-file', 'codebase-aware'],
     alternatives: ['github-copilot', 'claude-code', 'replit-agent', 'bolt-new'],
     lastUpdated: '2026-03-22'
@@ -888,7 +865,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professional developers who want an autonomous AI agent for complex, multi-file coding tasks.',
     rating: 4.6,
-    reviewCount: 1400,
     tags: ['agentic', 'terminal', 'autonomous', 'professional'],
     alternatives: ['github-copilot', 'cursor-ai', 'replit-agent', 'claude-code-agents'],
     lastUpdated: '2026-03-22'
@@ -925,7 +901,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Non-developers and beginners who want to build complete web applications through conversation.',
     rating: 4.1,
-    reviewCount: 1200,
     tags: ['app-builder', 'cloud-ide', 'deployment', 'beginner-friendly'],
     alternatives: ['bolt-new', 'v0-by-vercel', 'cursor-ai', 'claude-code'],
     lastUpdated: '2026-03-22'
@@ -962,7 +937,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'React developers and designers who want to rapidly prototype UI components with AI.',
     rating: 4.4,
-    reviewCount: 1600,
     tags: ['react', 'ui-generation', 'frontend', 'prototyping'],
     alternatives: ['bolt-new', 'cursor-ai', 'replit-agent', 'github-copilot'],
     lastUpdated: '2026-03-22'
@@ -999,7 +973,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Entrepreneurs and developers who want the fastest path from idea to deployed prototype.',
     rating: 4.3,
-    reviewCount: 1100,
     tags: ['full-stack', 'browser-based', 'prototyping', 'no-setup'],
     alternatives: ['replit-agent', 'v0-by-vercel', 'cursor-ai', 'claude-code'],
     lastUpdated: '2026-03-22'
@@ -1040,7 +1013,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Digital marketing agencies and serious SEO professionals who need comprehensive market intelligence.',
     rating: 4.6,
-    reviewCount: 3200,
     tags: ['seo', 'keyword-research', 'competitive-analysis', 'enterprise'],
     alternatives: ['surfer-seo', 'jasper-marketing', 'writesonic', 'copy-ai-marketing'],
     lastUpdated: '2026-03-22'
@@ -1077,7 +1049,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Content marketers and SEO specialists focused on data-driven content optimization.',
     rating: 4.4,
-    reviewCount: 1700,
     tags: ['seo', 'content-optimization', 'on-page-seo', 'content-editor'],
     alternatives: ['semrush-ai', 'jasper-marketing', 'writesonic', 'copy-ai-marketing'],
     lastUpdated: '2026-03-22'
@@ -1114,7 +1085,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Marketing departments that need consistent, on-brand content across multiple channels.',
     rating: 4.2,
-    reviewCount: 1400,
     tags: ['marketing', 'brand-voice', 'campaigns', 'team-collaboration'],
     alternatives: ['copy-ai-marketing', 'semrush-ai', 'surfer-seo', 'predis-ai'],
     lastUpdated: '2026-03-22'
@@ -1151,7 +1121,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Marketing teams looking to automate repetitive content creation and go-to-market workflows.',
     rating: 4.1,
-    reviewCount: 1100,
     tags: ['marketing-automation', 'workflows', 'content-repurposing', 'gtm'],
     alternatives: ['jasper-marketing', 'semrush-ai', 'predis-ai', 'lately-ai'],
     lastUpdated: '2026-03-22'
@@ -1188,7 +1157,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small businesses and solo marketers managing social media content on a budget.',
     rating: 4.0,
-    reviewCount: 680,
     tags: ['social-media', 'scheduling', 'visual-content', 'carousels'],
     alternatives: ['canva-ai', 'copy-ai-marketing', 'lately-ai', 'jasper-marketing'],
     lastUpdated: '2026-03-22'
@@ -1225,7 +1193,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Content teams that produce long-form content and want to maximize social media distribution.',
     rating: 3.9,
-    reviewCount: 450,
     tags: ['content-repurposing', 'social-media', 'brand-voice', 'automation'],
     alternatives: ['predis-ai', 'copy-ai-marketing', 'jasper-marketing', 'semrush-ai'],
     lastUpdated: '2026-03-22'
@@ -1266,7 +1233,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small e-commerce businesses that want affordable AI-powered customer chat support.',
     rating: 4.3,
-    reviewCount: 1800,
     tags: ['live-chat', 'chatbot', 'e-commerce', 'small-business'],
     alternatives: ['chatbase', 'intercom-ai', 'freshdesk-ai', 'zendesk-ai'],
     lastUpdated: '2026-03-22'
@@ -1303,7 +1269,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Growing SaaS companies that need an AI-first approach to scaling customer support.',
     rating: 4.4,
-    reviewCount: 2800,
     tags: ['ai-agent', 'omnichannel', 'saas', 'customer-support'],
     alternatives: ['zendesk-ai', 'freshdesk-ai', 'tidio-ai', 'drift-ai'],
     lastUpdated: '2026-03-22'
@@ -1340,7 +1305,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Enterprise companies with complex customer service operations needing AI-powered automation.',
     rating: 4.3,
-    reviewCount: 3500,
     tags: ['enterprise', 'ticketing', 'automation', 'omnichannel'],
     alternatives: ['intercom-ai', 'freshdesk-ai', 'tidio-ai', 'drift-ai'],
     lastUpdated: '2026-03-22'
@@ -1377,7 +1341,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Mid-market businesses that need AI-powered helpdesk features at a competitive price.',
     rating: 4.2,
-    reviewCount: 2400,
     tags: ['helpdesk', 'ticketing', 'affordable', 'mid-market'],
     alternatives: ['zendesk-ai', 'intercom-ai', 'tidio-ai', 'chatbase'],
     lastUpdated: '2026-03-22'
@@ -1414,7 +1377,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'B2B enterprises that need AI-powered conversational marketing to accelerate pipeline and revenue.',
     rating: 4.1,
-    reviewCount: 1100,
     tags: ['b2b', 'lead-qualification', 'conversational-marketing', 'enterprise'],
     alternatives: ['intercom-ai', 'zendesk-ai', 'tidio-ai', 'chatbase'],
     lastUpdated: '2026-03-22'
@@ -1451,7 +1413,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small businesses that want a custom AI chatbot trained on their content without technical complexity.',
     rating: 4.1,
-    reviewCount: 920,
     tags: ['custom-chatbot', 'website', 'lead-capture', 'simple'],
     alternatives: ['tidio-ai', 'intercom-ai', 'freshdesk-ai', 'drift-ai'],
     lastUpdated: '2026-03-22'
@@ -1492,7 +1453,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Businesses of all sizes that need to automate workflows across multiple apps and services.',
     rating: 4.6,
-    reviewCount: 4100,
     tags: ['automation', 'integrations', 'no-code', 'workflows'],
     alternatives: ['make-ai', 'n8n-ai', 'reclaim-ai', 'fireflies-ai'],
     lastUpdated: '2026-03-22'
@@ -1529,7 +1489,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Technical users and businesses that need complex, visual workflow automation at a lower cost.',
     rating: 4.5,
-    reviewCount: 2200,
     tags: ['automation', 'visual-builder', 'advanced', 'affordable'],
     alternatives: ['zapier-ai', 'n8n-ai', 'reclaim-ai', 'fireflies-ai'],
     lastUpdated: '2026-03-22'
@@ -1566,7 +1525,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Teams already using Notion who want AI to automate organization and knowledge management.',
     rating: 4.3,
-    reviewCount: 1700,
     tags: ['workspace', 'project-management', 'knowledge-base', 'team'],
     alternatives: ['zapier-ai', 'otter-ai', 'reclaim-ai', 'fireflies-ai'],
     lastUpdated: '2026-03-22'
@@ -1603,7 +1561,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professionals and teams who attend frequent meetings and need automated notes and follow-ups.',
     rating: 4.3,
-    reviewCount: 2600,
     tags: ['meeting-notes', 'transcription', 'summary', 'collaboration'],
     alternatives: ['fireflies-ai', 'notion-ai-productivity', 'reclaim-ai', 'zapier-ai'],
     lastUpdated: '2026-03-22'
@@ -1640,7 +1597,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Sales teams and managers who need conversation intelligence and CRM integration from meetings.',
     rating: 4.2,
-    reviewCount: 1500,
     tags: ['meeting-notes', 'conversation-intelligence', 'crm', 'analytics'],
     alternatives: ['otter-ai', 'notion-ai-productivity', 'zapier-ai', 'reclaim-ai'],
     lastUpdated: '2026-03-22'
@@ -1677,7 +1633,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Busy professionals who want AI to automatically manage their calendar and protect focus time.',
     rating: 4.4,
-    reviewCount: 1200,
     tags: ['calendar', 'scheduling', 'time-management', 'focus'],
     alternatives: ['zapier-ai', 'make-ai', 'notion-ai-productivity', 'otter-ai'],
     lastUpdated: '2026-03-22'
@@ -1718,7 +1673,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Non-designers and small teams who need to produce professional-quality designs quickly.',
     rating: 4.6,
-    reviewCount: 4500,
     tags: ['design', 'templates', 'accessible', 'collaboration'],
     alternatives: ['adobe-express-ai', 'microsoft-designer', 'figma-ai', 'framer-ai'],
     lastUpdated: '2026-03-22'
@@ -1755,7 +1709,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Users who want Adobe-quality design tools with a simpler interface and AI-powered features.',
     rating: 4.2,
-    reviewCount: 1600,
     tags: ['adobe', 'quick-design', 'templates', 'firefly'],
     alternatives: ['canva-ai-design', 'microsoft-designer', 'figma-ai', 'looka-ai'],
     lastUpdated: '2026-03-22'
@@ -1792,7 +1745,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Startups and small businesses that need professional brand identity on a bootstrap budget.',
     rating: 4.0,
-    reviewCount: 980,
     tags: ['logo-design', 'branding', 'startup', 'one-time-purchase'],
     alternatives: ['canva-ai-design', 'adobe-express-ai', 'microsoft-designer', 'figma-ai'],
     lastUpdated: '2026-03-22'
@@ -1829,7 +1781,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Microsoft 365 users who want a free, simple AI design tool for quick visual content.',
     rating: 4.0,
-    reviewCount: 1100,
     tags: ['free', 'microsoft', 'dall-e', 'simple'],
     alternatives: ['canva-ai-design', 'adobe-express-ai', 'figma-ai', 'looka-ai'],
     lastUpdated: '2026-03-22'
@@ -1866,7 +1817,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Product design teams already using Figma who want AI acceleration in their existing workflow.',
     rating: 4.4,
-    reviewCount: 2000,
     tags: ['product-design', 'ui-ux', 'collaborative', 'professional'],
     alternatives: ['canva-ai-design', 'framer-ai', 'adobe-express-ai', 'v0-by-vercel'],
     lastUpdated: '2026-03-22'
@@ -1903,7 +1853,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Freelancers, startups, and small businesses that need a professional website built quickly with AI.',
     rating: 4.5,
-    reviewCount: 1400,
     tags: ['website-builder', 'responsive', 'animations', 'publishing'],
     alternatives: ['canva-ai-design', 'figma-ai', 'v0-by-vercel', 'bolt-new'],
     lastUpdated: '2026-03-22'
@@ -1944,7 +1893,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Enterprise teams that need AI-powered analytics on top of industry-leading data visualization.',
     rating: 4.5,
-    reviewCount: 3100,
     tags: ['data-visualization', 'enterprise', 'analytics', 'salesforce'],
     alternatives: ['microsoft-copilot', 'julius-ai', 'polymer-ai', 'google-gemini-workspace'],
     lastUpdated: '2026-03-22'
@@ -1981,7 +1929,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Organizations already invested in Microsoft 365 who want AI productivity across all their tools.',
     rating: 4.3,
-    reviewCount: 2800,
     tags: ['microsoft-365', 'enterprise', 'office', 'cross-platform'],
     alternatives: ['google-gemini-workspace', 'tableau-ai', 'notion-ai-bi', 'julius-ai'],
     lastUpdated: '2026-03-22'
@@ -2018,7 +1965,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Google Workspace organizations that want AI-powered productivity across their existing tools.',
     rating: 4.2,
-    reviewCount: 2100,
     tags: ['google-workspace', 'enterprise', 'suite', 'productivity'],
     alternatives: ['microsoft-copilot', 'tableau-ai', 'notion-ai-bi', 'julius-ai'],
     lastUpdated: '2026-03-22'
@@ -2055,7 +2001,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small to mid-size businesses that want lightweight business intelligence within their existing Notion workspace.',
     rating: 4.1,
-    reviewCount: 1300,
     tags: ['knowledge-management', 'lightweight-bi', 'notion', 'team'],
     alternatives: ['microsoft-copilot', 'julius-ai', 'tableau-ai', 'polymer-ai'],
     lastUpdated: '2026-03-22'
@@ -2092,7 +2037,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Business professionals who need quick data analysis and visualizations without coding skills.',
     rating: 4.2,
-    reviewCount: 750,
     tags: ['data-analysis', 'visualization', 'no-code', 'accessible'],
     alternatives: ['tableau-ai', 'microsoft-copilot', 'polymer-ai', 'notion-ai-bi'],
     lastUpdated: '2026-03-22'
@@ -2129,7 +2073,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small businesses and teams who want to visualize spreadsheet data without learning BI tools.',
     rating: 4.0,
-    reviewCount: 420,
     tags: ['dashboards', 'spreadsheets', 'no-code', 'affordable'],
     alternatives: ['julius-ai', 'tableau-ai', 'microsoft-copilot', 'notion-ai-bi'],
     lastUpdated: '2026-03-22'
@@ -2170,7 +2113,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Content creators, developers, and businesses who need the highest-quality AI voice generation.',
     rating: 4.7,
-    reviewCount: 2400,
     tags: ['text-to-speech', 'voice-cloning', 'multilingual', 'api'],
     alternatives: ['murf-ai', 'descript', 'adobe-podcast', 'suno-ai'],
     lastUpdated: '2026-03-22'
@@ -2207,7 +2149,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Businesses creating professional voiceovers for training, presentations, and marketing videos.',
     rating: 4.2,
-    reviewCount: 1100,
     tags: ['voiceover', 'professional', 'e-learning', 'corporate'],
     alternatives: ['elevenlabs', 'descript', 'adobe-podcast', 'synthesia'],
     lastUpdated: '2026-03-22'
@@ -2244,7 +2185,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Podcasters and video creators who want faster, easier editing through AI-powered text-based workflows.',
     rating: 4.5,
-    reviewCount: 2000,
     tags: ['audio-editing', 'video-editing', 'podcast', 'text-based'],
     alternatives: ['elevenlabs', 'adobe-podcast', 'murf-ai', 'otter-ai'],
     lastUpdated: '2026-03-22'
@@ -2281,7 +2221,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Anyone who needs to quickly improve audio recording quality for free.',
     rating: 4.4,
-    reviewCount: 1500,
     tags: ['audio-enhancement', 'free', 'podcast', 'noise-removal'],
     alternatives: ['descript', 'elevenlabs', 'murf-ai', 'otter-ai'],
     lastUpdated: '2026-03-22'
@@ -2318,7 +2257,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Content creators, hobbyists, and marketers who need custom music without hiring musicians.',
     rating: 4.3,
-    reviewCount: 1800,
     tags: ['music-generation', 'vocals', 'creative', 'songs'],
     alternatives: ['udio-ai', 'elevenlabs', 'descript', 'adobe-podcast'],
     lastUpdated: '2026-03-22'
@@ -2355,7 +2293,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Musicians and creators who prioritize audio fidelity and production quality in AI-generated music.',
     rating: 4.2,
-    reviewCount: 1200,
     tags: ['music-generation', 'high-fidelity', 'production', 'genres'],
     alternatives: ['suno-ai', 'elevenlabs', 'descript', 'adobe-podcast'],
     lastUpdated: '2026-03-22'
@@ -2396,7 +2333,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Researchers, students, and professionals who need accurate, cited answers to complex questions.',
     rating: 4.6,
-    reviewCount: 2800,
     tags: ['research', 'search-engine', 'citations', 'real-time'],
     alternatives: ['chatgpt', 'claude-ai', 'elicit-ai', 'consensus-ai'],
     lastUpdated: '2026-03-22'
@@ -2433,7 +2369,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Academic researchers and scientists who need to efficiently review and synthesize literature.',
     rating: 4.3,
-    reviewCount: 850,
     tags: ['academic', 'literature-review', 'papers', 'science'],
     alternatives: ['consensus-ai', 'perplexity-ai', 'notebooklm', 'humata-ai'],
     lastUpdated: '2026-03-22'
@@ -2470,7 +2405,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Healthcare professionals, researchers, and policy makers who need evidence-based scientific answers.',
     rating: 4.2,
-    reviewCount: 620,
     tags: ['scientific', 'evidence-based', 'peer-reviewed', 'research'],
     alternatives: ['elicit-ai', 'perplexity-ai', 'notebooklm', 'chatpdf'],
     lastUpdated: '2026-03-22'
@@ -2507,7 +2441,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professionals who regularly work with lengthy PDF documents and need quick information extraction.',
     rating: 4.1,
-    reviewCount: 1100,
     tags: ['pdf', 'document-analysis', 'simple', 'affordable'],
     alternatives: ['humata-ai', 'notebooklm', 'perplexity-ai', 'claude-ai'],
     lastUpdated: '2026-03-22'
@@ -2544,7 +2477,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Research and legal teams who need AI analysis across multiple document types and formats.',
     rating: 4.0,
-    reviewCount: 680,
     tags: ['document-analysis', 'multi-format', 'legal', 'research'],
     alternatives: ['chatpdf', 'notebooklm', 'perplexity-ai', 'elicit-ai'],
     lastUpdated: '2026-03-22'
@@ -2581,7 +2513,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Students and researchers who want AI-powered understanding of specific source materials for free.',
     rating: 4.5,
-    reviewCount: 1900,
     tags: ['free', 'research', 'source-grounded', 'google', 'podcast'],
     alternatives: ['perplexity-ai', 'elicit-ai', 'chatpdf', 'humata-ai'],
     lastUpdated: '2026-03-22'
@@ -2622,7 +2553,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Technical teams that want to build custom AI agents and automations with full control.',
     rating: 4.5,
-    reviewCount: 1600,
     tags: ['open-source', 'ai-agents', 'self-hosted', 'technical'],
     alternatives: ['make-advanced', 'zapier-ai', 'lindy-ai', 'agentgpt'],
     lastUpdated: '2026-03-22'
@@ -2659,7 +2589,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Business teams that need sophisticated AI automation with visual workflow management.',
     rating: 4.3,
-    reviewCount: 1100,
     tags: ['automation', 'visual-builder', 'ai-agents', 'affordable'],
     alternatives: ['n8n-ai', 'zapier-ai', 'lindy-ai', 'microsoft-copilot-studio'],
     lastUpdated: '2026-03-22'
@@ -2696,7 +2625,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Enterprises in the Microsoft ecosystem that need custom AI agents with enterprise security.',
     rating: 4.1,
-    reviewCount: 780,
     tags: ['enterprise', 'microsoft', 'custom-agents', 'low-code'],
     alternatives: ['n8n-ai', 'make-advanced', 'lindy-ai', 'claude-code-agents'],
     lastUpdated: '2026-03-22'
@@ -2733,7 +2661,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Development teams that want autonomous AI agents for complex, multi-step coding tasks.',
     rating: 4.5,
-    reviewCount: 900,
     tags: ['autonomous', 'software-development', 'agentic', 'coding'],
     alternatives: ['claude-code', 'github-copilot', 'cursor-ai', 'n8n-ai'],
     lastUpdated: '2026-03-22'
@@ -2770,7 +2697,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Developers and experimenters interested in autonomous AI agents and open-source AI tools.',
     rating: 3.7,
-    reviewCount: 650,
     tags: ['open-source', 'autonomous', 'experimental', 'free'],
     alternatives: ['n8n-ai', 'lindy-ai', 'make-advanced', 'claude-code-agents'],
     lastUpdated: '2026-03-22'
@@ -2807,7 +2733,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Small business owners who want to automate specific business roles with custom AI agents.',
     rating: 4.0,
-    reviewCount: 520,
     tags: ['ai-employees', 'business-automation', 'custom-agents', 'no-code'],
     alternatives: ['n8n-ai', 'make-advanced', 'zapier-ai', 'microsoft-copilot-studio'],
     lastUpdated: '2026-03-22'
@@ -2844,7 +2769,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'SEO professionals and agencies who prioritize backlink analysis, technical SEO, and data-driven competitive intelligence.',
     rating: 4.7,
-    reviewCount: 4900,
     tags: ['seo', 'backlinks', 'keyword-research', 'competitor-analysis'],
     alternatives: ['semrush-ai', 'surfer-seo'],
     lastUpdated: '2026-03-22'
@@ -2881,7 +2805,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Performance marketers and growth teams who make data-driven copy decisions for ads, email, and landing pages.',
     rating: 4.3,
-    reviewCount: 890,
     tags: ['ai-writing', 'copywriting', 'marketing', 'performance', 'ads'],
     alternatives: ['jasper-ai', 'copy-ai', 'writesonic'],
     lastUpdated: '2026-04-11'
@@ -2918,7 +2841,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Teams already using Adobe Creative Cloud who want accessible AI-powered design without leaving the Adobe ecosystem.',
     rating: 4.2,
-    reviewCount: 2100,
     tags: ['design', 'ai-image', 'adobe', 'templates', 'creative'],
     alternatives: ['canva-ai', 'microsoft-designer'],
     lastUpdated: '2026-04-11'
@@ -2955,7 +2877,6 @@ const rawTools: AIToolRaw[] = [
     ],
     bestFor: 'Professionals who write across multiple platforms daily and want consistent, reliable proofreading built into every surface they use.',
     rating: 4.5,
-    reviewCount: 8900,
     tags: ['writing', 'grammar', 'proofreading', 'productivity', 'editing'],
     alternatives: ['claude-ai', 'chatgpt', 'writesonic'],
     lastUpdated: '2026-04-11'

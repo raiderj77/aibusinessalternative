@@ -155,7 +155,7 @@ export default async function ForIndustryPage({ params }: PageProps) {
                       <p className="text-[13px] text-gray-400 mb-3">{tool.tagline}</p>
                       <p className="text-[13px] text-gray-600 leading-relaxed mb-4">{why}</p>
                       <div className="flex flex-wrap items-center gap-4">
-                        <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="sm" />
+                        <RatingStars rating={tool.rating} size="sm" />
                         <a
                           href={tool.affiliateUrl}
                           target="_blank"

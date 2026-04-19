@@ -253,7 +253,7 @@ export default async function AlternativesPage({
                     </div>
                   </div>
                   <div className="mb-4">
-                    <RatingStars rating={tool.rating} reviewCount={tool.reviewCount} size="sm" />
+                    <RatingStars rating={tool.rating} size="sm" />
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <div className="bg-white rounded-lg p-2.5 text-center border border-black/[0.06]">
