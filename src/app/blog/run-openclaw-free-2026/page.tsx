@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: Params }) {
     headline: 'Run OpenClaw for Free in 2026 (Zero API Cost)',
     description: 'Three working setups to run OpenClaw at $0/month in 2026: OpenRouter free models, Ollama local inference, and a hybrid approach that costs under $3.',
     datePublished: '2026-03-28',
-    dateModified: '2026-03-28',
+    dateModified: new Date().toISOString().substring(0,10),
     author: { '@type': 'Organization', name: 'AI Business Alternative' },
   };
 

@@ -37,7 +37,7 @@ const faqItems = [
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  dateModified: '2026-04-07',
+  dateModified: new Date().toISOString().substring(0,10),
   mainEntity: faqItems.map((item) => ({
     '@type': 'Question',
     name: item.question,

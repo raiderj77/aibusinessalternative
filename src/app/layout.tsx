@@ -70,7 +70,7 @@ const organizationJsonLd = {
   logo: 'https://aibusinessalternative.com/logo.png',
   description:
     'The trusted directory of 500+ AI tools for small business owners and solopreneurs.',
-  dateModified: '2026-04-07',
+  dateModified: new Date().toISOString().substring(0,10),
   sameAs: [],
 };
 
@@ -79,7 +79,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'AI Business Alternative',
   url: 'https://aibusinessalternative.com',
-  dateModified: '2026-04-07',
+  dateModified: new Date().toISOString().substring(0,10),
   potentialAction: {
     '@type': 'SearchAction',
     target: {
