@@ -22,11 +22,11 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'AI Business Alternative — Find the Right AI Tool for Every Job',
+  title: 'AI Business Alternative — Find the Right AI Tool',
   description:
     'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to find the best AI tool for your business needs.',
   openGraph: {
-    title: 'AI Business Alternative — Find the Right AI Tool for Every Job',
+    title: 'AI Business Alternative — Find the Right AI Tool',
     description:
       'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to make the right choice.',
     url: 'https://aibusinessalternative.com',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Business Alternative — Find the Right AI Tool for Every Job',
+    title: 'AI Business Alternative — Find the Right AI Tool',
     description:
       'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to make the right choice.',
   },
