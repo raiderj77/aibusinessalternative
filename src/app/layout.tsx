@@ -114,12 +114,21 @@ export default async function RootLayout({
                 'analytics_storage': 'denied',
                 'functionality_storage': 'denied',
                 'personalization_storage': 'denied',
+                'security_storage': 'granted',
                 'wait_for_update': 500
               });
             `,
           }}
         />
-        {/* Google Analytics GA4, Microsoft Clarity, Google AdSense — skip on GPC */}
+        {/* Cookiebot CMP */}
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="a9a99ccb-4863-4e33-a895-a6d5642f408d"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
+        {/* Google Analytics GA4, Microsoft Clarity, Google AdSense - skip on GPC */}
         {!gpcHeader && (
           <>
             {/* Google Analytics GA4 */}
