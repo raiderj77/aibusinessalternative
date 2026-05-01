@@ -70,6 +70,14 @@ const blogPosts = [
     date: '2026-03-05',
     category: 'Productivity',
   },
+  {
+    slug: 'best-ai-tools-small-business-2026',
+    title: 'Best AI Tools for Small Business 2026 (Q2 Update)',
+    excerpt:
+      'Claude and ChatGPT lead for writing and general business tasks. Cursor and Claude Code are top picks for development. Here is how to build a lean AI stack without overspending.',
+    date: '2026-04-30',
+    category: 'AI Tools',
+  },
 ];
 
 const comparePairs = [
