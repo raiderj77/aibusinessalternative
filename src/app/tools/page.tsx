@@ -4,11 +4,11 @@ import { categories } from '@/data/categories';
 import ToolsDirectory from './ToolsDirectory';
 
 export const metadata: Metadata = {
-  title: 'AI Tools Directory — Browse 60+ AI Tools | AI Business Alternative',
+  title: 'AI Tools Directory, Browse 60+ AI Tools | AI Business Alternative',
   description:
     'Browse and compare 60+ AI tools across 12 categories. Filter by pricing, rating, and category to find the perfect AI tool for your business.',
   openGraph: {
-    title: 'AI Tools Directory — Browse 60+ AI Tools | AI Business Alternative',
+    title: 'AI Tools Directory, Browse 60+ AI Tools | AI Business Alternative',
     description:
       'Browse and compare 60+ AI tools across 12 categories. Filter by pricing, rating, and category to find the perfect AI tool for your business.',
     url: 'https://aibusinessalternative.com/tools',

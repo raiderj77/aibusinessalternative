@@ -187,7 +187,7 @@ export default async function AlternativesPage({
       <AnswerBlock
         what={`A ranked list of the best alternatives to ${tool.name} in 2026, with feature comparisons, pricing breakdowns, and user ratings.`}
         who={`Teams and businesses looking to switch from ${tool.name} or compare it against competing AI tools.`}
-        bottomLine={`${alternativeTools.length} alternatives reviewed. The top-rated option is ${alternativeTools[0]?.name ?? 'listed below'} — see the full comparison to find your best match.`}
+        bottomLine={`${alternativeTools.length} alternatives reviewed. The top-rated option is ${alternativeTools[0]?.name ?? 'listed below'}, see the full comparison to find your best match.`}
         lastUpdated="2026-03-25"
       />
 
@@ -205,7 +205,7 @@ export default async function AlternativesPage({
             </ol>
           </nav>
 
-          {/* 2. Hero — 2-col on desktop */}
+          {/* 2. Hero, 2-col on desktop */}
           <section className="py-8 border-b border-black/10">
             <div className="grid md:grid-cols-[1fr_280px] gap-8 items-start">
 

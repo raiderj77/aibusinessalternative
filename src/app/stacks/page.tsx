@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { stacks } from '@/lib/stacks';
 
 export const metadata: Metadata = {
-  title: 'AI Tool Stacks 2026 — Curated Combinations That Work | AI Business Alternative',
+  title: 'AI Tool Stacks 2026, Curated Combinations That Work | AI Business Alternative',
   description: 'Discover the best AI tool combinations for your business type. Real pricing, real tools, no fluff.',
   keywords: 'AI tool stacks, business tools 2026, AI stack for businesses, no-code tools',
   alternates: {
@@ -90,7 +90,7 @@ export default function StacksPage() {
                   <div>
                     <p className="text-xs text-slate-500 mb-1">Estimated monthly cost</p>
                     <p className="text-lg font-bold text-slate-900">
-                      ${stack.estimatedMonthlyCost.low} — ${stack.estimatedMonthlyCost.high}
+                      ${stack.estimatedMonthlyCost.low}, ${stack.estimatedMonthlyCost.high}
                     </p>
                   </div>
                   <span className="text-blue-600 group-hover:translate-x-1 transition-transform">→</span>

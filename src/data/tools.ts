@@ -2763,7 +2763,7 @@ const rawTools: AIToolRaw[] = [
       'Clean, intuitive interface with excellent data visualization'
     ],
     cons: [
-      'No free tier — paid plans only starting at $99/month',
+      'No free tier, paid plans only starting at $99/month',
       'Can be expensive for small businesses or individual bloggers',
       'No built-in AI content writer unlike Semrush'
     ],
@@ -2777,7 +2777,7 @@ const rawTools: AIToolRaw[] = [
     slug: 'anyword',
     name: 'Anyword',
     tagline: 'AI writing with predictive performance scoring for marketers.',
-    description: 'Anyword is an AI writing platform built specifically for performance marketers. Its predictive performance score estimates how well specific copy will convert with specific audiences before you publish — a capability unique in the AI writing space. It covers ads, emails, landing pages, and social content, with audience-specific predictions and A/B copy variations with predicted winners.',
+    description: 'Anyword is an AI writing platform built specifically for performance marketers. Its predictive performance score estimates how well specific copy will convert with specific audiences before you publish, a capability unique in the AI writing space. It covers ads, emails, landing pages, and social content, with audience-specific predictions and A/B copy variations with predicted winners.',
     category: ['writing'],
     pricing: 'paid',
     startingPrice: '$39/mo',
@@ -2799,7 +2799,7 @@ const rawTools: AIToolRaw[] = [
       'Data-driven approach removes guesswork from copywriting'
     ],
     cons: [
-      'No free tier — paid plans only from $39/month',
+      'No free tier, paid plans only from $39/month',
       'Performance scores are estimates, not guarantees',
       'Less useful for long-form content than short copy'
     ],
@@ -2829,7 +2829,7 @@ const rawTools: AIToolRaw[] = [
       'Brand kit for consistent design'
     ],
     pros: [
-      'Firefly AI is trained on licensed content — safer for commercial use',
+      'Firefly AI is trained on licensed content, safer for commercial use',
       'Seamless Creative Cloud integration for Adobe teams',
       'Clean interface accessible to non-designers',
       'Included with Creative Cloud subscriptions at no extra cost'
@@ -2849,7 +2849,7 @@ const rawTools: AIToolRaw[] = [
     slug: 'grammarly',
     name: 'Grammarly',
     tagline: 'Real-time AI writing assistance embedded everywhere you write.',
-    description: 'Grammarly is the leading AI writing assistant, used by over 30 million people daily. Its browser extension integrates directly into Gmail, Google Docs, Word, Slack, LinkedIn, and thousands of other writing surfaces — checking grammar, spelling, tone, clarity, and engagement as you type. Newer versions include GrammarlyGO for generative rewrites and drafting.',
+    description: 'Grammarly is the leading AI writing assistant, used by over 30 million people daily. Its browser extension integrates directly into Gmail, Google Docs, Word, Slack, LinkedIn, and thousands of other writing surfaces, checking grammar, spelling, tone, clarity, and engagement as you type. Newer versions include GrammarlyGO for generative rewrites and drafting.',
     category: ['writing'],
     pricing: 'freemium',
     startingPrice: '$0/mo free / $12/mo Premium',

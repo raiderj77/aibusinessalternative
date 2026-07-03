@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: Params }) {
         name: 'What is the best free model for OpenClaw in 2026?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'For cloud-free: NVIDIA Nemotron 3 Super 120B via OpenRouter offers 262K context and strong tool-calling support at zero cost. For local: Qwen3.5 27B on Ollama is the current sweet spot — it handles tool calling well and runs at reasonable speed on an RTX 3090.',
+          text: 'For cloud-free: NVIDIA Nemotron 3 Super 120B via OpenRouter offers 262K context and strong tool-calling support at zero cost. For local: Qwen3.5 27B on Ollama is the current sweet spot, it handles tool calling well and runs at reasonable speed on an RTX 3090.',
         },
       },
       {
@@ -65,7 +65,7 @@ export default async function Page({ params }: { params: Params }) {
         name: 'Does Ollama work with OpenClaw natively?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. As of Ollama v0.18.x, OpenClaw is a supported first-class integration. Run ollama launch openclaw to configure it. Use the native Ollama API URL (http://localhost:11434), not the /v1 path — the /v1 path breaks tool calling.',
+          text: 'Yes. As of Ollama v0.18.x, OpenClaw is a supported first-class integration. Run ollama launch openclaw to configure it. Use the native Ollama API URL (http://localhost:11434), not the /v1 path, the /v1 path breaks tool calling.',
         },
       },
     ],
@@ -100,7 +100,7 @@ export default async function Page({ params }: { params: Params }) {
         <p>
           The default OpenClaw setup points at Claude Sonnet or Opus. Both are
           excellent models. Both also charge per token for tasks that do not need
-          frontier-level reasoning &mdash; file reads, calendar lookups, web searches,
+          frontier-level reasoning, file reads, calendar lookups, web searches,
           short summaries, reformatting text. If your primary model is Opus,
           every heartbeat OpenClaw fires every 30 to 60 minutes costs you tokens
           even when you are not using the agent. Someone calculated that Opus
@@ -119,8 +119,8 @@ export default async function Page({ params }: { params: Params }) {
         <p>
           OpenRouter offers 29 free models as of March 2026. No credit card
           required. The free tier allows 50 requests per day and 20 requests
-          per minute. For light to moderate daily use &mdash; 10 to 20 agent
-          interactions &mdash; that ceiling is rarely a problem.
+          per minute. For light to moderate daily use, 10 to 20 agent
+          interactions, that ceiling is rarely a problem.
         </p>
 
         <p>
@@ -132,7 +132,7 @@ export default async function Page({ params }: { params: Params }) {
           >
             NVIDIA Nemotron 3 Super 120B
           </a>{' '}
-          &mdash; 262K context window, native tool-calling support, hybrid
+, 262K context window, native tool-calling support, hybrid
           Mamba-Transformer architecture. This is not a toy model. It handles
           multi-step agent tasks at quality that was paid-only 18 months ago.
           Other solid free options include Llama 3.3 70B, Qwen3 Coder 480B
@@ -180,7 +180,7 @@ export default async function Page({ params }: { params: Params }) {
           Local inference means your API bill is zero because no request leaves
           your machine. No account. No rate limits. No data going anywhere. As of
           Ollama v0.18.x (March 2026), OpenClaw is a first-class supported
-          integration &mdash; not a workaround.
+          integration, not a workaround.
         </p>
 
         <p>
@@ -251,7 +251,7 @@ export default async function Page({ params }: { params: Params }) {
           The 35B-A3B is a mixture-of-experts model that only activates 3B
           parameters at inference time, so it runs faster than its size suggests
           and fits in 16 GB VRAM. On CPU-only hardware, 7B and 8B models are
-          usable but slow &mdash; expect 3 to 8 tokens per second versus 50 to 100+
+          usable but slow, expect 3 to 8 tokens per second versus 50 to 100+
           with a modern GPU.
         </p>
 
@@ -288,7 +288,7 @@ export default async function Page({ params }: { params: Params }) {
         <p>
           In practice, local handles roughly 70 percent of tasks. Free cloud
           catches most of the rest. Sonnet only fires on genuinely hard
-          multi-step reasoning &mdash; maybe 5 times a week for a typical personal
+          multi-step reasoning, maybe 5 times a week for a typical personal
           agent setup. Total monthly spend at that cadence: under $3.
         </p>
 
@@ -307,7 +307,7 @@ export default async function Page({ params }: { params: Params }) {
           Where they genuinely fall short: complex multi-step debugging (local
           models lose the thread after step 3), long nuanced conversations with
           dense context, heavy tool chaining (5+ tools in sequence each dependent
-          on the last), and anything where precision matters more than cost &mdash;
+          on the last), and anything where precision matters more than cost, 
           legal, financial, medical review. The mental model is simple: if you
           would answer the question quickly without thinking hard, a free model
           can handle it. If you would need to sit down and reason through it, pay
@@ -325,7 +325,7 @@ export default async function Page({ params }: { params: Params }) {
           <Link href="/blog/chatgpt-alternatives-2026" className="text-indigo-600 hover:underline">
             free AI alternatives in 2026
           </Link>
-          , the same routing logic applies across most agent platforms &mdash; pay for
+          , the same routing logic applies across most agent platforms, pay for
           reasoning, run everything else free.
         </p>
 
@@ -333,7 +333,7 @@ export default async function Page({ params }: { params: Params }) {
           A practical routing setup that keeps costs close to zero for most
           workloads: Gemini Flash (Google free tier, 15 requests per minute) for
           heartbeats and health checks. Groq free tier for fast turnaround tasks
-          like short message drafts and summaries &mdash; Groq&apos;s free tier has
+          like short message drafts and summaries, Groq&apos;s free tier has
           rate limits but is notably fast for light tasks. Local Ollama for
           anything that involves reading files, running searches, or standard
           daily tasks. Claude Sonnet only for YMYL content review or complex
@@ -368,7 +368,7 @@ export default async function Page({ params }: { params: Params }) {
         <p>
           Free users are limited to 50 requests per day and 20 requests per
           minute. Failed requests still count toward the daily quota. For higher
-          throughput, add credits to your account &mdash; but for a personal agent
+          throughput, add credits to your account, but for a personal agent
           running 10 to 20 interactions a day, the free limit is rarely hit.
         </p>
 
@@ -377,7 +377,7 @@ export default async function Page({ params }: { params: Params }) {
           Yes. As of Ollama v0.18.x, OpenClaw is a supported first-class
           integration. Run <code>ollama launch openclaw</code> to configure it.
           Use the native API URL (<code>http://localhost:11434</code>), not the{' '}
-          <code>/v1</code> path &mdash; the <code>/v1</code> path breaks tool calling.
+          <code>/v1</code> path, the <code>/v1</code> path breaks tool calling.
           Set <code>&quot;reasoning&quot;: false</code> in your model config to
           prevent silent tool-calling failures.
         </p>

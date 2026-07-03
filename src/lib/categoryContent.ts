@@ -16,7 +16,7 @@ const categoryContentMap: Record<string, CategoryContent> = {
       {
         question: 'What are the best AI writing tools in 2026?',
         answer:
-          'The best AI writing tools in 2026 include solutions like Jasper, Copy.ai, Writesonic, and Claude-based platforms. Each excels in different areas — Jasper is strong for marketing teams, Copy.ai for short-form content, and newer entrants leverage advanced language models for more nuanced, human-like writing. The best choice depends on your specific use case, budget, and content volume.',
+          'The best AI writing tools in 2026 include solutions like Jasper, Copy.ai, Writesonic, and Claude-based platforms. Each excels in different areas, Jasper is strong for marketing teams, Copy.ai for short-form content, and newer entrants leverage advanced language models for more nuanced, human-like writing. The best choice depends on your specific use case, budget, and content volume.',
       },
       {
         question: 'Are there free AI writing tools?',

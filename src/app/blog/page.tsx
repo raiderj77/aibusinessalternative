@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { getAllBlogPosts } from '@/lib/blog-markdown';
 
 export const metadata: Metadata = {
-  title: 'AI Business Blog — Tips, Reviews & Guides | AI Business Alternative',
+  title: 'AI Business Blog, Tips, Reviews & Guides | AI Business Alternative',
   description:
     'Practical tips, in-depth reviews, and actionable guides to help small business owners and solopreneurs get the most from AI tools.',
   openGraph: {
-    title: 'AI Business Blog — Tips, Reviews & Guides | AI Business Alternative',
+    title: 'AI Business Blog, Tips, Reviews & Guides | AI Business Alternative',
     description:
       'Practical tips, in-depth reviews, and actionable guides to help small business owners and solopreneurs get the most from AI tools.',
     url: 'https://aibusinessalternative.com/blog',

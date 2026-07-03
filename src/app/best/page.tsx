@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { bestPages } from '@/lib/bestContent';
 
 export const metadata: Metadata = {
-  title: 'Best AI Tools — Curated Picks by Category | AI Business Alternative',
+  title: 'Best AI Tools, Curated Picks by Category | AI Business Alternative',
   description:
     'Explore our curated lists of the best AI tools for small business, content creation, marketing, writing, productivity, and more. Updated for 2026.',
   openGraph: {
-    title: 'Best AI Tools — Curated Picks by Category | AI Business Alternative',
+    title: 'Best AI Tools, Curated Picks by Category | AI Business Alternative',
     description:
       'Explore our curated lists of the best AI tools for small business, content creation, marketing, writing, productivity, and more.',
     url: 'https://aibusinessalternative.com/best',
@@ -39,7 +39,7 @@ export default function BestIndexPage() {
             <span className="badge badge-blue">8 curated lists · Updated April 2026</span>
           </div>
           <h1 className="font-display text-[38px] sm:text-[48px] leading-[1.15] tracking-tight text-gray-900 max-w-2xl">
-            Best AI Tools — Curated Picks for 2026
+            Best AI Tools, Curated Picks for 2026
           </h1>
           <p className="mt-3 text-[17px] text-gray-500 max-w-xl">
             Our editorial team tested hundreds of AI tools and narrowed them down to the best picks for every use case.

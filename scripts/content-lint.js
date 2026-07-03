@@ -1,5 +1,5 @@
 /**
- * content-lint.js — Content compliance linter for aibusinessalternative.com
+ * content-lint.js, Content compliance linter for aibusinessalternative.com
  * Scans content/**\/*.{md,mdx} and src/**\/*.{tsx,ts} for:
  *   - Personal name exposure (site owner)
  * Exit code 1 on failure, 0 on pass.
@@ -16,7 +16,7 @@ let failures = 0;
 
 function fail(file, line, msg) {
   const rel = relative(ROOT, file);
-  console.error(`  ❌ ${rel}:${line} — ${msg}`);
+  console.error(`  ❌ ${rel}:${line}, ${msg}`);
   failures++;
 }
 
@@ -47,7 +47,7 @@ function checkPersonalName(file, lines) {
   const namePattern = /\bJason\s+Ramirez\b/i;
   for (let i = 0; i < lines.length; i++) {
     if (namePattern.test(lines[i])) {
-      fail(file, i + 1, "Personal name detected — never expose site owner's name");
+      fail(file, i + 1, "Personal name detected, never expose site owner's name");
     }
   }
 }
@@ -76,7 +76,7 @@ for (const file of allFiles) {
 // ---------------------------------------------------------------------------
 console.log("\n" + "=".repeat(50));
 if (failures > 0) {
-  console.error(`\n💥 ${failures} content issue(s) found — fix before deploying.\n`);
+  console.error(`\n💥 ${failures} content issue(s) found, fix before deploying.\n`);
   process.exit(1);
 } else {
   console.log("\n🎉 All content checks passed.\n");

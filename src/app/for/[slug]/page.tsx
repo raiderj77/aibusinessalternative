@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!page) return {};
 
   const title = `Best AI Tools for ${page.name} in 2026 | AI Business Alternative`;
-  const description = `The top AI tools for ${page.name.toLowerCase()} — independently reviewed and ranked. Compare features, pricing, and real use cases to build the right AI stack for your business.`;
+  const description = `The top AI tools for ${page.name.toLowerCase()}, independently reviewed and ranked. Compare features, pricing, and real use cases to build the right AI stack for your business.`;
 
   return {
     title,

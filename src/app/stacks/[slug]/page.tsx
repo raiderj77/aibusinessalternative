@@ -9,14 +9,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!stack) return {};
 
   return {
-    title: `${stack.name} — AI Tools for ${stack.bestFor} | AI Business Alternative`,
+    title: `${stack.name}, AI Tools for ${stack.bestFor} | AI Business Alternative`,
     description: `${stack.description} Includes: ${stack.tools.map((t) => t.name).join(', ')}. Full pricing breakdown inside.`,
     keywords: `${stack.name.toLowerCase()}, AI tools, ${stack.bestFor.toLowerCase()}`,
     alternates: {
       canonical: `https://aibusinessalternative.com/stacks/${stack.slug}`,
     },
     openGraph: {
-      title: `${stack.name} — AI Tool Stack`,
+      title: `${stack.name}, AI Tool Stack`,
       description: stack.description,
       url: `https://aibusinessalternative.com/stacks/${stack.slug}`,
       type: 'website',
@@ -112,7 +112,7 @@ export default async function StackPage({ params }: { params: Promise<{ slug: st
               <div>
                 <p className="text-sm text-slate-600 mb-1">Estimated monthly cost</p>
                 <p className="text-lg font-semibold text-slate-900">
-                  ${stack.estimatedMonthlyCost.low} — ${stack.estimatedMonthlyCost.high}
+                  ${stack.estimatedMonthlyCost.low}, ${stack.estimatedMonthlyCost.high}
                 </p>
               </div>
             </div>
@@ -175,7 +175,7 @@ export default async function StackPage({ params }: { params: Promise<{ slug: st
                     <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 mb-1">
                       {s.name}
                     </h3>
-                    <p className="text-sm text-slate-600">${s.estimatedMonthlyCost.low} — ${s.estimatedMonthlyCost.high}/mo</p>
+                    <p className="text-sm text-slate-600">${s.estimatedMonthlyCost.low}, ${s.estimatedMonthlyCost.high}/mo</p>
                   </Link>
                 ))}
             </div>

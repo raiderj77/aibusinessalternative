@@ -146,7 +146,7 @@ export default async function BestPage({
       />
 
       <AnswerBlock
-        what={`${page.title} — an expert-reviewed roundup of the top AI tools in this category for 2026.`}
+        what={`${page.title}, an expert-reviewed roundup of the top AI tools in this category for 2026.`}
         who={`Small business owners and solopreneurs looking for the best AI tools ranked by features, pricing, and real user reviews.`}
         bottomLine={`${page.tools.length} tools compared and ranked. Each entry includes pricing, key strengths, and who it's best for.`}
         lastUpdated="2026-03-25"
@@ -255,7 +255,7 @@ export default async function BestPage({
                         </span>{' '}
                         {tool.name}{' '}
                         <span className="font-normal text-gray-500">
-                          &mdash; {tool.tagline}
+, {tool.tagline}
                         </span>
                       </h2>
                       <div className="mt-2 flex flex-wrap items-center gap-3">

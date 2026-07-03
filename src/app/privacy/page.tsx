@@ -403,7 +403,7 @@ export default function PrivacyPolicyPage() {
               signal as a universal opt-out of targeted advertising, data sale,
               and data sharing. When your browser sends a GPC signal, we
               automatically suppress all non-essential analytics and advertising
-              scripts — no banner interaction required.
+              scripts, no banner interaction required.
             </p>
             <p className="mb-4">
               <strong>We do not sell sensitive personal data under any

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About AI Business Alternative | Our Mission & Process",
   description:
-    "Learn about AI Business Alternative — an independent AI tools directory helping small business owners find the right AI solutions through honest reviews, comparisons, and guides.",
+    "Learn about AI Business Alternative, an independent AI tools directory helping small business owners find the right AI solutions through honest reviews, comparisons, and guides.",
 };
 
 export default function AboutPage() {
@@ -61,7 +61,7 @@ export default function AboutPage() {
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               We cut through the noise by providing clear, practical information
-              about AI tools across every business category — from content
+              about AI tools across every business category, from content
               creation and customer service to accounting, marketing, and
               operations. Our goal is simple: help you make informed decisions so
               you can save time, reduce costs, and grow your business with the
@@ -180,7 +180,7 @@ export default function AboutPage() {
                 },
                 {
                   title: "Ease of Use",
-                  desc: "We evaluate the onboarding experience, interface design, learning curve, and documentation quality — because a powerful tool is only useful if your team can actually use it.",
+                  desc: "We evaluate the onboarding experience, interface design, learning curve, and documentation quality, because a powerful tool is only useful if your team can actually use it.",
                 },
                 {
                   title: "Customer Support",
@@ -241,7 +241,7 @@ export default function AboutPage() {
                 reviews, rankings, or recommendations.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our commitment is to you — the reader. We believe that honest,
+                Our commitment is to you, the reader. We believe that honest,
                 unbiased information is the foundation of good decision-making,
                 and we hold ourselves to that standard in every piece of content
                 we publish.

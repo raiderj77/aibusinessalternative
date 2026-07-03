@@ -54,7 +54,7 @@ export default function ForIndexPage() {
             AI tools by industry
           </h1>
           <p className="mt-3 text-[17px] text-gray-500 max-w-xl">
-            Curated AI recommendations for your specific role and industry — not generic lists
+            Curated AI recommendations for your specific role and industry, not generic lists
           </p>
         </div>
       </section>

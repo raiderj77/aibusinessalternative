@@ -71,10 +71,10 @@ export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) 
               <tr key={feature}>
                 <td className="px-4 py-3 text-sm font-medium text-gray-700">{feature}</td>
                 <WinnerHighlight isWinner={aWins}>
-                  <span aria-label={aHas ? 'Yes' : 'No'}>{aHas ? '✓' : '—'}</span>
+                  <span aria-label={aHas ? 'Yes' : 'No'}>{aHas ? '✓' : ', '}</span>
                 </WinnerHighlight>
                 <WinnerHighlight isWinner={bWins}>
-                  <span aria-label={bHas ? 'Yes' : 'No'}>{bHas ? '✓' : '—'}</span>
+                  <span aria-label={bHas ? 'Yes' : 'No'}>{bHas ? '✓' : ', '}</span>
                 </WinnerHighlight>
               </tr>
             );
@@ -114,7 +114,7 @@ export default function ComparisonTable({ toolA, toolB }: ComparisonTableProps) 
                       return (
                         <li key={feature} className="flex items-center gap-2 text-sm text-gray-600">
                           <span className={has ? 'text-green-600' : 'text-gray-300'} aria-hidden="true">
-                            {has ? '✓' : '—'}
+                            {has ? '✓' : ', '}
                           </span>
                           <span className={has ? '' : 'text-gray-400'}>{feature}</span>
                         </li>

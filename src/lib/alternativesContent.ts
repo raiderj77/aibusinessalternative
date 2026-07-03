@@ -5,7 +5,7 @@ export interface AlternativeContent {
   reasons: string[];
 }
 
-/** Hardcoded overrides for the 6 original slugs — richer editorial content */
+/** Hardcoded overrides for the 6 original slugs, richer editorial content */
 const alternativesOverrides: Record<string, AlternativeContent> = {
   chatgpt: {
     intro:
@@ -73,7 +73,7 @@ function pricingContext(tool: AITool): string {
     case 'free-trial':
       return `${tool.name} offers a free trial but requires a paid subscription at ${tool.price} to continue, leading some users to explore permanently free or lower-cost alternatives.`;
     case 'free':
-      return `As a completely free tool, ${tool.name} is popular for cost-conscious users — but price alone doesn't determine the best fit for your workflow.`;
+      return `As a completely free tool, ${tool.name} is popular for cost-conscious users, but price alone doesn't determine the best fit for your workflow.`;
     default:
       return '';
   }
@@ -109,7 +109,7 @@ function generateAlternativeContent(tool: AITool): AlternativeContent {
   const intro = [
     tool.description,
     pricing,
-    `Despite its strengths — ${prosSnippet} — no single tool is the right fit for every team.`,
+    `Despite its strengths, ${prosSnippet}, no single tool is the right fit for every team.`,
     `Businesses exploring alternatives to ${shortName} often cite pricing, missing integrations, or the need for more specialized capabilities.`,
     `The tools below were selected based on how well they address those gaps across pricing, features, and use-case fit.`,
   ]

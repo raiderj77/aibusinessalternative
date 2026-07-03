@@ -9,7 +9,7 @@ author: "Your Friendly Developer Editorial Team"
 reviewer: "Your Friendly Developer Editorial Team"
 ---
 
-Marketing agencies operate on thin margins. A typical boutique agency bills $3,000-5,000/month per client and needs to deliver 30-40 billable hours of work. That means your team has about $75-125/hour to work with — and that needs to cover salaries, software, rent, and profit.
+Marketing agencies operate on thin margins. A typical boutique agency bills $3,000-5,000/month per client and needs to deliver 30-40 billable hours of work. That means your team has about $75-125/hour to work with, and that needs to cover salaries, software, rent, and profit.
 
 For years, the only way to improve margins was to sell higher-value retainers or grow the team (which brings its own problems). But in 2026, there's a third lever: automation.
 
@@ -191,7 +191,7 @@ Option A: Reduce headcount by 1 person, save $56k/year in salary. Profit improve
 
 Option B: Keep team, improve output quality, take on 3 new clients at $4,000/month each. Revenue increases by $12,000/month. Profit improves by $12,000/month.
 
-Option C: Hybrid — reduce 1 contractor ($15k/month), take on 1 new client. Profit improves by $19,000/month.
+Option C: Hybrid, reduce 1 contractor ($15k/month), take on 1 new client. Profit improves by $19,000/month.
 
 **Cost of this transformation:**
 - Claude API (heavy usage): ~$1,000/month
@@ -265,12 +265,12 @@ It will, on occasion. That's why humans review before sending to clients. AI is 
 
 <details>
 <summary>What about data privacy with client information?</summary>
-Use self-hosted or enterprise versions for sensitive data. Alternatively, use Claude API in enterprise mode (Anthropic doesn't train on API data). For very sensitive work, have conversations without pasting raw client data — instead, summarize the situation in anonymized form.
+Use self-hosted or enterprise versions for sensitive data. Alternatively, use Claude API in enterprise mode (Anthropic doesn't train on API data). For very sensitive work, have conversations without pasting raw client data, instead, summarize the situation in anonymized form.
 </details>
 
 <details>
 <summary>How do we price this to clients?</summary>
-You don't pass through AI tool costs to clients (or bundle them invisibly). Clients pay for results and turnaround time. If you're 40% faster because of AI, you can either charge less to be more competitive, or keep prices the same and improve margins. We recommend the latter — let your profit improve.
+You don't pass through AI tool costs to clients (or bundle them invisibly). Clients pay for results and turnaround time. If you're 40% faster because of AI, you can either charge less to be more competitive, or keep prices the same and improve margins. We recommend the latter, let your profit improve.
 </details>
 
 ## The Competitive Advantage
@@ -303,7 +303,7 @@ If you implement thoughtfully, yes. The math is straightforward: if you free up 
 
 <details>
 <summary>What if our team resists?</summary>
-This is real. Some people fear AI means their job is at risk. It doesn't — it means their job changes. They stop doing repetitive work and start doing more strategic work (or they handle more client volume with the same effort). Be transparent about this. Show them how the tool makes their day better. Most teams embrace it within 2-3 months.
+This is real. Some people fear AI means their job is at risk. It doesn't, it means their job changes. They stop doing repetitive work and start doing more strategic work (or they handle more client volume with the same effort). Be transparent about this. Show them how the tool makes their day better. Most teams embrace it within 2-3 months.
 </details>
 
 ## The Bottom Line

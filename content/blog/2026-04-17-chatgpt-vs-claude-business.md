@@ -21,7 +21,7 @@ Here's what the data shows.
 
 - **Use Claude** if you write a lot or work with long documents (contracts, proposals, reports, email campaigns). Claude gives you better instruction-following and handles longer context.
 - **Use ChatGPT** if you need image generation, real-time web browsing, or code execution (data analysis with live file uploads). ChatGPT has more built-in capabilities.
-- **Use both** if you have the budget. They complement each other well — most efficient teams use Claude for writing, ChatGPT for analysis and generation.
+- **Use both** if you have the budget. They complement each other well, most efficient teams use Claude for writing, ChatGPT for analysis and generation.
 - **Default to Claude** if you can only pick one. For the average business workload (writing, analysis, research), Claude outperforms.
 
 Now let's dig into the actual performance data.
@@ -89,7 +89,7 @@ We tested both tools on 12 business workflows and tracked output quality, time t
 
 **Claude Results:**
 - File upload: Works. Can attach CSV.
-- Analysis depth: Same as ChatGPT — identifies trends and patterns
+- Analysis depth: Same as ChatGPT, identifies trends and patterns
 - Visualizations: Can't generate charts (no graphing capability)
 - Time: 5 minutes
 - Cost: $0.07
@@ -404,7 +404,7 @@ Both tools hallucinate occasionally (confidently state false information). Claud
 
 <details>
 <summary>Which one is "smarter"?</summary>
-Both are very capable. Claude is better at complex reasoning and following nuanced instructions. ChatGPT is better at real-time research and breadth of built-in features. Neither is objectively "smarter" — they're optimized for different use cases.
+Both are very capable. Claude is better at complex reasoning and following nuanced instructions. ChatGPT is better at real-time research and breadth of built-in features. Neither is objectively "smarter", they're optimized for different use cases.
 </details>
 
 <details>

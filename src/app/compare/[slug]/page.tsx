@@ -202,7 +202,7 @@ export default async function ComparisonPage({ params }: PageProps) {
               {toolA.name} vs <em className="italic">{toolB.name}</em>
             </h1>
             <p className="text-[14px] text-gray-500 max-w-xl mb-6">
-              A detailed side-by-side look at {toolA.name} and {toolB.name} — features, pricing,
+              A detailed side-by-side look at {toolA.name} and {toolB.name}, features, pricing,
               pros and cons, and which tool best fits your business workflow.
             </p>
           </section>
@@ -322,13 +322,13 @@ export default async function ComparisonPage({ params }: PageProps) {
             </div>
           </section>
 
-          {/* 6. Pros / Cons — 2×2 grid */}
+          {/* 6. Pros / Cons, 2×2 grid */}
           <section className="py-7 border-b border-black/10">
             <h2 className="text-[16px] font-semibold mb-4">Pros &amp; cons</h2>
             <div className="grid sm:grid-cols-2 gap-4">
 
               <div className="card p-4" style={{ borderColor: 'rgba(110,231,183,0.6)', backgroundColor: 'rgba(236,253,245,0.3)' }}>
-                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolA.name} — Pros</div>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolA.name}, Pros</div>
                 <ul className="space-y-2">
                   {toolA.pros.map((pro) => (
                     <li key={pro} className="flex gap-2 text-[13px] text-gray-700">
@@ -340,7 +340,7 @@ export default async function ComparisonPage({ params }: PageProps) {
               </div>
 
               <div className="card p-4" style={{ borderColor: 'rgba(252,165,165,0.6)', backgroundColor: 'rgba(254,242,242,0.3)' }}>
-                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolA.name} — Cons</div>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolA.name}, Cons</div>
                 <ul className="space-y-2">
                   {toolA.cons.map((con) => (
                     <li key={con} className="flex gap-2 text-[13px] text-gray-700">
@@ -352,7 +352,7 @@ export default async function ComparisonPage({ params }: PageProps) {
               </div>
 
               <div className="card p-4" style={{ borderColor: 'rgba(110,231,183,0.6)', backgroundColor: 'rgba(236,253,245,0.3)' }}>
-                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolB.name} — Pros</div>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolB.name}, Pros</div>
                 <ul className="space-y-2">
                   {toolB.pros.map((pro) => (
                     <li key={pro} className="flex gap-2 text-[13px] text-gray-700">
@@ -364,7 +364,7 @@ export default async function ComparisonPage({ params }: PageProps) {
               </div>
 
               <div className="card p-4" style={{ borderColor: 'rgba(252,165,165,0.6)', backgroundColor: 'rgba(254,242,242,0.3)' }}>
-                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolB.name} — Cons</div>
+                <div className="text-[12px] font-semibold text-gray-500 mb-3">{toolB.name}, Cons</div>
                 <ul className="space-y-2">
                   {toolB.cons.map((con) => (
                     <li key={con} className="flex gap-2 text-[13px] text-gray-700">
@@ -386,8 +386,8 @@ export default async function ComparisonPage({ params }: PageProps) {
               </div>
               <h2 className="font-display text-[22px] italic leading-snug mb-3">
                 {content?.verdictA
-                  ? `${toolA.name} vs ${toolB.name} — it comes down to your workflow`
-                  : `Both tools serve different needs — it depends on your workflow`}
+                  ? `${toolA.name} vs ${toolB.name}, it comes down to your workflow`
+                  : `Both tools serve different needs, it depends on your workflow`}
               </h2>
               <p className="text-[13px] text-gray-600 leading-relaxed">
                 {content

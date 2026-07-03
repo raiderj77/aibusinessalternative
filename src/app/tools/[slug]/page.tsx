@@ -23,7 +23,7 @@ export async function generateMetadata({
   const tool = getToolBySlug(slug);
   if (!tool) return { title: 'Tool Not Found' };
 
-  const title = `${tool.name} Review 2026 — Features, Pricing & Alternatives | AI Business Alternative`;
+  const title = `${tool.name} Review 2026, Features, Pricing & Alternatives | AI Business Alternative`;
   const description = `${tool.name} review: ${tool.tagline}. Compare features, pricing, pros & cons, and alternatives. ${tool.bestFor}.`;
 
   return {
