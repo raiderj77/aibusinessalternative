@@ -10,7 +10,7 @@ const faqItems = [
   {
     question: 'What is AI Business Alternative?',
     answer:
-      'AI Business Alternative is a free directory and comparison tool that helps businesses find the best AI tools for their specific needs. It covers alternatives across categories including writing, coding, image generation, customer service, analytics, and productivity, with honest comparisons of features, pricing, and use cases.',
+      'AI Business Alternative helps businesses decide between an AI tool and its real human or service alternative, one specific job at a time, starting with bookkeeping. It also covers a free directory of AI tools across categories including writing, coding, image generation, customer service, analytics, and productivity, with honest comparisons of features, pricing, and use cases.',
   },
   {
     question: 'How do I find the best AI tool for my business?',
@@ -130,23 +130,35 @@ export default function HomePage() {
             {/* Activity pill */}
             <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#2563EB] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
-              75 tools · 216 pages indexed
+              New: task-by-task AI vs. human comparisons
             </div>
 
             {/* H1 */}
             <h1 className="font-display text-[42px] sm:text-[52px] leading-[1.15] tracking-tight mb-4">
-              Find the right AI tool for{' '}
-              <em className="text-[#2563EB]">every</em> job
+              AI tool, or a real{' '}
+              <em className="text-[#2563EB]">human</em>?
             </h1>
 
             {/* Sub */}
             <p className="text-[15px] text-gray-500 max-w-lg mx-auto leading-relaxed mb-7">
-              The trusted directory for small business owners and solopreneurs.
-              Compare features, pricing, and real ratings to make the right call.
+              For specific business tasks, bookkeeping first, more coming soon, we compare a named
+              AI tool against its real human or service alternative. Real pricing on both sides,
+              plus a quick 3-question helper that tells you which one fits.
             </p>
 
-            {/* Search */}
+            {/* CTA */}
             <div className="mb-8">
+              <Link
+                href="/vs"
+                className="inline-flex items-center justify-center rounded-lg bg-[#2563EB] text-white text-[14px] font-medium px-5 py-2.5 hover:bg-[#1d4ed8] transition-colors"
+              >
+                See the AI vs. human comparisons
+              </Link>
+            </div>
+
+            {/* Search */}
+            <div className="mb-8 max-w-md mx-auto">
+              <p className="text-[12px] text-gray-400 mb-2">Or browse the full AI tool directory</p>
               <SearchBar tools={tools} />
             </div>
 
@@ -161,6 +173,44 @@ export default function HomePage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ===== 1.5 Featured: AI vs. Human ===== */}
+      <section className="py-10 border-b border-black/10 bg-gray-50">
+        <div className="container-custom">
+
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-[16px] font-semibold">AI tool vs. human alternative</h2>
+            <Link href="/vs" className="text-[13px] text-[#2563EB] hover:underline">
+              View all →
+            </Link>
+          </div>
+
+          <Link
+            href="/vs/quickbooks-online-vs-1800accountant"
+            className="card group flex flex-col p-5 bg-white max-w-md"
+          >
+            <span className="badge badge-gray self-start mb-4">Bookkeeping</span>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col items-center text-center flex-1 min-w-0">
+                <span className="text-sm font-semibold text-gray-900 truncate w-full">QuickBooks Online</span>
+                <span className="text-[11px] text-gray-400 mt-0.5">AI tool</span>
+              </div>
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-xs font-bold text-gray-600">
+                VS
+              </div>
+              <div className="flex flex-col items-center text-center flex-1 min-w-0">
+                <span className="text-sm font-semibold text-gray-900 truncate w-full">1-800Accountant</span>
+                <span className="text-[11px] text-gray-400 mt-0.5">Human alternative</span>
+              </div>
+            </div>
+            <p className="mt-4 text-[12.5px] text-gray-500 leading-relaxed">
+              AI-assisted software you run yourself, or a real human accounting team that runs it for you.
+            </p>
+            <span className="mt-5 text-[13px] font-medium text-[#2563EB]">View comparison →</span>
+          </Link>
+
         </div>
       </section>
 
@@ -440,3 +490,4 @@ export default function HomePage() {
     </>
   );
 }
+

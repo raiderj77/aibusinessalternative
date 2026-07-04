@@ -54,23 +54,21 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              AI Business Alternative exists to help small business owners,
-              entrepreneurs, and teams navigate the rapidly expanding world of
-              AI-powered tools. With hundreds of new AI products launching every
-              month, choosing the right solution can feel overwhelming.
+              AI Business Alternative exists to answer a question small business owners keep asking:
+              should this job be done by an AI tool, or by a real person? For one specific task at a
+              time, starting with bookkeeping, we compare a named AI tool against its real human or
+              service alternative, with real pricing on both sides.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              We cut through the noise by providing clear, practical information
-              about AI tools across every business category, from content
-              creation and customer service to accounting, marketing, and
-              operations. Our goal is simple: help you make informed decisions so
-              you can save time, reduce costs, and grow your business with the
-              right AI solutions.
+              We also maintain a free directory of AI tools across every business category, from
+              content creation and customer service to accounting, marketing, and operations, with
+              honest comparisons of features, pricing, and use cases. Our goal is simple: help you
+              make informed decisions so you can save time, reduce costs, and grow your business.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Whether you are a solo founder looking for your first AI writing
-              assistant or a growing team evaluating enterprise-grade platforms,
-              AI Business Alternative is here to guide you.
+              Whether you are deciding between AI software and a human service for a specific task,
+              or looking for your first AI writing assistant, AI Business Alternative is here to
+              guide you.
             </p>
           </section>
 
@@ -122,12 +120,12 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Side-by-Side Comparisons
+                  AI vs. Human Comparisons
                 </h3>
                 <p className="text-gray-600">
-                  Detailed comparison guides that put competing AI tools head to
-                  head, making it easy to see which solution fits your needs and
-                  budget.
+                  For specific tasks, we compare a named AI tool against its real human or service
+                  alternative, and put competing AI tools head to head, so you can see which fits
+                  your needs and budget.
                 </p>
               </div>
               <div className="bg-indigo-50 rounded-xl p-6">
@@ -298,3 +296,4 @@ export default function AboutPage() {
     </>
   );
 }
+

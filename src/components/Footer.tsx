@@ -16,6 +16,7 @@ const categoryLinks = [
 ] as const;
 
 const companyLinks = [
+  { href: '/vs', label: 'AI vs. Human' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   { href: '/privacy', label: 'Privacy Policy' },
@@ -104,9 +105,9 @@ export default function Footer() {
               About
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              AI Business Alternative is the trusted directory of AI tools for small business owners
-              and solopreneurs. We independently review and compare tools to help you find the right
-              AI solution.
+              AI Business Alternative helps small business owners decide between an AI tool and its
+              real human alternative, one task at a time, plus a free directory of AI tools with
+              independent reviews and comparisons.
             </p>
           </div>
         </div>
@@ -121,3 +122,4 @@ export default function Footer() {
     </footer>
   );
 }
+
