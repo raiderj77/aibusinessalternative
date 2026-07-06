@@ -21,6 +21,13 @@ const comparisons = [
     altName: '1-800Accountant',
     summary: 'AI-assisted software you run yourself, or a real human accounting team that runs it for you.',
   },
+  {
+    slug: 'reclaim-ai-vs-time-etc',
+    task: 'Scheduling',
+    aiName: 'Reclaim.ai',
+    altName: 'Time Etc',
+    summary: 'AI calendar software that auto-schedules around your meetings, or a real human assistant who manages your calendar for you.',
+  },
 ];
 
 const breadcrumbJsonLd = {
@@ -93,7 +100,7 @@ export default function VsIndexPage() {
             {/* Coming soon placeholder, keeps the grid from looking empty at N=1 without inventing content */}
             <div className="card flex flex-col items-center justify-center p-5 border-dashed text-center">
               <span className="text-[13px] text-gray-400">More task-by-task comparisons coming soon</span>
-              <span className="text-[12px] text-gray-300 mt-1">Scheduling, customer support, and others</span>
+              <span className="text-[12px] text-gray-300 mt-1">Customer support, design, and others</span>
             </div>
           </div>
         </div>
