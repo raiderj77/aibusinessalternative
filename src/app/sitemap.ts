@@ -18,6 +18,12 @@ const comparisons = [
   'perplexity-ai-vs-chatgpt',
 ];
 
+const vsPages = [
+  'quickbooks-online-vs-1800accountant',
+  'reclaim-ai-vs-time-etc',
+  'buffer-vs-fiverr-social-media-manager',
+];
+
 const alternatives = ['chatgpt', 'midjourney', 'jasper-ai', 'github-copilot', 'grammarly-business', 'canva-ai'];
 
 const bestPages = [
@@ -37,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 1.0 },
     { url: `${baseUrl}/tools`, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.9 },
     { url: `${baseUrl}/categories`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
+    { url: `${baseUrl}/vs`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
     { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.4 },
     { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
@@ -65,6 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const vsComparisonPages = vsPages.map(slug => ({
+    url: `${baseUrl}/vs/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   const alternativePages = alternatives.map(slug => ({
     url: `${baseUrl}/alternatives/${slug}`,
     lastModified: new Date(),
@@ -86,5 +100,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...toolPages, ...categoryPages, ...comparisonPages, ...alternativePages, ...bestForPages, ...blogPages];
+  return [...staticPages, ...toolPages, ...categoryPages, ...comparisonPages, ...vsComparisonPages, ...alternativePages, ...bestForPages, ...blogPages];
 }
