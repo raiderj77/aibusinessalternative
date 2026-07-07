@@ -221,14 +221,19 @@ export default function QuickBooksVs1800AccountantPage() {
                     </ul>
                   </div>
 
-                  <a
-                    href={p.websiteUrl}
-                    target="_blank"
-                    rel="sponsored noopener"
-                    className="mt-auto inline-flex justify-center items-center rounded-lg bg-[#2563EB] text-white text-[13px] font-medium px-4 py-2.5 hover:bg-[#1d4ed8] transition-colors"
-                  >
-                    Visit {p.name}
-                  </a>
+                  <div>
+                    <a
+                      href={p.websiteUrl}
+                      target="_blank"
+                      rel="nofollow noopener"
+                      className="inline-flex justify-center items-center rounded-lg bg-[#2563EB] text-white text-[13px] font-medium px-4 py-2.5 hover:bg-[#1d4ed8] transition-colors"
+                    >
+                      Visit {p.name}
+                    </a>
+                    <p className="text-[11px] text-gray-400 mt-2">
+                      Affiliate application pending
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
