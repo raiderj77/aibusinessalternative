@@ -22,6 +22,7 @@ const vsPages = [
   'quickbooks-online-vs-1800accountant',
   'reclaim-ai-vs-time-etc',
   'buffer-vs-fiverr-social-media-manager',
+  'tidio-vs-time-etc',
 ];
 
 const alternatives = ['chatgpt', 'midjourney', 'jasper-ai', 'github-copilot', 'grammarly-business', 'canva-ai'];

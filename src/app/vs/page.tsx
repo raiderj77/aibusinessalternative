@@ -35,6 +35,13 @@ const comparisons = [
     altName: 'Fiverr freelancer',
     summary: 'AI-assisted software that drafts and schedules your posts, or a real freelance social media manager who runs your accounts for you.',
   },
+  {
+    slug: 'tidio-vs-time-etc',
+    task: 'Customer support',
+    aiName: 'Tidio',
+    altName: 'Time Etc',
+    summary: 'An AI agent that answers routine customer questions automatically, or a dedicated human assistant who works your support inbox for you.',
+  },
 ];
 
 const breadcrumbJsonLd = {
@@ -107,7 +114,7 @@ export default function VsIndexPage() {
             {/* Coming soon placeholder, keeps the grid balanced without inventing content */}
             <div className="card flex flex-col items-center justify-center p-5 border-dashed text-center">
               <span className="text-[13px] text-gray-400">More task-by-task comparisons coming soon</span>
-              <span className="text-[12px] text-gray-300 mt-1">Customer support, email marketing, and others</span>
+              <span className="text-[12px] text-gray-300 mt-1">Email marketing, design, and others</span>
             </div>
           </div>
         </div>
