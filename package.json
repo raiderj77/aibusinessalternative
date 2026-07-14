@@ -9,11 +9,12 @@
     "lint": "eslint",
     "lint:content": "node scripts/content-lint.js",
     "lint:predeploy": "node scripts/predeploy-check.js",
+    "test:privacy": "node --test tests/privacy-security.test.mjs",
     "prebuild": "npm run lint:predeploy && npm run lint:content"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "next": "^15.5.14",
+    "next": "15.5.20",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remark": "^15.0.1",
@@ -26,7 +27,7 @@
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "eslint": "^9",
-    "eslint-config-next": "^15.5.14",
+    "eslint-config-next": "15.5.20",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

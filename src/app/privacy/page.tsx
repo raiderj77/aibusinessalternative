@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-indigo-100">Last updated: April 18, 2026</p>
+          <p className="mt-4 text-indigo-100">Last updated: July 13, 2026</p>
         </div>
       </div>
 
@@ -58,22 +58,21 @@ export default function PrivacyPolicyPage() {
               Information Collected Automatically
             </h3>
             <p className="mb-4">
-              When you visit our Site, certain information is collected
-              automatically, including:
+              Hosting and security providers may process limited request
+              metadata needed to deliver and protect the Site, including:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>
-                <strong>Device and browser information:</strong> IP address,
-                browser type and version, operating system, device type, and
-                screen resolution.
+                <strong>Request information:</strong> IP address, browser type,
+                requested page, referring page, and timestamp.
               </li>
               <li>
-                <strong>Usage data:</strong> Pages visited, time spent on pages,
-                referring URLs, click patterns, and navigation paths.
+                <strong>Operational data:</strong> Delivery status, error data,
+                and security events generated while serving a request.
               </li>
               <li>
-                <strong>Location data:</strong> Approximate geographic location
-                based on your IP address.
+                <strong>Retention:</strong> Infrastructure-log retention depends
+                on provider terms, plan settings, security needs, and law.
               </li>
             </ul>
           </section>
@@ -89,14 +88,7 @@ export default function PrivacyPolicyPage() {
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>To operate, maintain, and improve the Site and its content.</li>
               <li>To respond to your inquiries, comments, or requests.</li>
-              <li>
-                To analyze usage trends and user behavior to enhance the user
-                experience.
-              </li>
-              <li>
-                To serve relevant advertisements through third-party advertising
-                partners.
-              </li>
+              <li>To maintain reliability and improve useful Site content.</li>
               <li>
                 To detect, prevent, and address technical issues or security
                 threats.
@@ -114,31 +106,29 @@ export default function PrivacyPolicyPage() {
               3. Cookies and Tracking Technologies
             </h2>
             <p className="mb-4">
-              Our Site uses cookies and similar tracking technologies to collect
-              and store certain information. Cookies are small data files placed
-              on your device that help us improve the Site and your experience.
+              The Site does not currently set optional advertising or analytics
+              cookies. Essential delivery and security mechanisms may be used by
+              our hosting providers.
             </p>
-            <p className="mb-4">We use the following types of cookies:</p>
+            <p className="mb-4">Our current configuration is:</p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>
                 <strong>Essential cookies:</strong> Required for the Site to
                 function properly and cannot be disabled.
               </li>
               <li>
-                <strong>Analytics cookies:</strong> Help us understand how
-                visitors interact with the Site by collecting information
-                anonymously.
+                <strong>Analytics:</strong> Google Analytics and Microsoft
+                Clarity are not currently enabled.
               </li>
               <li>
-                <strong>Advertising cookies:</strong> Used by our advertising
-                partners to serve relevant advertisements and track ad campaign
-                performance.
+                <strong>Advertising:</strong> Google AdSense is not currently
+                enabled, and the Site does not currently serve personalized ads.
               </li>
             </ul>
             <p className="mb-4">
-              We work with third-party advertising partners, including Google,
-              who may use cookies to serve ads based on your prior visits to
-              this website or other websites.
+              If optional analytics or advertising is enabled later, we will
+              update this policy and implement any required consent and opt-out
+              controls before activation.
             </p>
             <p className="mb-4">
               You can control cookies through your browser settings. Please note
@@ -150,46 +140,18 @@ export default function PrivacyPolicyPage() {
           {/* Google AdSense */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              4. Google AdSense
+              4. Advertising Status
             </h2>
             <p className="mb-4">
-              We use Google AdSense (Publisher ID: pub-7171402107622932) to
-              display advertisements on our Site. Google AdSense uses cookies to
-              serve ads based on your prior visits to our Site and other
-              websites. Google&apos;s use of advertising cookies enables it and
-              its partners to serve ads based on your browsing history.
+              Google AdSense is not currently enabled. Publisher ID
+              pub-7171402107622932 may remain in ads.txt or public metadata
+              solely for ownership verification; that identifier does not itself
+              place cookies or serve advertisements.
             </p>
             <p className="mb-4">
-              You may opt out of personalized advertising by visiting{" "}
-              <a
-                href="https://ads.google.com/settings"
-                className="text-indigo-600 hover:text-indigo-800 underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Google Ads Settings
-              </a>
-              . You may also opt out of interest-based advertising from
-              participating companies by visiting{" "}
-              <a
-                href="https://optout.aboutads.info"
-                className="text-indigo-600 hover:text-indigo-800 underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                optout.aboutads.info
-              </a>
-              . Alternatively, you may opt out of third-party vendor cookies by
-              visiting the{" "}
-              <a
-                href="https://optout.networkadvertising.org/"
-                className="text-indigo-600 hover:text-indigo-800 underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Network Advertising Initiative opt-out page
-              </a>
-              .
+              If advertising is enabled later, we will first update this notice,
+              satisfy applicable platform requirements, and provide any consent
+              or opt-out controls required for the intended markets.
             </p>
           </section>
 
@@ -218,29 +180,17 @@ export default function PrivacyPolicyPage() {
               6. Third-Party Services
             </h2>
             <p className="mb-4">
-              We use the following third-party services that may collect
-              information about you:
+              Third parties may process information in the following situations:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>
-                <strong>Google Analytics:</strong> We use Google Analytics to
-                analyze website traffic and usage patterns. Google Analytics
-                collects information such as how often users visit the Site,
-                what pages they visit, and what other sites they visited prior
-                to coming to our Site. For more information, please review{" "}
-                <a
-                  href="https://policies.google.com/privacy"
-                  className="text-indigo-600 hover:text-indigo-800 underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Google&apos;s Privacy Policy
-                </a>
-                .
+                <strong>Hosting and security:</strong> Providers may process
+                request metadata to deliver the Site, prevent abuse, and retain
+                operational logs under their own terms and our settings.
               </li>
               <li>
-                <strong>Google AdSense:</strong> As described in Section 4
-                above.
+                <strong>Optional Google services:</strong> Google Analytics and
+                Google AdSense are not currently enabled, as described above.
               </li>
               <li>
                 <strong>Affiliate networks:</strong> Various affiliate networks
@@ -399,11 +349,10 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
             <p className="mb-4">
-              We honor the <strong>Global Privacy Control (GPC)</strong> browser
-              signal as a universal opt-out of targeted advertising, data sale,
-              and data sharing. When your browser sends a GPC signal, we
-              automatically suppress all non-essential analytics and advertising
-              scripts, no banner interaction required.
+              The Site does not currently sell personal data or run targeted
+              advertising. If processing subject to an opt-out is introduced
+              later, we will honor applicable <strong>Global Privacy Control
+              (GPC)</strong> signals and add any additional required controls.
             </p>
             <p className="mb-4">
               <strong>We do not sell sensitive personal data under any
