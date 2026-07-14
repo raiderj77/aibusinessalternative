@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { categories } from '@/data/categories';
 import { tools, getToolBySlug } from '@/data/tools';
@@ -5,6 +6,12 @@ import SearchBar from '@/components/SearchBar';
 import CategoryCard from '@/components/CategoryCard';
 import ToolCard from '@/components/ToolCard';
 import FAQ from '@/components/FAQ';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 
 const faqItems = [
   {
@@ -271,7 +278,7 @@ export default function HomePage() {
                 <Link
                   key={slug}
                   href={`/compare/${slug}`}
-                  className="card p-3.5 flex items-center gap-3 cursor-pointer hover:border-black/20 transition-colors"
+                  className="card min-w-0 p-3.5 flex items-center gap-3 cursor-pointer hover:border-black/20 transition-colors"
                 >
                   {/* Dual logo boxes */}
                   <div className="flex items-center gap-1.5 shrink-0">
