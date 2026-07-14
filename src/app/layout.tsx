@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
 import { Instrument_Sans, Instrument_Serif } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -90,68 +88,14 @@ const websiteJsonLd = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const gpcHeader = headersList.get('sec-gpc') === '1';
-
   return (
     <html lang="en" className={`${instrumentSans.variable} ${instrumentSerif.variable}`}>
       <head>
-        {/* Google Consent Mode v2 */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('consent', 'default', {
-                'ad_storage': 'denied',
-                'ad_user_data': 'denied',
-                'ad_personalization': 'denied',
-                'analytics_storage': 'denied',
-                'functionality_storage': 'denied',
-                'personalization_storage': 'denied',
-                'security_storage': 'granted',
-                'wait_for_update': 500
-              });
-            `,
-          }}
-        />
-        {/* Cookiebot CMP */}
-        <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="a9a99ccb-4863-4e33-a895-a6d5642f408d"
-          data-blockingmode="auto"
-          strategy="beforeInteractive"
-        />
-        {/* Google Analytics GA4, Microsoft Clarity, Google AdSense - skip on GPC */}
-        {!gpcHeader && (
-          <>
-            {/* Google Analytics GA4 */}
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-YCXZXYNF14"
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-YCXZXYNF14');`}
-            </Script>
-            {/* Microsoft Clarity */}
-            <Script id="microsoft-clarity" strategy="afterInteractive">
-              {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","vsqobt7va0");`}
-            </Script>
-            {/* Google AdSense */}
-            <Script
-              async
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7171402107622932"
-              crossOrigin="anonymous"
-              strategy="afterInteractive"
-            />
-          </>
-        )}
         {/* Organization JSON-LD */}
         <script
           type="application/ld+json"
@@ -161,30 +105,6 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        {/* Client-side GPC fallback for navigator.globalPrivacyControl */}
-        <Script
-          id="gpc-client-check"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  if (!!navigator.globalPrivacyControl || document.cookie.indexOf('empire_gpc=1') !== -1) {
-                    if (typeof gtag === 'function') {
-                      gtag('consent', 'update', {
-                        'ad_storage': 'denied',
-                        'ad_user_data': 'denied',
-                        'ad_personalization': 'denied',
-                        'analytics_storage': 'denied',
-                        'personalization_storage': 'denied',
-                      });
-                    }
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
         />
       </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-sans)]">
