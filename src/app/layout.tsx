@@ -20,6 +20,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aibusinessalternative.com'),
   title: 'AI Business Alternative, Find the Right AI Tool',
   description:
     'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to find the best AI tool for your business needs.',
