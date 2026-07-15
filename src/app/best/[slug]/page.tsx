@@ -10,6 +10,7 @@ import PricingBadge from '@/components/PricingBadge';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
 import AnswerBlock from '@/components/AnswerBlock';
+import CommercialLink from '@/components/CommercialLink';
 
 export const revalidate = 86400;
 
@@ -324,10 +325,11 @@ export default async function BestPage({
 
                   {/* CTAs */}
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <a
+                    <CommercialLink
                       href={tool.affiliateUrl}
+                      toolSlug={tool.slug}
+                      placement="best-list"
                       target="_blank"
-                      rel="nofollow sponsored noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       Visit {tool.name}
@@ -344,7 +346,7 @@ export default async function BestPage({
                           d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
                         />
                       </svg>
-                    </a>
+                    </CommercialLink>
                     <Link
                       href={`/tools/${tool.slug}`}
                       className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

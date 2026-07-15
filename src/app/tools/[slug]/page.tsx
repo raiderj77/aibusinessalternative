@@ -7,6 +7,8 @@ import ToolCard from '@/components/ToolCard';
 import PricingBadge from '@/components/PricingBadge';
 import Disclaimer from '@/components/Disclaimer';
 import AnswerBlock from '@/components/AnswerBlock';
+import CommercialLink from '@/components/CommercialLink';
+import { getToolDestination } from '@/lib/commercialLinks';
 
 export const revalidate = 86400;
 
@@ -106,7 +108,7 @@ export default async function ToolDetailPage({
 
   const alternativeNames = alternatives.map((a) => a.name);
   const faqs = generateFAQs(tool, alternativeNames);
-  const visitUrl = tool.affiliateUrl || tool.websiteUrl;
+  const visitDestination = getToolDestination(tool);
 
   // JSON-LD: SoftwareApplication
   const softwareJsonLd = {
@@ -269,15 +271,17 @@ export default async function ToolDetailPage({
 
           {/* CTA */}
           <div className="flex flex-wrap items-center gap-4">
-            <a
-              href={visitUrl}
+            <CommercialLink
+              href={visitDestination.href}
+              toolSlug={tool.slug}
+              placement="tool-header"
+              isAffiliate={visitDestination.isAffiliate}
               target="_blank"
-              rel="nofollow sponsored noopener"
               className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: '#2563EB' }}
             >
               Visit {tool.name} →
-            </a>
+            </CommercialLink>
           </div>
         </header>
 
@@ -429,14 +433,16 @@ export default async function ToolDetailPage({
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
                   Pricing may vary based on usage and plan tier.{' '}
-                  <a
-                    href={visitUrl}
+                  <CommercialLink
+                    href={visitDestination.href}
+                    toolSlug={tool.slug}
+                    placement="pricing"
+                    isAffiliate={visitDestination.isAffiliate}
                     target="_blank"
-                    rel="nofollow sponsored noopener"
                     className="font-medium text-indigo-600 hover:text-indigo-800"
                   >
                     Visit {tool.name} for current pricing &rarr;
-                  </a>
+                  </CommercialLink>
                 </p>
               </div>
             </section>
@@ -520,10 +526,12 @@ export default async function ToolDetailPage({
                 </div>
               </dl>
               <div className="mt-5">
-                <a
-                  href={visitUrl}
+                <CommercialLink
+                  href={visitDestination.href}
+                  toolSlug={tool.slug}
+                  placement="sidebar"
+                  isAffiliate={visitDestination.isAffiliate}
                   target="_blank"
-                  rel="nofollow sponsored noopener"
                   className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
                 >
                   Visit {tool.name}
@@ -541,7 +549,7 @@ export default async function ToolDetailPage({
                       d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
                     />
                   </svg>
-                </a>
+                </CommercialLink>
               </div>
             </div>
 
