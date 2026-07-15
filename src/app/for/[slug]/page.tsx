@@ -6,6 +6,8 @@ import { getToolBySlug } from '@/data/tools';
 import PricingBadge from '@/components/PricingBadge';
 import FAQ from '@/components/FAQ';
 import Disclaimer from '@/components/Disclaimer';
+import CommercialLink from '@/components/CommercialLink';
+import { getToolDestination } from '@/lib/commercialLinks';
 
 export const revalidate = 86400;
 
@@ -154,15 +156,17 @@ export default async function ForIndustryPage({ params }: PageProps) {
                       <p className="text-[13px] text-gray-400 mb-3">{tool.tagline}</p>
                       <p className="text-[13px] text-gray-600 leading-relaxed mb-4">{why}</p>
                       <div className="flex flex-wrap items-center gap-4">
-                        <a
-                          href={tool.affiliateUrl}
+                        <CommercialLink
+                          href={getToolDestination(tool).href}
+                          toolSlug={tool.slug}
+                          placement="industry-recommendation"
+                          isAffiliate={getToolDestination(tool).isAffiliate}
                           target="_blank"
-                          rel="nofollow sponsored noopener noreferrer"
                           className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-[12px] font-semibold text-white transition-colors"
                           style={{ backgroundColor: '#2563EB' }}
                         >
                           Visit {tool.name} →
-                        </a>
+                        </CommercialLink>
                         <Link href={`/tools/${tool.slug}`} className="text-[12px] text-gray-500 hover:text-gray-700 transition-colors">
                           Read review →
                         </Link>

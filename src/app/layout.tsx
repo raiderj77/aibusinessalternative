@@ -3,6 +3,7 @@ import { Instrument_Sans, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import AnalyticsConsent from '@/components/AnalyticsConsent';
 
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
@@ -112,6 +113,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <AnalyticsConsent />
       </body>
     </html>
   );

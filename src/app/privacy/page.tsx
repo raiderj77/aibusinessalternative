@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-indigo-100">Last updated: July 13, 2026</p>
+          <p className="mt-4 text-indigo-100">Last updated: July 14, 2026</p>
         </div>
       </div>
 
@@ -106,19 +106,21 @@ export default function PrivacyPolicyPage() {
               3. Cookies and Tracking Technologies
             </h2>
             <p className="mb-4">
-              The Site does not currently set optional advertising or analytics
-              cookies. Essential delivery and security mechanisms may be used by
-              our hosting providers.
+              The Site asks for your choice before loading Google Analytics.
+              Declining analytics does not limit access to the Site. Essential
+              delivery and security mechanisms may still be used by our hosting
+              providers.
             </p>
             <p className="mb-4">Our current configuration is:</p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>
-                <strong>Essential cookies:</strong> Required for the Site to
-                function properly and cannot be disabled.
+                <strong>Consent preference:</strong> Your analytics choice is
+                stored in your browser&apos;s local storage so the Site can remember
+                it. You can change that choice through the Privacy choices button.
               </li>
               <li>
-                <strong>Analytics:</strong> Google Analytics and Microsoft
-                Clarity are not currently enabled.
+                <strong>Analytics:</strong> Google Analytics loads only after you
+                select Accept analytics. Microsoft Clarity is not enabled.
               </li>
               <li>
                 <strong>Advertising:</strong> Google AdSense is not currently
@@ -126,9 +128,23 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
             <p className="mb-4">
-              If optional analytics or advertising is enabled later, we will
-              update this policy and implement any required consent and opt-out
-              controls before activation.
+              When accepted, Google Analytics may set first-party <code>_ga</code>
+              cookies and collect page paths, referral information, approximate
+              location, browser and device information, and usage events. For a
+              commercial tool click, we send only the tool&apos;s internal slug and
+              the page placement. We do not send the destination URL, its query
+              string, link text, contact-form contents, or a person&apos;s name or
+              email address in that custom event.
+            </p>
+            <p className="mb-4">
+              Advertising storage, advertising user data, advertising
+              personalization, Google Signals, and ad-personalization signals
+              remain disabled in our implementation. Google may process the
+              connection&apos;s IP address to route the request and derive approximate
+              location; Google states that GA4 discards IP addresses before they
+              are logged. Analytics retention depends on our Google Analytics
+              property settings and Google&apos;s terms, so we do not promise immediate
+              deletion or zero retention.
             </p>
             <p className="mb-4">
               You can control cookies through your browser settings. Please note
@@ -189,8 +205,9 @@ export default function PrivacyPolicyPage() {
                 operational logs under their own terms and our settings.
               </li>
               <li>
-                <strong>Optional Google services:</strong> Google Analytics and
-                Google AdSense are not currently enabled, as described above.
+                <strong>Optional Google services:</strong> Google Analytics is
+                enabled only after your affirmative choice. Google AdSense is not
+                currently enabled, as described above.
               </li>
               <li>
                 <strong>Affiliate networks:</strong> Various affiliate networks
