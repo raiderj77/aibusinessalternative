@@ -4,13 +4,11 @@ import { categories } from '@/data/categories';
 import CategoryCard from '@/components/CategoryCard';
 
 export const metadata: Metadata = {
-  title: 'AI Tool Categories, Browse 12 Categories | AI Business Alternative',
-  description:
-    'Explore AI tools organized by category. Browse 12 categories including AI writing, image generation, video creation, coding, marketing, and more to find the perfect tool for your business.',
+  title: 'Category Collections Under Editorial Review | AI Business Alternative',
+  description: 'These category collections are paused pending dated primary-source review.',
   openGraph: {
-    title: 'AI Tool Categories, Browse 12 Categories | AI Business Alternative',
-    description:
-      'Explore AI tools organized by category. Browse 12 categories including AI writing, image generation, video creation, coding, marketing, and more.',
+    title: 'Category Collections Under Editorial Review',
+    description: 'These category collections are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/categories',
   },
 };

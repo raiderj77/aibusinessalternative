@@ -23,8 +23,8 @@ export async function generateMetadata({
   const tool = getToolBySlug(slug);
   if (!tool) return {};
 
-  const title = `Best Alternatives to ${tool.name} in 2026 | AI Business Alternative`;
-  const description = `Compare the best alternatives to ${tool.name} for your business. Side-by-side pricing, features, and ratings to help you find the right AI tool.`;
+  const title = `${tool.name} Alternatives Record Under Editorial Review | AI Business Alternative`;
+  const description = 'This alternatives record is paused pending dated primary-source review.';
 
   return {
     title,

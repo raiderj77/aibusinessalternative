@@ -3,13 +3,11 @@ import Link from 'next/link';
 import { getAllBlogPosts } from '@/lib/blog-markdown';
 
 export const metadata: Metadata = {
-  title: 'AI Business Blog, Tips, Reviews & Guides | AI Business Alternative',
-  description:
-    'Practical tips, in-depth reviews, and actionable guides to help small business owners and solopreneurs get the most from AI tools.',
+  title: 'Article Drafts Under Editorial Review | AI Business Alternative',
+  description: 'These article drafts are paused pending dated primary-source review.',
   openGraph: {
-    title: 'AI Business Blog, Tips, Reviews & Guides | AI Business Alternative',
-    description:
-      'Practical tips, in-depth reviews, and actionable guides to help small business owners and solopreneurs get the most from AI tools.',
+    title: 'Article Drafts Under Editorial Review',
+    description: 'These article drafts are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/blog',
     siteName: 'AI Business Alternative',
     type: 'website',

@@ -3,15 +3,14 @@ import Link from 'next/link';
 import { stacks } from '@/lib/stacks';
 
 export const metadata: Metadata = {
-  title: 'AI Tool Stacks 2026, Curated Combinations That Work | AI Business Alternative',
-  description: 'Discover the best AI tool combinations for your business type. Real pricing, real tools, no fluff.',
-  keywords: 'AI tool stacks, business tools 2026, AI stack for businesses, no-code tools',
+  title: 'Tool Stack Records Under Editorial Review | AI Business Alternative',
+  description: 'These tool stack records are paused pending dated primary-source review.',
   alternates: {
     canonical: 'https://aibusinessalternative.com/stacks',
   },
   openGraph: {
-    title: 'AI Tool Stacks for Every Business Type',
-    description: 'Curated AI tool combinations with real pricing and setup guides.',
+    title: 'Tool Stack Records Under Editorial Review',
+    description: 'These tool stack records are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/stacks',
     type: 'website',
   },

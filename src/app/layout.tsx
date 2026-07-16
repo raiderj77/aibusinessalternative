@@ -22,13 +22,13 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aibusinessalternative.com'),
-  title: 'AI Business Alternative, Find the Right AI Tool',
+  title: 'AI Business Alternative - Editorial Research Rebuild',
   description:
-    'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to find the best AI tool for your business needs.',
+    'AI tool records and comparisons undergoing dated primary-source review before publication.',
   openGraph: {
-    title: 'AI Business Alternative, Find the Right AI Tool',
+    title: 'AI Business Alternative - Editorial Research Rebuild',
     description:
-      'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to make the right choice.',
+      'AI tool records and comparisons undergoing dated primary-source review before publication.',
     url: 'https://aibusinessalternative.com',
     siteName: 'AI Business Alternative',
     type: 'website',
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Business Alternative, Find the Right AI Tool',
+    title: 'AI Business Alternative - Editorial Research Rebuild',
     description:
-      'The trusted directory of 500+ AI tools for small business owners and solopreneurs. Compare features, pricing, and reviews to make the right choice.',
+      'AI tool records and comparisons undergoing dated primary-source review before publication.',
   },
   robots: {
     index: true,
@@ -69,8 +69,7 @@ const organizationJsonLd = {
   url: 'https://aibusinessalternative.com',
   logo: 'https://aibusinessalternative.com/logo.png',
   description:
-    'The trusted directory of 500+ AI tools for small business owners and solopreneurs.',
-  dateModified: new Date().toISOString().substring(0,10),
+    'AI tool research catalog undergoing dated primary-source review.',
   sameAs: [],
 };
 
@@ -79,15 +78,6 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'AI Business Alternative',
   url: 'https://aibusinessalternative.com',
-  dateModified: new Date().toISOString().substring(0,10),
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://aibusinessalternative.com/tools?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 export default function RootLayout({

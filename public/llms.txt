@@ -1,45 +1,23 @@
 # AI Business Alternative
 
-> Find the Right AI Tool for Every Job
+> AI tool research catalog undergoing dated primary-source review.
 
-AI Business Alternative is the trusted directory of AI tools for small business owners, solopreneurs, and individuals. We independently review and compare 60+ AI tools across 12 categories to help you find the right AI solution for your business needs.
+## Current status
 
-## Categories
-- AI Writing & Content: /categories/writing
-- AI Image Generation: /categories/image-generation
-- AI Video Creation: /categories/video-creation
-- AI Coding & Development: /categories/coding
-- AI Marketing & SEO: /categories/marketing
-- AI Customer Service: /categories/customer-service
-- AI Productivity & Automation: /categories/productivity
-- AI Design & Creative: /categories/design
-- AI Business Intelligence: /categories/business-intelligence
-- AI Audio & Voice: /categories/audio-voice
-- AI Research & Knowledge: /categories/research
-- AI Agents & Automation: /categories/ai-agents
+- The source contains 78 tool records and multiple generated comparison and buying-guide families.
+- Changing price, feature, rating, ranking, and performance claims do not yet retain a primary source and review date.
+- Generated tool, category, comparison, alternative, best-of, industry, stack, and blog routes are noindex during the editorial rebuild.
+- Commercial destinations currently use ordinary vendor URLs.
+- No verified tracked affiliate URL or active AdSense script is present.
 
-## Industries
-- AI Tools for Freelancers: /for/freelancers
-- AI Tools for Marketing Agencies: /for/marketing-agencies
-- AI Tools for E-commerce Businesses: /for/ecommerce-businesses
-- AI Tools for Real Estate Agents: /for/real-estate-agents
-- AI Tools for Lawyers & Law Firms: /for/lawyers-and-law-firms
-- AI Tools for Content Creators: /for/content-creators
-- AI Tools for Startups: /for/startups
-- AI Tools for Restaurants & Hospitality: /for/restaurant-and-hospitality
+## Indexable pages
 
-## Key Pages
-- All Tools: /tools
-- Categories: /categories
-- Blog: /blog
-- About: /about
-- Contact: /contact
+- https://aibusinessalternative.com/
+- https://aibusinessalternative.com/about
+- https://aibusinessalternative.com/contact
+- https://aibusinessalternative.com/privacy
+- https://aibusinessalternative.com/terms
 
-## Comparisons
-- ChatGPT vs Claude: /compare/chatgpt-vs-claude-ai
-- Midjourney vs DALL-E 3: /compare/midjourney-vs-dall-e-3
-- GitHub Copilot vs Cursor: /compare/github-copilot-vs-cursor-ai
+## Publication standard
 
-## Contact
-- Website: https://aibusinessalternative.com
-- Contact: https://aibusinessalternative.com/contact
+A recommendation must identify the exact product, cite current first-party sources, record the review date, distinguish sourced facts from editorial judgment, and disclose any approved tracked affiliate relationship.

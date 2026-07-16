@@ -14,6 +14,8 @@ test('homepage publishes one absolute canonical URL', () => {
   assert.match(home, /alternates:\s*{\s*canonical:\s*'\/'/s);
 });
 
-test('comparison cards may shrink inside the mobile grid', () => {
-  assert.match(home, /className="card min-w-0 p-3\.5 flex items-center/);
+test('homepage inventory and archive links use responsive grids', () => {
+  assert.match(home, /sm:grid-cols-2 lg:grid-cols-4/);
+  assert.match(home, /sm:grid-cols-2 lg:grid-cols-3/);
+  assert.match(home, /Report a correction/);
 });

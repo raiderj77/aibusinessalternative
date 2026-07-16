@@ -25,8 +25,8 @@ export async function generateMetadata({
   const tool = getToolBySlug(slug);
   if (!tool) return { title: 'Tool Not Found' };
 
-  const title = `${tool.name} Review 2026, Features, Pricing & Alternatives | AI Business Alternative`;
-  const description = `${tool.name} review: ${tool.tagline}. Compare features, pricing, pros & cons, and alternatives. ${tool.bestFor}.`;
+  const title = `${tool.name} Record Under Editorial Review | AI Business Alternative`;
+  const description = 'This tool record is paused pending dated primary-source review.';
 
   return {
     title,

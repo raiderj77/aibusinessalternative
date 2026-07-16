@@ -12,9 +12,9 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   await props.params;
   return {
-    title: 'Run OpenClaw for Free in 2026 (Zero API Cost)',
-    description: 'Three working setups to run OpenClaw at $0/month in 2026: OpenRouter free models, Ollama local inference, and a hybrid approach that costs under $3.',
-    robots: { index: true, follow: true, googleBot: { 'max-snippet': -1 } },
+    title: 'OpenClaw Article Draft Under Editorial Review | AI Business Alternative',
+    description: 'This article draft is paused pending dated primary-source review.',
+    robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
     alternates: { canonical: '/blog/run-openclaw-free-2026' },
   };
 }

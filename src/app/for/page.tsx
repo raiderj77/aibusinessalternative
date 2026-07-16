@@ -3,13 +3,11 @@ import Link from 'next/link';
 import { getAllIndustryPages } from '@/lib/forContent';
 
 export const metadata: Metadata = {
-  title: 'AI Tools by Industry & Role | AI Business Alternative',
-  description:
-    'Find the best AI tools for your specific industry or business role. Curated recommendations for freelancers, agencies, e-commerce, real estate, law firms, content creators, startups, and hospitality.',
+  title: 'Industry Records Under Editorial Review | AI Business Alternative',
+  description: 'These industry records are paused pending dated primary-source review.',
   openGraph: {
-    title: 'AI Tools by Industry & Role | AI Business Alternative',
-    description:
-      'Find the best AI tools for your specific industry or business role. Curated recommendations for freelancers, agencies, e-commerce, real estate, law firms, content creators, startups, and hospitality.',
+    title: 'Industry Records Under Editorial Review',
+    description: 'These industry records are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/for',
   },
 };

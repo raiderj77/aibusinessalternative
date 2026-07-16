@@ -13,7 +13,8 @@
     "test:privacy": "node --test tests/privacy-security.test.mjs",
     "test:commercial": "node --test tests/commercial-links.test.mjs",
     "test:ux": "node --test tests/ux-seo.test.mjs",
-    "prebuild": "npm run lint:predeploy && npm run lint:content && npm run test:privacy && npm run test:commercial && npm run test:ux"
+    "test:editorial": "node --test tests/editorial-gate.test.mjs",
+    "prebuild": "npm run lint:predeploy && npm run lint:content && npm run test:privacy && npm run test:commercial && npm run test:ux && npm run test:editorial"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

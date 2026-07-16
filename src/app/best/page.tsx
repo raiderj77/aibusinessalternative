@@ -3,13 +3,11 @@ import Link from 'next/link';
 import { bestPages } from '@/lib/bestContent';
 
 export const metadata: Metadata = {
-  title: 'Best AI Tools, Curated Picks by Category | AI Business Alternative',
-  description:
-    'Explore our curated lists of the best AI tools for small business, content creation, marketing, writing, productivity, and more. Updated for 2026.',
+  title: 'Ranking Records Under Editorial Review | AI Business Alternative',
+  description: 'These ranking records are paused pending dated primary-source review.',
   openGraph: {
-    title: 'Best AI Tools, Curated Picks by Category | AI Business Alternative',
-    description:
-      'Explore our curated lists of the best AI tools for small business, content creation, marketing, writing, productivity, and more.',
+    title: 'Ranking Records Under Editorial Review',
+    description: 'These ranking records are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/best',
     siteName: 'AI Business Alternative',
     type: 'website',

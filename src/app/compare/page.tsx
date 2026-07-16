@@ -3,13 +3,11 @@ import Link from 'next/link';
 import { getToolBySlug } from '@/data/tools';
 
 export const metadata: Metadata = {
-  title: 'Compare AI Tools Side by Side | AI Business Alternative',
-  description:
-    'Side-by-side comparisons of the best AI tools for business. Compare features, pricing, pros, and cons to find the right AI tool for your needs.',
+  title: 'Comparison Records Under Editorial Review | AI Business Alternative',
+  description: 'These comparison records are paused pending dated primary-source review.',
   openGraph: {
-    title: 'Compare AI Tools Side by Side | AI Business Alternative',
-    description:
-      'Side-by-side comparisons of the best AI tools for business. Compare features, pricing, pros, and cons to find the right AI tool for your needs.',
+    title: 'Comparison Records Under Editorial Review',
+    description: 'These comparison records are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/compare',
   },
 };
