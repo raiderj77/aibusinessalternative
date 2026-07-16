@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = getIndustryPage(slug);
   if (!page) return {};
 
-  const title = `Best AI Tools for ${page.name} in 2026 | AI Business Alternative`;
-  const description = `The top AI tools for ${page.name.toLowerCase()}, independently reviewed and ranked. Compare features, pricing, and real use cases to build the right AI stack for your business.`;
+  const title = `${page.name} Records Under Editorial Review | AI Business Alternative`;
+  const description = 'This industry record is paused pending dated primary-source review.';
 
   return {
     title,

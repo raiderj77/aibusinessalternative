@@ -228,23 +228,19 @@ export default function TermsOfServicePage() {
               7. Affiliate Links Disclosure
             </h2>
             <p className="mb-4">
-              AI Business Alternative participates in various affiliate
-              marketing programs. This means that we may earn commissions on
-              qualifying purchases made through links on our Site to retailer
-              and service provider websites. These commissions come at no
-              additional cost to you.
+              AI Business Alternative does not currently publish a verified
+              tracked affiliate link. Existing commercial links direct visitors
+              to ordinary vendor websites and are not represented as revenue-
+              generating referrals.
             </p>
             <p className="mb-4">
-              Affiliate relationships do not influence our editorial content,
-              tool ratings, or recommendations. All opinions expressed on the
-              Site are our own, and we only recommend products and services that
-              we believe provide genuine value to our readers.
+              If an affiliate program is approved later, the relationship must
+              be disclosed on the relevant page and the tracked destination
+              must be verified before publication.
             </p>
             <p>
-              For transparency, pages containing affiliate links will be
-              identified accordingly. We encourage you to review the terms and
-              privacy policies of any third-party sites you visit through our
-              affiliate links.
+              Third-party vendor links remain subject to the vendor&apos;s own terms
+              and privacy policy. Review those materials before purchasing.
             </p>
           </section>
 

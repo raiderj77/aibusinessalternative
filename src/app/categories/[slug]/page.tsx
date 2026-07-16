@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     return { title: 'Category Not Found | AI Business Alternative' };
   }
 
-  const title = `Best ${category.name} Tools for 2026 | AI Business Alternative`;
-  const description = category.description;
+  const title = `${category.name} Records Under Editorial Review | AI Business Alternative`;
+  const description = 'This category collection is paused pending dated primary-source review.';
 
   return {
     title,

@@ -9,15 +9,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!stack) return {};
 
   return {
-    title: `${stack.name}, AI Tools for ${stack.bestFor} | AI Business Alternative`,
-    description: `${stack.description} Includes: ${stack.tools.map((t) => t.name).join(', ')}. Full pricing breakdown inside.`,
-    keywords: `${stack.name.toLowerCase()}, AI tools, ${stack.bestFor.toLowerCase()}`,
+    title: `${stack.name} Record Under Editorial Review | AI Business Alternative`,
+    description: 'This tool stack record is paused pending dated primary-source review.',
     alternates: {
       canonical: `https://aibusinessalternative.com/stacks/${stack.slug}`,
     },
     openGraph: {
-      title: `${stack.name}, AI Tool Stack`,
-      description: stack.description,
+      title: `${stack.name} Record Under Editorial Review`,
+      description: 'This tool stack record is paused pending dated primary-source review.',
       url: `https://aibusinessalternative.com/stacks/${stack.slug}`,
       type: 'website',
     },

@@ -2,13 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'AI Tool vs. Human Alternative: Honest Comparisons | AI Business Alternative',
-  description:
-    'For one job at a time, an honest comparison of a specific AI tool against its nearest human or non-AI alternative. Real pricing, real tradeoffs, no hype.',
+  title: 'Tool-versus-Service Records Under Editorial Review | AI Business Alternative',
+  description: 'These comparison records are paused pending dated primary-source review.',
   openGraph: {
-    title: 'AI Tool vs. Human Alternative: Honest Comparisons',
-    description:
-      'For one job at a time, an honest comparison of a specific AI tool against its nearest human or non-AI alternative.',
+    title: 'Tool-versus-Service Records Under Editorial Review',
+    description: 'These comparison records are paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/vs',
   },
 };

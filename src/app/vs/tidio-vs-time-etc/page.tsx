@@ -131,17 +131,15 @@ const faqJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: 'Tidio vs. Time Etc (2026): AI Customer Support Chatbot or a Real Human? | AI Business Alternative',
-  description:
-    'Tidio is AI customer service software from $0-$59+/mo that answers routine questions automatically. Time Etc is a dedicated human assistant from $390/mo who handles support for you. Real 2026 pricing, an interactive decision helper, and an honest breakdown of which fits your business.',
+  title: 'Tidio and Time Etc Record Under Editorial Review | AI Business Alternative',
+  description: 'This comparison record is paused pending dated primary-source review.',
   alternates: {
     canonical: 'https://aibusinessalternative.com/vs/tidio-vs-time-etc',
   },
   openGraph: {
     type: 'article',
-    title: 'Tidio vs. Time Etc: AI Customer Support Chatbot or a Real Human?',
-    description:
-      'Real 2026 pricing and an honest breakdown of which fits your business: an AI agent that answers routine questions automatically, or a dedicated human assistant who handles support for you.',
+    title: 'Tidio and Time Etc Record Under Editorial Review',
+    description: 'This comparison record is paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/vs/tidio-vs-time-etc',
     siteName: 'AI Business Alternative',
   },

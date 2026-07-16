@@ -177,16 +177,15 @@ export default function PrivacyPolicyPage() {
               5. Affiliate Links
             </h2>
             <p className="mb-4">
-              Our Site contains affiliate links to third-party products and
-              services. When you click on an affiliate link and make a purchase,
-              we may earn a commission at no additional cost to you. These
-              affiliate links may use cookies to track referrals and attribute
-              sales.
+              The Site does not currently publish a verified tracked affiliate
+              link. Existing commercial destinations are ordinary vendor URLs
+              and are not treated as affiliate referrals.
             </p>
             <p className="mb-4">
-              Affiliate relationships do not influence our editorial content,
-              reviews, or rankings. Our recommendations are based on independent
-              evaluation and analysis.
+              If a tracked affiliate relationship is approved later, this
+              notice and the relevant page disclosure will be updated before
+              the link is published. The affiliate provider may then process
+              referral information under its own privacy policy.
             </p>
           </section>
 
@@ -210,8 +209,9 @@ export default function PrivacyPolicyPage() {
                 currently enabled, as described above.
               </li>
               <li>
-                <strong>Affiliate networks:</strong> Various affiliate networks
-                and programs may place cookies on your device to track referrals.
+                <strong>Affiliate networks:</strong> No verified affiliate
+                network tracking link is currently published. This notice will
+                be updated before one is enabled.
               </li>
             </ul>
             <p>

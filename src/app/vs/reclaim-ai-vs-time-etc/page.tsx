@@ -120,17 +120,15 @@ const faqJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: 'Reclaim.ai vs. Time Etc (2026): AI Calendar Assistant or a Human Virtual Assistant? | AI Business Alternative',
-  description:
-    'Reclaim.ai is an AI calendar assistant that auto-schedules your tasks and focus time. Time Etc is a real human virtual assistant who manages your calendar for you. Real 2026 pricing, an interactive decision helper, and an honest breakdown of which fits your business.',
+  title: 'Reclaim.ai and Time Etc Record Under Editorial Review | AI Business Alternative',
+  description: 'This comparison record is paused pending dated primary-source review.',
   alternates: {
     canonical: 'https://aibusinessalternative.com/vs/reclaim-ai-vs-time-etc',
   },
   openGraph: {
     type: 'article',
-    title: 'Reclaim.ai vs. Time Etc: AI Calendar Assistant or a Human Virtual Assistant?',
-    description:
-      'Real 2026 pricing and an honest breakdown of which fits your business: automate your own calendar with AI, or hand scheduling and admin work to a real assistant.',
+    title: 'Reclaim.ai and Time Etc Record Under Editorial Review',
+    description: 'This comparison record is paused pending dated primary-source review.',
     url: 'https://aibusinessalternative.com/vs/reclaim-ai-vs-time-etc',
     siteName: 'AI Business Alternative',
   },

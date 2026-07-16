@@ -27,13 +27,14 @@ export async function generateMetadata({
   const page = getBestPageBySlug(slug);
   if (!page) return {};
 
-  const title = `${page.title} in 2026 | AI Business Alternative`;
+  const title = `${page.title} Record Under Editorial Review | AI Business Alternative`;
+  const description = 'This ranking record is paused pending dated primary-source review.';
   return {
     title,
-    description: page.metaDescription,
+    description,
     openGraph: {
       title,
-      description: page.metaDescription,
+      description,
       url: `https://aibusinessalternative.com/best/${page.slug}`,
       siteName: 'AI Business Alternative',
       type: 'article',

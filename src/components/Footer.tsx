@@ -105,9 +105,8 @@ export default function Footer() {
               About
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              AI Business Alternative helps small business owners decide between an AI tool and its
-              real human alternative, one task at a time, plus a free directory of AI tools with
-              independent reviews and comparisons.
+              AI tool records and comparisons undergoing dated primary-source review. Generated
+              buying content is paused until its changing claims are traceable.
             </p>
           </div>
         </div>

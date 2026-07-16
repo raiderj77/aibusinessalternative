@@ -19,16 +19,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return { title: 'Post Not Found | AI Business Alternative' };
 
   return {
-    title: `${post.title} | AI Business Alternative`,
-    description: post.excerpt,
+    title: `${post.title} Draft Under Editorial Review | AI Business Alternative`,
+    description: 'This article draft is paused pending dated primary-source review.',
     openGraph: {
-      title: `${post.title} | AI Business Alternative`,
-      description: post.excerpt,
+      title: `${post.title} Draft Under Editorial Review`,
+      description: 'This article draft is paused pending dated primary-source review.',
       url: `https://aibusinessalternative.com/blog/${post.slug}`,
       siteName: 'AI Business Alternative',
       type: 'article',
-      publishedTime: post.publishedAt,
-      modifiedTime: post.updatedAt,
     },
   };
 }

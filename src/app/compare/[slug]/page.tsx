@@ -62,8 +62,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const toolB = getToolBySlug(parsed.toolBSlug);
   if (!toolA || !toolB) return { title: 'Comparison Not Found' };
 
-  const title = `${toolA.name} vs ${toolB.name} (2026): Full Comparison | AI Business Alternative`;
-  const description = `Detailed comparison of ${toolA.name} and ${toolB.name}. Compare features, pricing, pros and cons to decide which AI tool is better for your business.`;
+  const title = `${toolA.name} and ${toolB.name} Record Under Editorial Review | AI Business Alternative`;
+  const description = 'This comparison record is paused pending dated primary-source review.';
 
   return {
     title,

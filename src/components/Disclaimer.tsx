@@ -1,15 +1,7 @@
 export default function Disclaimer() {
   return (
-    <aside
-      className="rounded-lg border-l-4 border-indigo-600 bg-gray-50 p-4 text-sm leading-relaxed text-gray-600"
-      role="note"
-      aria-label="Affiliate disclosure"
-    >
-      <p>
-        This site contains affiliate links. We may earn a commission if you purchase through our
-        links at no extra cost to you. Our editorial reviews are independent and not influenced by
-        affiliate relationships.
-      </p>
+    <aside className="rounded-lg border-l-4 border-amber-600 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950" role="note" aria-label="Commercial link status">
+      <p>Commercial destinations currently use ordinary vendor URLs, not verified tracked affiliate links. Check the vendor&apos;s current product, price, terms, and privacy information before purchasing.</p>
     </aside>
   );
 }
