@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navLinks = [
-  { href: '/vs', label: 'AI vs. Human' },
+  { href: '/vs/buffer-vs-fiverr-social-media-manager', label: 'Buffer vs. Fiverr' },
   { href: '/tools', label: 'Tools' },
   { href: '/categories', label: 'Categories' },
   { href: '/compare', label: 'Compare' },

@@ -6,7 +6,7 @@
 
 - The source contains 78 tool records and multiple generated comparison and buying-guide families.
 - Changing price, feature, rating, ranking, and performance claims do not yet retain a primary source and review date.
-- Generated tool, category, comparison, alternative, best-of, industry, stack, and blog routes are noindex during the editorial rebuild.
+- One comparison has completed primary-source review. Remaining generated tool, category, comparison, alternative, best-of, industry, stack, and blog routes are noindex during the editorial rebuild.
 - Commercial destinations currently use ordinary vendor URLs.
 - No verified tracked affiliate URL or active AdSense script is present.
 
@@ -17,6 +17,7 @@
 - https://aibusinessalternative.com/contact
 - https://aibusinessalternative.com/privacy
 - https://aibusinessalternative.com/terms
+- https://aibusinessalternative.com/vs/buffer-vs-fiverr-social-media-manager - Source-checked Buffer software versus Fiverr freelancer decision guide; reviewed July 19, 2026.
 
 ## Publication standard
 

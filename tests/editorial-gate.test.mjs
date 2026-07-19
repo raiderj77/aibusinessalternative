@@ -7,7 +7,7 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = (path) => readFileSync(join(root, path), 'utf8');
 
-const gatedFamilies = ['tools', 'categories', 'compare', 'vs', 'best', 'alternatives', 'for', 'stacks', 'blog'];
+const gatedFamilies = ['tools', 'categories', 'compare', 'best', 'alternatives', 'for', 'stacks', 'blog'];
 
 test('every generated content family uses the noindex research archive', () => {
   for (const family of gatedFamilies) {
@@ -22,13 +22,34 @@ test('every generated content family uses the noindex research archive', () => {
   assert.match(robots, /follow:\s*true/);
 });
 
-test('the sitemap contains only the five reviewed project and trust pages', () => {
+test('unreviewed versus routes stay gated while the reviewed Fiverr comparison is published', () => {
+  const vsIndex = read('src/app/vs/page.tsx');
+  assert.match(vsIndex, /unreviewedRobots/);
+  assert.match(vsIndex, /ResearchArchive/);
+
+  for (const slug of [
+    'quickbooks-online-vs-1800accountant',
+    'reclaim-ai-vs-time-etc',
+    'tidio-vs-time-etc',
+  ]) {
+    const source = read(`src/app/vs/${slug}/layout.tsx`);
+    assert.match(source, /unreviewedRobots/);
+    assert.match(source, /ResearchArchive/);
+  }
+
+  const reviewed = read('src/app/vs/buffer-vs-fiverr-social-media-manager/page.tsx');
+  assert.match(reviewed, /robots:\s*{[\s\S]*?index:\s*true/);
+  assert.doesNotMatch(reviewed, /Under Editorial Review/);
+});
+
+test('the sitemap contains the reviewed project, trust, and Fiverr comparison pages', () => {
   const sitemap = read('src/app/sitemap.ts');
   assert.match(sitemap, /INDEXABLE_PATHS/);
   assert.match(sitemap, /'\/about'/);
   assert.match(sitemap, /'\/contact'/);
   assert.match(sitemap, /'\/privacy'/);
   assert.match(sitemap, /'\/terms'/);
+  assert.match(sitemap, /'\/vs\/buffer-vs-fiverr-social-media-manager'/);
   assert.doesNotMatch(sitemap, /data\/tools|blog-markdown|tools\.map|categories\.map/);
 });
 
@@ -64,7 +85,6 @@ test('paused routes use honest browser metadata', () => {
     'src/app/vs/page.tsx',
     'src/app/vs/quickbooks-online-vs-1800accountant/page.tsx',
     'src/app/vs/reclaim-ai-vs-time-etc/page.tsx',
-    'src/app/vs/buffer-vs-fiverr-social-media-manager/page.tsx',
     'src/app/vs/tidio-vs-time-etc/page.tsx',
     'src/app/best/page.tsx',
     'src/app/best/[slug]/page.tsx',
