@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 type Involvement = 'diy' | 'handoff' | null;
 type Scope = 'scheduling-only' | 'strategy-creative' | null;
-type Budget = 'under-100' | 'over-500' | null;
+type Budget = 'fixed-tool-cost' | 'project-scope' | null;
 
 function OptionButton({
   selected,
@@ -43,8 +43,8 @@ export default function SocialMediaDecisionHelper() {
   if (involvement === 'handoff') score -= 2;
   if (scope === 'scheduling-only') score += 1;
   if (scope === 'strategy-creative') score -= 1;
-  if (budget === 'under-100') score += 1;
-  if (budget === 'over-500') score -= 1;
+  if (budget === 'fixed-tool-cost') score += 1;
+  if (budget === 'project-scope') score -= 1;
 
   const recommendation = score > 0 ? 'buffer' : score < 0 ? 'fiverr' : 'either';
 
@@ -79,24 +79,20 @@ export default function SocialMediaDecisionHelper() {
         </div>
 
         <div>
-          <p className="text-[13px] font-medium text-gray-700 mb-2">3. What&apos;s your monthly budget for this?</p>
+          <p className="text-[13px] font-medium text-gray-700 mb-2">3. How do you want the cost to work?</p>
           <div className="flex flex-col sm:flex-row gap-2">
-            <OptionButton selected={budget === 'under-100'} onClick={() => setBudget('under-100')}>
-              Under $100/mo
+            <OptionButton selected={budget === 'fixed-tool-cost'} onClick={() => setBudget('fixed-tool-cost')}>
+              Predictable software cost per channel
             </OptionButton>
-            <OptionButton selected={budget === 'over-500'} onClick={() => setBudget('over-500')}>
-              $500+/mo is fine for real help
+            <OptionButton selected={budget === 'project-scope'} onClick={() => setBudget('project-scope')}>
+              A quoted package for defined work
             </OptionButton>
           </div>
         </div>
       </div>
 
-      <div
-        className={`mt-6 grid transition-all duration-300 ease-in-out ${
-          answered ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-        }`}
-      >
-        <div className="overflow-hidden">
+      {answered && (
+        <div className="mt-6" role="status" aria-live="polite">
           <div className="rounded-xl border border-[rgba(37,99,235,0.2)] bg-[rgba(37,99,235,0.06)] p-5">
             {recommendation === 'buffer' && (
               <p className="m-0 text-[14px] text-gray-800">
@@ -107,7 +103,7 @@ export default function SocialMediaDecisionHelper() {
             {recommendation === 'fiverr' && (
               <p className="m-0 text-[14px] text-gray-800">
                 Based on your answers, <strong>a Fiverr freelancer</strong> looks like the better fit.
-                You want strategy, creative work, and engagement handled by a real person.
+                You want a clearly scoped part of the work handled by a real person.
               </p>
             )}
             {recommendation === 'either' && (
@@ -118,7 +114,7 @@ export default function SocialMediaDecisionHelper() {
             )}
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

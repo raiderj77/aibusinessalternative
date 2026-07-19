@@ -16,7 +16,7 @@ const categoryLinks = [
 ] as const;
 
 const companyLinks = [
-  { href: '/vs', label: 'AI vs. Human' },
+  { href: '/vs/buffer-vs-fiverr-social-media-manager', label: 'Buffer vs. Fiverr' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   { href: '/privacy', label: 'Privacy Policy' },
@@ -105,8 +105,8 @@ export default function Footer() {
               About
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              AI tool records and comparisons undergoing dated primary-source review. Generated
-              buying content is paused until its changing claims are traceable.
+              One source-checked comparison is published. Remaining AI tool records and generated
+              buying pages stay paused until their changing claims are traceable.
             </p>
           </div>
         </div>

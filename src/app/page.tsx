@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <>
       <section className="border-b border-amber-300 bg-amber-50 px-4 py-3 text-center text-sm text-amber-950">
-        <strong>Editorial rebuild:</strong> generated reviews, rankings, comparisons, and prices are paused while their claims are checked against dated primary sources.
+        <strong>Editorial rebuild:</strong> one source-checked comparison is published; generated reviews, rankings, and unsourced buying pages remain paused.
       </section>
 
       <section className="border-b border-black/10 bg-white py-20 sm:py-28">
@@ -21,7 +21,7 @@ export default function HomePage() {
             Verify the tool before you buy it.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-600">
-            AI products, prices, plan limits, and vendor terms change quickly. AI Business Alternative is rebuilding its catalog so every published recommendation identifies what was checked, the primary source, and the review date.
+            AI products, prices, plan limits, and vendor terms change quickly. AI Business Alternative publishes a buying page only after its material claims are checked against dated primary sources.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/about" className="rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800">Read the editorial standard</Link>
@@ -36,13 +36,31 @@ export default function HomePage() {
             ['78', 'catalog records under review'],
             ['204', 'stored commercial URL fields checked'],
             ['0', 'verified tracked affiliate URLs'],
-            ['9', 'content route families paused'],
+            ['1', 'source-checked comparison published'],
           ].map(([value, label]) => (
             <div key={label} className="rounded-xl border border-gray-200 bg-white p-5 text-center">
               <strong className="block text-3xl text-gray-950">{value}</strong>
               <span className="mt-1 block text-xs font-medium uppercase tracking-wide text-gray-500">{label}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-b border-black/10 bg-white py-16">
+        <div className="container-custom grid gap-8 lg:grid-cols-[1fr_.8fr] lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Reviewed buying decision</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-950">Buffer software or a Fiverr social media manager?</h2>
+            <p className="mt-4 max-w-2xl leading-7 text-gray-600">
+              Compare current Buffer pricing and published capabilities with Fiverr&apos;s seller-defined packages, buyer fees, and freelancer-vetting workflow. Every changing claim includes an official source and July 19, 2026 review date.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+            <p className="text-sm leading-6 text-gray-700">The provider links are ordinary vendor links. The Fiverr affiliate application is pending, and the page earns no commission.</p>
+            <Link href="/vs/buffer-vs-fiverr-social-media-manager" className="mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800">
+              Read the reviewed comparison
+            </Link>
+          </div>
         </div>
       </section>
 

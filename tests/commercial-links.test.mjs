@@ -47,6 +47,16 @@ test('commercial CTAs use the safe link component instead of raw placeholder URL
   }
 });
 
+test('the reviewed Fiverr comparison uses measured non-affiliate vendor links', () => {
+  const source = read('src/app/vs/buffer-vs-fiverr-social-media-manager/page.tsx');
+  assert.match(source, /CommercialLink/);
+  assert.match(source, /toolSlug="buffer"/);
+  assert.match(source, /toolSlug="fiverr"/);
+  assert.match(source, /isAffiliate={false}/);
+  assert.doesNotMatch(source, /isAffiliate={true}/);
+  assert.doesNotMatch(source, /\$30|\$500|\$3,000|instant approval|30-day cookie/i);
+});
+
 test('commercial click analytics excludes destinations and visitor content', () => {
   const source = read('src/components/AnalyticsConsent.tsx');
   const eventPayload = source.match(
