@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CreatorRevenueLink from '@/components/CreatorRevenueLink';
 
 const categoryLinks = [
   { slug: 'writing', label: 'AI Writing & Content' },
@@ -86,14 +87,21 @@ export default function Footer() {
             <ul className="mt-4 space-y-2" role="list">
               {sisterSites.map(({ href, label }) => (
                 <li key={href}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
-                  >
-                    {label}
-                  </a>
+                  {href === 'https://creatorrevenuecalculator.com' ? (
+                    <CreatorRevenueLink
+                      label={label}
+                      className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
+                    />
+                  ) : (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
+                    >
+                      {label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
