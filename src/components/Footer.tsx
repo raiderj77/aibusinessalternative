@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import CreatorRevenueLink from '@/components/CreatorRevenueLink';
 
 const categoryLinks = [
   { slug: 'writing', label: 'AI Writing & Content' },
@@ -29,7 +28,6 @@ const sisterSites = [
   { href: 'https://fibertools.app', label: 'FiberTools' },
   { href: 'https://mindchecktools.com', label: 'MindCheck Tools' },
   { href: 'https://flipmycase.com', label: 'FlipMyCase' },
-  { href: 'https://creatorrevenuecalculator.com', label: 'Creator Revenue Calculator' },
   { href: 'https://contractextract.com', label: 'ContractExtract' },
   { href: 'https://medicalbillreader.com', label: 'Medical Bill Reader' },
   { href: 'https://taxbreaktools.com', label: 'TaxBreakTools' },
@@ -87,21 +85,14 @@ export default function Footer() {
             <ul className="mt-4 space-y-2" role="list">
               {sisterSites.map(({ href, label }) => (
                 <li key={href}>
-                  {href === 'https://creatorrevenuecalculator.com' ? (
-                    <CreatorRevenueLink
-                      label={label}
-                      className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
-                    />
-                  ) : (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
-                    >
-                      {label}
-                    </a>
-                  )}
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
+                  >
+                    {label}
+                  </a>
                 </li>
               ))}
             </ul>
