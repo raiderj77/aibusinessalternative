@@ -134,7 +134,6 @@ check("Cross-site links", () => {
   const sisterSites = [
     "mindchecktools.com",
     "flipmycase.com",
-    "creatorrevenuecalculator.com",
     "contractextract.com",
     "medicalbillreader.com",
     "524tracker.com",

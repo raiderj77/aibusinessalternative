@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import test from 'node:test';
@@ -12,7 +12,6 @@ const answerBlock = read('src/components/AnswerBlock.tsx');
 const decisionHelper = read('src/components/SocialMediaDecisionHelper.tsx');
 const researchArchive = read('src/components/ResearchArchive.tsx');
 const footer = read('src/components/Footer.tsx');
-const creatorRevenueLink = read('src/components/CreatorRevenueLink.tsx');
 
 test('homepage publishes one absolute canonical URL', () => {
   assert.match(layout, /metadataBase:\s*new URL\('https:\/\/aibusinessalternative\.com'\)/);
@@ -41,16 +40,10 @@ test('research archive headings support singular and plural sections', () => {
   assert.match(researchArchive, /{section} {verb} under editorial review/);
 });
 
-test('the Creator Revenue link is nofollow only outside the homepage', () => {
-  assert.match(
-    footer,
-    /href === 'https:\/\/creatorrevenuecalculator\.com' \? \(\s*<CreatorRevenueLink/s,
-  );
-  assert.equal((footer.match(/<CreatorRevenueLink/g) ?? []).length, 1);
-  assert.match(creatorRevenueLink, /import \{ usePathname \} from 'next\/navigation'/);
-  assert.match(creatorRevenueLink, /href="https:\/\/creatorrevenuecalculator\.com"/);
-  assert.match(
-    creatorRevenueLink,
-    /pathname === '\/' \? 'noopener noreferrer' : 'noopener noreferrer nofollow'/,
-  );
+test('the footer omits Creator Revenue Calculator and retains unrelated tools', () => {
+  assert.doesNotMatch(footer, /creatorrevenuecalculator\.com/i);
+  assert.doesNotMatch(footer, /Creator Revenue Calculator/i);
+  assert.match(footer, /href: 'https:\/\/fibertools\.app'/);
+  assert.match(footer, /href: 'https:\/\/mindchecktools\.com'/);
+  assert.equal(existsSync(join(root, 'src/components/CreatorRevenueLink.tsx')), false);
 });
