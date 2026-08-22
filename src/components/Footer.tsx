@@ -26,7 +26,6 @@ const companyLinks = [
 ] as const;
 
 const sisterSites = [
-  { href: 'https://fibertools.app', label: 'FiberTools' },
   { href: 'https://mindchecktools.com', label: 'MindCheck Tools' },
   { href: 'https://flipmycase.com', label: 'FlipMyCase' },
   { href: 'https://creatorrevenuecalculator.com', label: 'Creator Revenue Calculator' },

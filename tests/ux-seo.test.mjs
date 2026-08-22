@@ -54,3 +54,7 @@ test('the Creator Revenue link is nofollow only outside the homepage', () => {
     /pathname === '\/' \? 'noopener noreferrer' : 'noopener noreferrer nofollow'/,
   );
 });
+
+test('the footer does not publish a FiberTools cross-site link', () => {
+  assert.doesNotMatch(footer, /https:\/\/(?:www\.)?fibertools\.app/i);
+});
