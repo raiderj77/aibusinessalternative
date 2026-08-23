@@ -40,10 +40,10 @@ test('research archive headings support singular and plural sections', () => {
   assert.match(researchArchive, /{section} {verb} under editorial review/);
 });
 
-test('the footer omits Creator Revenue Calculator and retains unrelated tools', () => {
+test('the footer omits unrelated Creator Revenue and MindCheck cross-links', () => {
   assert.doesNotMatch(footer, /creatorrevenuecalculator\.com/i);
   assert.doesNotMatch(footer, /Creator Revenue Calculator/i);
+  assert.doesNotMatch(footer, /mindchecktools\.com|MindCheck Tools/i);
   assert.match(footer, /href: 'https:\/\/fibertools\.app'/);
-  assert.match(footer, /href: 'https:\/\/mindchecktools\.com'/);
   assert.equal(existsSync(join(root, 'src/components/CreatorRevenueLink.tsx')), false);
 });

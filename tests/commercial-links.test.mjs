@@ -70,3 +70,10 @@ test('commercial click analytics excludes destinations and visitor content', () 
     /href|destination|query|search|email|name|link_text|page_title/i,
   );
 });
+
+test('the public footer does not cross-link to MindCheck Tools', () => {
+  const footer = read('src/components/Footer.tsx');
+  const predeploy = read('scripts/predeploy-check.js');
+  assert.doesNotMatch(footer, /mindchecktools\.com|MindCheck Tools/i);
+  assert.doesNotMatch(predeploy, /["']mindchecktools\.com["']/i);
+});
