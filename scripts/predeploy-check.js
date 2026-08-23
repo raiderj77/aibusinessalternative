@@ -132,7 +132,6 @@ check("Cross-site links", () => {
   const footer = readFileSync(footerPath, "utf-8");
 
   const sisterSites = [
-    "mindchecktools.com",
     "flipmycase.com",
     "contractextract.com",
     "medicalbillreader.com",
