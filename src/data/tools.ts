@@ -2518,6 +2518,40 @@ const rawTools: AIToolRaw[] = [
     lastUpdated: '2026-03-22'
   },
 
+  {
+    slug: 'ideahunter',
+    name: 'IdeaHunter',
+    tagline: 'AI startup idea research for solo founders and small teams.',
+    description: 'IdeaHunter helps solo founders and small business builders find demand-backed app and micro-SaaS ideas using public signals, buyer pain, market evidence, MVP scope, and monetization paths. It is useful before building or marketing a product because it helps clarify the problem, audience, and positioning worth pursuing.',
+    category: ['research'],
+    pricing: 'freemium',
+    startingPrice: '$0/mo free',
+    affiliateUrl: '#',
+    websiteUrl: 'https://ideahunter.today',
+    logoPlaceholder: 'IdeaHunter',
+    features: [
+      'Demand-backed startup idea research',
+      'Buyer pain and market signal analysis',
+      'MVP scope recommendations',
+      'Monetization path exploration',
+      'Public methodology for evaluating ideas'
+    ],
+    pros: [
+      'Focused on founders before they commit to building',
+      'Connects market evidence with MVP scope and positioning',
+      'Useful for micro-SaaS and app idea discovery'
+    ],
+    cons: [
+      'Best suited to early idea research rather than post-launch analytics',
+      'Outputs still require founder judgment and customer validation'
+    ],
+    bestFor: 'Solo founders and small teams validating app or micro-SaaS opportunities before building.',
+    rating: 4.5,
+    tags: ['startup-research', 'market-validation', 'micro-saas', 'productivity'],
+    alternatives: ['perplexity-ai', 'notion-ai', 'chatgpt'],
+    lastUpdated: '2026-08-15'
+  },
+
   // ============================================================
   // CATEGORY 12: AI Agents & Automation
   // ============================================================

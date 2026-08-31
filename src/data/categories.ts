@@ -93,7 +93,7 @@ export const categories: AICategory[] = [
     name: 'AI Research & Knowledge',
     description: 'Accelerate research with AI tools that search academic papers, summarize documents, answer questions with citations, and help you learn faster.',
     icon: '🔬',
-    toolCount: 6,
+    toolCount: 7,
     featured: true,
   },
   {
