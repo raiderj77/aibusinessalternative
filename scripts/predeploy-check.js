@@ -124,24 +124,18 @@ check("Legal pages", () => {
 });
 
 // ---------------------------------------------------------------------------
-// 5. Cross-site sister links
+// 5. Site navigation
 // ---------------------------------------------------------------------------
-check("Cross-site links", () => {
+check("Footer navigation", () => {
   const footerPath = resolve(ROOT, "src/components/Footer.tsx");
   if (!existsSync(footerPath)) return fail("Footer.tsx not found");
   const footer = readFileSync(footerPath, "utf-8");
 
-  const sisterSites = [
-    "flipmycase.com",
-    "contractextract.com",
-    "medicalbillreader.com",
-    "524tracker.com",
-  ];
-  for (const site of sisterSites) {
-    if (footer.includes(site)) {
-      pass(`Link to ${site}`);
+  for (const route of ["/about", "/contact", "/privacy", "/terms"]) {
+    if (footer.includes(`href: '${route}'`)) {
+      pass(`Navigation to ${route}`);
     } else {
-      fail(`Missing cross-site link to ${site} in Footer`);
+      fail(`Missing footer navigation to ${route}`);
     }
   }
 });
