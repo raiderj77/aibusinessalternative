@@ -44,6 +44,10 @@ test('the footer omits unrelated Creator Revenue and MindCheck cross-links', () 
   assert.doesNotMatch(footer, /creatorrevenuecalculator\.com/i);
   assert.doesNotMatch(footer, /Creator Revenue Calculator/i);
   assert.doesNotMatch(footer, /mindchecktools\.com|MindCheck Tools/i);
-  assert.match(footer, /href: 'https:\/\/fibertools\.app'/);
+  assert.doesNotMatch(footer, /sisterSites|fibertools\.app/);
   assert.equal(existsSync(join(root, 'src/components/CreatorRevenueLink.tsx')), false);
+});
+
+test('the footer does not publish a FiberTools cross-site link', () => {
+  assert.doesNotMatch(footer, /https:\/\/(?:www\.)?fibertools\.app/i);
 });

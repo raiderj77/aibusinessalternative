@@ -24,20 +24,11 @@ const companyLinks = [
   { href: '/blog', label: 'Blog' },
 ] as const;
 
-const sisterSites = [
-  { href: 'https://fibertools.app', label: 'FiberTools' },
-  { href: 'https://flipmycase.com', label: 'FlipMyCase' },
-  { href: 'https://contractextract.com', label: 'ContractExtract' },
-  { href: 'https://medicalbillreader.com', label: 'Medical Bill Reader' },
-  { href: 'https://taxbreaktools.com', label: 'TaxBreakTools' },
-  { href: 'https://524tracker.com', label: '524Tracker' },
-] as const;
-
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-gray-200 bg-white" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Categories */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
@@ -71,27 +62,6 @@ export default function Footer() {
                   >
                     {label}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* More Free Tools */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
-              More Free Tools
-            </h3>
-            <ul className="mt-4 space-y-2" role="list">
-              {sisterSites.map(({ href, label }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-600 transition-colors hover:text-indigo-600"
-                  >
-                    {label}
-                  </a>
                 </li>
               ))}
             </ul>
